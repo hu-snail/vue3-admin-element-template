@@ -10,7 +10,7 @@
 
 <style lang="scss" scoped>
   .container {
-    color: #f45;
     width: 100%;
+    color: #f45;
   }
 </style>

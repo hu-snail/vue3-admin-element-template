@@ -1,7 +1,7 @@
 module.exports = {
-  plugins: [
+  plugins: {
     // 兼容浏览器，添加前缀
-    require('autoprefixer')({
+    autoprefixer: {
       overrideBrowserslist: [
         'Android 4.1',
         'iOS 7.1',
@@ -11,6 +11,12 @@ module.exports = {
         //'last 2 versions', // 所有主流浏览器最近2个版本
       ],
       grid: true,
-    }),
-  ],
+    },
+    'postcss-pxtorem': {
+      rootValue: 75,
+      propList: ['*'],
+      selectorBlackList: ['.el'],
+      unitPrecision: 5,
+    },
+  },
 };

@@ -523,6 +523,11 @@ ajv@^8.0.1:
     require-from-string "^2.0.2"
     uri-js "^4.2.2"
 
+amfe-flexible@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.npm.taobao.org/amfe-flexible/download/amfe-flexible-2.2.1.tgz#353f00289e4d38ca88a21eb3854420308af0b559"
+  integrity sha1-NT8AKJ5NOMqIoh6zhUQgMIrwtVk=
+
 ansi-colors@^4.1.1:
   version "4.1.1"
   resolved "https://registry.nlark.com/ansi-colors/download/ansi-colors-4.1.1.tgz#cbb9ae256bf750af1eab344f229aa27fe94ba348"
@@ -2334,6 +2339,11 @@ postcss-modules@^4.0.0:
     postcss-modules-values "^4.0.0"
     string-hash "^1.1.1"
 
+postcss-pxtorem@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.npm.taobao.org/postcss-pxtorem/download/postcss-pxtorem-6.0.0.tgz#f228a4d05d8a73f0642eabae950e2b19836366d7"
+  integrity sha1-8iik0F2Kc/BkLquulQ4rGYNjZtc=
+
 postcss-resolve-nested-selector@^0.1.1:
   version "0.1.1"
   resolved "https://registry.npm.taobao.org/postcss-resolve-nested-selector/download/postcss-resolve-nested-selector-0.1.1.tgz#29ccbc7c37dedfac304e9fff0bf1596b3f6a0e4e"
@@ -2813,6 +2823,13 @@ stylelint-config-prettier@^8.0.2:
   resolved "https://registry.npm.taobao.org/stylelint-config-prettier/download/stylelint-config-prettier-8.0.2.tgz#da9de33da4c56893cbe7e26df239a7374045e14e"
   integrity sha1-2p3jPaTFaJPL5+Jt8jmnN0BF4U4=
 
+stylelint-config-recess-order@^2.4.0:
+  version "2.4.0"
+  resolved "https://registry.nlark.com/stylelint-config-recess-order/download/stylelint-config-recess-order-2.4.0.tgz#7336da98d9e11cfd17388f4c15fada615b49c301"
+  integrity sha1-czbamNnhHP0XOI9MFfraYVtJwwE=
+  dependencies:
+    stylelint-order "4.1.x"
+
 stylelint-config-recommended@^5.0.0:
   version "5.0.0"
   resolved "https://registry.nlark.com/stylelint-config-recommended/download/stylelint-config-recommended-5.0.0.tgz?cache=0&sync_timestamp=1619280587835&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fstylelint-config-recommended%2Fdownload%2Fstylelint-config-recommended-5.0.0.tgz#fb5653f495a60b4938f2ad3e77712d9e1039ae78"
@@ -2825,7 +2842,7 @@ stylelint-config-standard@^22.0.0:
   dependencies:
     stylelint-config-recommended "^5.0.0"
 
-stylelint-order@^4.1.0:
+stylelint-order@4.1.x:
   version "4.1.0"
   resolved "https://registry.npm.taobao.org/stylelint-order/download/stylelint-order-4.1.0.tgz#692d05b7d0c235ac66fcf5ea1d9e5f08a76747f6"
   integrity sha1-aS0Ft9DCNaxm/PXqHZ5fCKdnR/Y=

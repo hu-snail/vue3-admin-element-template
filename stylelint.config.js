@@ -1,6 +1,6 @@
 module.exports = {
   root: true,
-  plugins: ['stylelint-order'],
+  plugins: ['stylelint-config-recess-order'],
   extends: ['stylelint-config-standard', 'stylelint-config-prettier'],
   rules: {
     'selector-pseudo-class-no-unknown': [
