@@ -3,8 +3,9 @@ const path = require('path');
 import vue from '@vitejs/plugin-vue';
 import styleImport from 'vite-plugin-style-import';
 import legacy from '@vitejs/plugin-legacy';
-
-import {
+import { viteMockServe } from 'vite-plugin-mock';
+import { setting } from './src/config/setting';
+const {
   base,
   publicDir,
   outDir,
@@ -21,8 +22,7 @@ import {
   clearScreen,
   drop_console,
   drop_debugger,
-} from './src/config/index.js';
-
+} = setting;
 // https://vitejs.dev/config/
 export default defineConfig({
   root: process.cwd(),
@@ -52,6 +52,9 @@ export default defineConfig({
         },
       ],
     }),
+    viteMockServe({
+      supportTs: false,
+    }),
   ],
 
   server: {
@@ -72,11 +75,6 @@ export default defineConfig({
   },
 
   css: {
-    css: {
-      postcss: {
-        plugins: [require('autoprefixer')],
-      },
-    },
     preprocessorOptions: {
       // 引入公用的样式
       scss: {
@@ -86,6 +84,7 @@ export default defineConfig({
   },
 
   build: {
+    target: 'es2015',
     outDir,
     assetsDir,
     sourcemap,
@@ -100,10 +99,12 @@ export default defineConfig({
     },
     terserOptions: {
       compress: {
+        keep_infinity: true,
         drop_console,
         drop_debugger,
       },
     },
+    chunkSizeWarningLimit: 2000,
   },
 
   optimizeDeps: {

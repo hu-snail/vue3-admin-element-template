@@ -1,16 +1,9 @@
-import Vue from 'vue';
 import axios from 'axios';
-import {
-  baseURL,
-  contentType,
-  invalidCode,
-  noPermissionCode,
-  requestTimeout,
-  successCode,
-} from '@/config/index.js';
-
-import store from '@/store';
-import router from '@/router';
+import { netConfig } from '@/config/net.config';
+const { baseURL, contentType, invalidCode, noPermissionCode, requestTimeout, successCode } =
+  netConfig;
+import store from '@/store/index.js';
+import router from '@/router/index.js';
 import { ElMessageBox, ElMessage } from 'element-plus';
 
 // eslint-disable-next-line no-unused-vars
@@ -42,7 +35,8 @@ const handleCode = (code, msg) => {
       router.push({ path: '/401' }).catch(() => {});
       break;
     default:
-      Vue.prototype.$baseMessage(msg || `后端接口${code}异常`, 'error');
+      console.log(msg);
+      // Vue.prototype.$baseMessage(msg || `后端接口${code}异常`, 'error');
       break;
   }
 };

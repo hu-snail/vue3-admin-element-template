@@ -4,7 +4,7 @@
  * vite相关的配置文件参考 https://cn.vitejs.dev/config/#define
  */
 
-export default {
+export const setting = {
   //项目部署的基础路径
   base: './',
   // 静态资源服务的文件夹 类型 string | false

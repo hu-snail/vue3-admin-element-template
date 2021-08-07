@@ -1,1 +1,1 @@
-import 'amfe-flexible/index.js';
+// import 'amfe-flexible/index.js';

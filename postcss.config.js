@@ -12,11 +12,5 @@ module.exports = {
       ],
       grid: true,
     },
-    'postcss-pxtorem': {
-      rootValue: 75,
-      propList: ['*'],
-      selectorBlackList: ['.el'],
-      unitPrecision: 5,
-    },
   },
 };
