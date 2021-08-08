@@ -16,6 +16,7 @@
 <script setup>
   import { onBeforeMount, defineProps } from 'vue';
   import { getUser } from '@/api/user.js';
+
   onBeforeMount(() => {
     getUserInfo();
   });
