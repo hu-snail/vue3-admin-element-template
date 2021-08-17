@@ -30,6 +30,10 @@ import {
   ElRadioButton,
   ElRadioGroup,
   ElTooltip,
+  ElScrollbar,
+  ElTableColumn,
+  ElTag,
+  ElTable,
 } from 'element-plus';
 
 // 所需的组件
@@ -65,6 +69,10 @@ export const components = [
   ElRadioButton,
   ElRadioGroup,
   ElTooltip,
+  ElScrollbar,
+  ElTableColumn,
+  ElTag,
+  ElTable,
 ];
 
 // 注册

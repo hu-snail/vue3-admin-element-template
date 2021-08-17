@@ -20,9 +20,11 @@
     position: relative;
     box-sizing: border-box;
     width: 100%;
+    padding: 40px 60px;
     overflow: hidden;
+    background-color: $base-color-white;
     .app-main-height {
-      min-height: calc(100vh - 60px);
+      min-height: calc(100vh - 140px);
     }
     .footer-copyright {
       min-height: 55px;

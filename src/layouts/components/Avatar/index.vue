@@ -40,8 +40,10 @@
     justify-content: center;
     justify-items: center;
     height: 50px;
-    padding: 0;
-
+    padding: 10px;
+    &:hover {
+      background: $base-hover-color;
+    }
     .user-avatar {
       width: 40px;
       height: 40px;
