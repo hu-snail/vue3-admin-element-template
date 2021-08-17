@@ -20,8 +20,9 @@
     position: relative;
     box-sizing: border-box;
     width: 100%;
-    padding: 40px 60px;
+    padding: 40px 60px 0 60px;
     overflow: hidden;
+    text-align: left;
     background-color: $base-color-white;
     .app-main-height {
       min-height: calc(100vh - 140px);

@@ -73,7 +73,6 @@
     user-select: none;
     background: $base-color-white;
     box-shadow: $base-box-shadow;
-
     .left-panel {
       display: flex;
       align-items: center;

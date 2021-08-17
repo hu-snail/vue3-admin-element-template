@@ -22,7 +22,9 @@ import {
   FullScreenOne,
   OffScreenOne,
   Refresh,
+  Remind,
 } from '@icon-park/vue-next';
+
 // el-icon
 import { Edit } from '@element-plus/icons';
 
@@ -41,6 +43,7 @@ export const components = [
   FullScreenOne,
   OffScreenOne,
   Refresh,
+  Remind,
 ];
 
 import SvgIcon from '@/components/SvgIcon/index.vue';

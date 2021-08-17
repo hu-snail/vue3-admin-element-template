@@ -51,7 +51,7 @@
       background-size: auto 100%;
       &-wrap {
         height: 80vh;
-        margin: auto 2rem;
+        margin: auto;
         .img {
           width: 280px;
           margin-top: 10vh;
