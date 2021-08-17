@@ -1,3 +1,4 @@
+@import './variable.scss';
 @mixin scrollbar {
     max-height: 88vh;
     margin-bottom: 0.5vh;
@@ -42,5 +43,12 @@
   
     &::-webkit-scrollbar-track:hover {
       background-color: #f8fafc;
+    }
+  }
+
+  .icon-hover{
+    cursor: pointer;
+    &:hover {
+      background-color: $base-hover-color;
     }
   }

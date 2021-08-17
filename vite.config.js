@@ -5,6 +5,7 @@ import styleImport from 'vite-plugin-style-import';
 import legacy from '@vitejs/plugin-legacy';
 import { viteMockServe } from 'vite-plugin-mock';
 import { setting } from './src/config/setting';
+import { svgBuilder } from './src/plugin/svgBuilder';
 const {
   base,
   publicDir,
@@ -55,6 +56,7 @@ export default defineConfig({
     viteMockServe({
       supportTs: false,
     }),
+    svgBuilder('./src/icons/svg/'),
   ],
 
   server: {

@@ -9,16 +9,44 @@
  */
 
 // iconpark
-import { User, Lock, Alipay, Wechat, Github, Twitter, Google } from '@icon-park/vue-next';
-
+import {
+  User,
+  Lock,
+  Alipay,
+  Wechat,
+  Github,
+  Twitter,
+  Google,
+  MenuUnfoldOne,
+  MenuFoldOne,
+  FullScreenOne,
+  OffScreenOne,
+  Refresh,
+} from '@icon-park/vue-next';
 // el-icon
 import { Edit } from '@element-plus/icons';
 
 // 所需的组件
-export const components = [User, Lock, Alipay, Edit, Wechat, Github, Twitter, Google];
+export const components = [
+  User,
+  Lock,
+  Alipay,
+  Edit,
+  Wechat,
+  Github,
+  Twitter,
+  Google,
+  MenuUnfoldOne,
+  MenuFoldOne,
+  FullScreenOne,
+  OffScreenOne,
+  Refresh,
+];
 
+import SvgIcon from '@/components/SvgIcon/index.vue';
 // 注册
 export default (app) => {
+  app.component('svg-icon', SvgIcon);
   components.forEach((component) => {
     app.component(component.name.replace('icon-', ''), component);
   });
