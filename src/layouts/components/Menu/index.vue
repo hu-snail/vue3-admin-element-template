@@ -1,7 +1,7 @@
 <template>
   <el-scrollbar height="100vh">
     <el-menu
-      default-active="1-4-1"
+      default-active="/index"
       background-color="#293246"
       class="el-menu-vertical"
       :collapse="isCollapse"
@@ -9,28 +9,30 @@
       active-text-color="#08a17e"
     >
       <Logo />
-      <el-submenu index="1">
-        <template #title>
-          <i class="el-icon-location"></i>
-          <span></span>
+      <template v-for="item in routes">
+        <template v-if="!item.hidden">
+          <MenuItem :item="item" :key="item.path" />
         </template>
-        <el-menu-item-group>
-          <el-menu-item index="1-1">选项1</el-menu-item>
-          <el-menu-item index="1-2">选项2</el-menu-item>
-        </el-menu-item-group>
-      </el-submenu>
+      </template>
     </el-menu>
   </el-scrollbar>
 </template>
 
 <script setup>
-  import { defineProps } from 'vue';
+  import { defineProps, computed } from 'vue';
   import Logo from '../Logo/index.vue';
+  import MenuItem from './MenuItem.vue';
+  import { useStore } from 'vuex';
   defineProps({
     isCollapse: {
       type: Boolean,
       default: false,
     },
+  });
+  const store = useStore();
+  const routes = computed(() => {
+    console.log(store.getters['routes/routes']);
+    return store.getters['routes/routes'];
   });
 </script>
 

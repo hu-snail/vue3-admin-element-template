@@ -15,6 +15,14 @@ const data = [
           noKeepAlive: true,
         },
       },
+    ],
+  },
+  {
+    path: '/comp',
+    component: 'Layout',
+    name: 'Comp',
+    meta: { title: '组件', icon: '' },
+    children: [
       {
         path: '/iconPark',
         name: 'IconPark',

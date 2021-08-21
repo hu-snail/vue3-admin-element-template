@@ -41,12 +41,38 @@ export const asyncRoutes = [
           noKeepAlive: true,
         },
       },
+    ],
+  },
+  {
+    path: '/comp',
+    component: Layout,
+    name: 'Comp',
+    meta: { title: '组件', icon: '' },
+    children: [
       {
         path: '/iconPark',
         name: 'IconPark',
-        component: () => import('views/iconPark/index.vue'),
+        component: () => import('@/views/iconPark/index.vue'),
         meta: {
           title: '图标',
+        },
+        children: [
+          {
+            path: '/iconPark2',
+            name: 'IconPark',
+            component: () => import('@/views/iconPark/index.vue'),
+            meta: {
+              title: '图标2211',
+            },
+          },
+        ],
+      },
+      {
+        path: '/iconPark22',
+        name: 'IconPark',
+        component: () => import('@/views/iconPark/index.vue'),
+        meta: {
+          title: '图标22',
         },
       },
     ],
