@@ -85,7 +85,7 @@
       .fold {
         padding: 20px 10px;
       }
-      ::v-deep {
+      :deep {
         .breadcrumb-container {
           margin-left: 10px;
         }

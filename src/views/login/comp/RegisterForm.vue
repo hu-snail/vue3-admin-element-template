@@ -1,5 +1,5 @@
 <template>
-  <el-form :model="form" :rules="rules" ref="ruleForm" class="login-ruleForm">
+  <el-form :model="form" :rules="rules" ref="form" class="login-ruleForm">
     <el-form-item prop="name">
       <el-input placeholder="手机号" v-model="form.name">
         <template #prefix>
@@ -42,22 +42,34 @@
   </el-form>
 </template>
 
-<script setup>
-  import { ref, reactive } from 'vue';
-  const checkedPwd = ref(true);
-  const form = reactive({ name: '', password: '' });
-  const rules = reactive({
-    name: [
-      { required: true, message: '请输入用户名', trigger: 'blur' },
-      { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' },
-    ],
-  });
+<script>
+  import { reactive, toRefs } from 'vue';
+  export default {
+    setup() {
+      const state = reactive({
+        form: {
+          name: '',
+          password: '',
+        },
+        checkedPwd: false,
+        rules: {
+          name: [
+            { required: true, message: '请输入用户名', trigger: 'blur' },
+            { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' },
+          ],
+        },
+      });
+      return {
+        ...toRefs(state),
+      };
+    },
+  };
 </script>
 
 <style lang="scss" scoped>
   .login-ruleForm {
     margin-top: 1rem;
-    :deep {
+    ::v-deep {
       .el-input__prefix {
         top: 2px;
         padding: 0 4px;

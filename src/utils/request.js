@@ -35,8 +35,7 @@ const handleCode = (code, msg) => {
       router.push({ path: '/401' }).catch(() => {});
       break;
     default:
-      console.log(msg);
-      // Vue.prototype.$baseMessage(msg || `后端接口${code}异常`, 'error');
+      ElMessage.error(msg || `后端接口${code}异常`, 'error');
       break;
   }
 };
@@ -94,7 +93,7 @@ instance.interceptors.response.use(
         const code = message.substr(message.length - 3);
         message = '后端接口' + code + '异常';
       }
-      ElMessage(message || `后端接口未知异常`, 'error');
+      ElMessage.error(message || `后端接口未知异常`);
       return Promise.reject(error);
     }
   }

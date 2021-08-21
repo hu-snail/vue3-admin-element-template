@@ -14,7 +14,7 @@ export const setting = {
   // 输出路径
   outDir: 'dist',
   // 生成静态资源的存放路径
-  assetsDir: 'static/img/',
+  assetsDir: 'static/',
   // 构建后是否生成 source map 文件
   sourcemap: false,
   // chunk 大小警告的限制
@@ -32,6 +32,16 @@ export const setting = {
   strictPort: false,
   // 服务器启动时自动在浏览器中打开应用程序 此值为字符串时，会被用作 URL 的路径名
   open: true,
+  //是否显示顶部进度条
+  progressBar: true,
+  //token名称
+  tokenName: 'accessToken',
+  //是否开启登录拦截
+  loginInterception: true,
+  //token在localStorage、sessionStorage存储的key的名称
+  tokenTableName: 'vue3-admin-template',
+  //token存储位置localStorage sessionStorage
+  storage: 'localStorage',
   // 标题
   title: 'vue3-admin-template',
   // 版权信息
@@ -40,6 +50,10 @@ export const setting = {
   footerCopyright: true,
   // 缓存路由的最大数量
   keepAliveMaxNum: 99,
+  // intelligence 前端控制路由 all 后端控制
+  authentication: 'intelligence',
+  //token失效回退到登录页时是否记录本次的路由
+  recordRoute: true,
   // 不经过token校验的路由
   routesWhiteList: ['/login', '/register', '/404', '/401'],
   // 需要加loading层的请求，防止重复提交

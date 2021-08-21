@@ -92,13 +92,13 @@ export default defineConfig({
     sourcemap,
     cssCodeSplit,
     brotliSize,
-    rollupOptions: {
-      output: {
-        chunkFileNames: 'static/js/[name]-[hash].js',
-        entryFileNames: 'static/js/[name]-[hash].js',
-        assetFileNames: 'static/[ext]/[name]-[hash].[ext]',
-      },
-    },
+    // rollupOptions: {
+    //   output: {
+    //     // chunkFileNames: 'static/js/[name]-[hash].js',
+    //     // entryFileNames: 'static/js/[name]-[hash].js',
+    //     // assetFileNames: 'static/[ext]/[name]-[hash].[ext]',
+    //   },
+    // },
     terserOptions: {
       compress: {
         keep_infinity: true,
@@ -109,9 +109,14 @@ export default defineConfig({
     chunkSizeWarningLimit: 2000,
   },
 
+  esbuild: {
+    jsxFactory: 'h',
+    jsxFragment: 'Fragment',
+  },
+
   optimizeDeps: {
     // 检测需要预构建的依赖项
     entries: [],
-    include: ['element-plus'],
+    include: ['element-plus', 'vue', 'vue-router'],
   },
 });

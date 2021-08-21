@@ -1,7 +1,10 @@
 import { createApp } from 'vue';
-import elementPlus from './plugin/el-comp';
+// import elementPlus from './plugin/el-comp';
 import iconPark from './plugin/icon-park';
-import 'element-plus/packages/theme-chalk/src/base.scss';
+import './config/permission';
+// import 'element-plus/packages/theme-chalk/src/base.scss';
+import ElementPlus from 'element-plus';
+import 'element-plus/lib/theme-chalk/index.css';
 import App from './App.vue';
 
 import router from './router/index';
@@ -13,7 +16,9 @@ app.use(router);
 app.use(store);
 
 // 注册 elementPlus组件/插件
-elementPlus(app);
+// elementPlus(app);
+// 完整引入
+app.use(ElementPlus);
 // 注册字节跳动图标
 iconPark(app);
 

@@ -29,7 +29,7 @@
       ElMessage.warning('进入全屏失败');
       return false;
     }
-    store.dispatch('changeFullScreen', !fullScreen.value);
+    store.dispatch('setting/changeFullScreen', !fullScreen.value);
     screenfull.toggle();
     emit('refresh', screenfull.isFullscreen);
   };

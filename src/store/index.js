@@ -10,6 +10,10 @@ for (const path in modulesFiles) {
   modules[moduleName] = modulesFiles[path].default;
 }
 
+Object.keys(modules).forEach((key) => {
+  modules[key]['namespaced'] = true;
+});
+
 const store = new createStore({
   modules,
   getters,

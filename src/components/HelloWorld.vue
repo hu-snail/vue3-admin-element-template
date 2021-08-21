@@ -15,24 +15,11 @@
 
 <script setup>
   import { onBeforeMount, defineProps } from 'vue';
-  import { getUser } from '@/api/user.js';
 
-  onBeforeMount(() => {
-    getUserInfo();
-  });
+  onBeforeMount(() => {});
   defineProps({
     msg: String,
   });
-
-  const getUserInfo = async () => {
-    getUser()
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
 </script>
 
 <style lang="scss" scoped>

@@ -26,7 +26,7 @@
     return store.getters.collapse;
   });
   const handleCollapse = () => {
-    store.dispatch('changeCollapse');
+    store.dispatch('setting/changeCollapse');
   };
 </script>
 

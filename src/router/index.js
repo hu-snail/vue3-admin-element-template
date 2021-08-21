@@ -5,18 +5,21 @@ export const constantRoutes = [
   {
     path: '/login',
     component: () => import('@/views/login/index.vue'),
+    meta: {
+      title: '登录',
+    },
     hidden: true,
   },
   {
     path: '/401',
     name: '401',
-    component: () => import('@/views/401'),
+    component: () => import('@/views/401.vue'),
     hidden: true,
   },
   {
     path: '/404',
     name: '404',
-    component: () => import('@/views/404'),
+    component: () => import('@/views/404.vue'),
     hidden: true,
   },
 ];
@@ -48,11 +51,11 @@ export const asyncRoutes = [
       },
     ],
   },
-  {
-    path: '*',
-    redirect: '/404',
-    hidden: true,
-  },
+  // {
+  //   path: '*',
+  //   redirect: '/404',
+  //   hidden: true,
+  // },
 ];
 
 const router = createRouter({
