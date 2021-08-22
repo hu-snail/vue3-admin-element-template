@@ -5,6 +5,9 @@ const { baseURL, contentType, invalidCode, noPermissionCode, requestTimeout, suc
 import store from '@/store/index.js';
 import router from '@/router/index.js';
 import { ElMessageBox, ElMessage } from 'element-plus';
+import qs from 'qs';
+import { setting } from '@/config/setting';
+const { tokenName } = setting;
 
 // eslint-disable-next-line no-unused-vars
 let tokenLose = true;
@@ -50,10 +53,14 @@ const instance = axios.create({
 
 instance.interceptors.request.use(
   (config) => {
-    // 处理token header信息
-    if (store.getters.token) {
-      //   config.headers['Authorization'] = ''
+    if (store.getters['user/accessToken']) {
+      config.headers[tokenName] = store.getters['user/accessToken'];
     }
+    if (
+      config.data &&
+      config.headers['Content-Type'] === 'application/x-www-form-urlencoded;charset=UTF-8'
+    )
+      config.data = qs.stringify(config.data);
     return config;
   },
   (error) => {

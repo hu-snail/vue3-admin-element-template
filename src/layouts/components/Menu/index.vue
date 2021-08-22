@@ -1,12 +1,15 @@
 <template>
   <el-scrollbar height="100vh">
     <el-menu
-      default-active="/index"
+      :default-active="defaultActive"
       background-color="#293246"
       class="el-menu-vertical"
       :collapse="isCollapse"
       text-color="#fff"
+      router
       active-text-color="#08a17e"
+      @open="handleOpen"
+      @close="handleClose"
     >
       <Logo />
       <template v-for="item in routes">
@@ -20,20 +23,38 @@
 
 <script setup>
   import { defineProps, computed } from 'vue';
+  import { useRouter } from 'vue-router';
   import Logo from '../Logo/index.vue';
   import MenuItem from './MenuItem.vue';
   import { useStore } from 'vuex';
+
   defineProps({
     isCollapse: {
       type: Boolean,
       default: false,
     },
   });
+
   const store = useStore();
+  const router = useRouter();
+
   const routes = computed(() => {
-    console.log(store.getters['routes/routes']);
     return store.getters['routes/routes'];
   });
+
+  const defaultActive = computed(() => {
+    const { fullPath } = router.currentRoute.value;
+    console.log(import.meta.env.VITE_PUBLIC_PATH);
+    return fullPath || '/index';
+  });
+
+  const handleOpen = (key, keyPath) => {
+    console.log('open:', key, keyPath);
+  };
+
+  const handleClose = (key, keyPath) => {
+    console.log('close:', key, keyPath);
+  };
 </script>
 
 <style lang="scss" scoped>

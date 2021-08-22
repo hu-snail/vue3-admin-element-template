@@ -41,6 +41,12 @@
   </div>
 </template>
 
+<script>
+  export default {
+    name: 'Index',
+  };
+</script>
+
 <script setup>
   import { reactive } from 'vue';
   const tableData = reactive([

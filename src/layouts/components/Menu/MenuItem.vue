@@ -1,5 +1,5 @@
 <template>
-  <el-menu-item :key="item.path" v-if="!item.meta">
+  <el-menu-item :key="item.path" :index="item.children[0].path" v-if="!item.meta">
     <i class="el-icon-setting"></i>
     <template #title>{{ item.children[0].meta.title }}</template>
   </el-menu-item>

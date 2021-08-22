@@ -1,21 +1,33 @@
-export function convertRouter(asyncRoutes) {
-  return asyncRoutes.map((route) => {
-    if (route.component) {
-      if (route.component === 'Layout') {
-        route.component = (resolve) => require(['@/layouts'], resolve);
-      } else if (route.component === 'EmptyLayout') {
-        route.component = (resolve) => require(['@/layouts/EmptyLayout'], resolve);
-      } else {
-        const index = route.component.indexOf('views');
-        const path = index > 0 ? route.component.slice(index) : `views/${route.component}`;
-        route.component = (resolve) => require([`@/${path}`], resolve);
-      }
-    }
-    if (route.children && route.children.length) route.children = convertRouter(route.children);
-    if (route.children && route.children.length === 0) delete route.children;
-    return route;
+import { asyncRoutes } from '@/router';
+export function convertRouter(routers) {
+  return routers.map((route) => {
+    return setRoutes(route, asyncRoutes);
   });
 }
+
+/**
+ * @description 处理后端路由数据
+ * @param {*} route 路由数据
+ * @param {*} list 前端路由 asyncRoutes配置项
+ * @returns {*}
+ */
+const setRoutes = (route, list) => {
+  list.filter((item) => {
+    if (item.path === route.path) {
+      route.component = item.component;
+      route.meta = item.meta;
+      route.name = item.name;
+      if (route.children && route.children.length) {
+        let children = [];
+        route.children.filter((option) => {
+          children.push(setRoutes(option, item.children));
+        });
+        route.children = children;
+      }
+    }
+  });
+  return route;
+};
 
 function hasPermission(permissions, route) {
   if (route.meta && route.meta.permissions) {

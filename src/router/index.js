@@ -33,7 +33,7 @@ export const asyncRoutes = [
       {
         path: '/index',
         name: 'Index',
-        component: () => import('@/views/index/index.vue'),
+        component: () => import('../views/index/index.vue'),
         meta: {
           title: '首页',
           icon: 'home',
@@ -59,8 +59,16 @@ export const asyncRoutes = [
         children: [
           {
             path: '/iconPark2',
-            name: 'IconPark',
+            name: 'IconPark2',
             component: () => import('@/views/iconPark/index.vue'),
+            meta: {
+              title: '图标2211',
+            },
+          },
+          {
+            path: '/iconPark236',
+            name: 'IconParkw2',
+            component: '',
             meta: {
               title: '图标2211',
             },
@@ -68,11 +76,35 @@ export const asyncRoutes = [
         ],
       },
       {
-        path: '/iconPark22',
-        name: 'IconPark',
+        path: '/iconPark235',
+        name: 'IconPark32',
         component: () => import('@/views/iconPark/index.vue'),
         meta: {
           title: '图标22',
+        },
+      },
+      {
+        path: '/iconPark233',
+        name: 'IconPark3',
+        component: () => import('@/views/iconPark/index.vue'),
+        meta: {
+          title: '图标2233',
+        },
+      },
+      {
+        path: '/iconPark2323',
+        name: 'IconPark233',
+        component: () => import('@/views/iconPark/index.vue'),
+        meta: {
+          title: '图标2233333',
+        },
+      },
+      {
+        path: '/iconPark23443',
+        name: 'IconPark443',
+        component: () => import('@/views/iconPark/index.vue'),
+        meta: {
+          title: '图标223www3',
         },
       },
     ],

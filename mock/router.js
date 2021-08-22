@@ -2,12 +2,12 @@ const data = [
   {
     path: '/',
     component: 'Layout',
-    redirect: '/index',
+    redirect: 'index',
     children: [
       {
         path: '/index',
         name: 'Index',
-        // component: () => import('@/views/index/index.vue'),
+        component: '',
         meta: {
           title: '首页',
           icon: 'home',
@@ -26,17 +26,43 @@ const data = [
       {
         path: '/iconPark',
         name: 'IconPark',
-        // component: () => import('@/views/iconPark/index.vue'),
+        component: '',
         meta: {
           title: '图标',
+        },
+        children: [
+          {
+            path: '/iconPark2',
+            name: 'IconPark2',
+            component: '',
+            meta: {
+              title: '图标2211',
+            },
+          },
+        ],
+      },
+      {
+        path: '/iconPark233',
+        name: 'IconPark3',
+        component: () => '',
+        meta: {
+          title: '图标2233',
+        },
+      },
+      {
+        path: '/iconPark234',
+        name: 'IconPark3',
+        component: () => '',
+        meta: {
+          title: '测试',
         },
       },
     ],
   },
 ];
-module.exports = [
+export default [
   {
-    url: 'api/menu/navigate',
+    url: '/api/menu/navigate',
     type: 'post',
     response() {
       return { code: 200, msg: 'success', data: data };

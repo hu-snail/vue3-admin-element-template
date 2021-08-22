@@ -58,6 +58,7 @@ router.beforeResolve(async (to, from, next) => {
       }
     }
   } else {
+    // 免登录路由
     if (routesWhiteList.indexOf(to.path) !== -1) {
       next();
     } else {
