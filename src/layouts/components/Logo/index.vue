@@ -1,6 +1,6 @@
 <template>
   <div class="logo-wrapper">
-    <svg-icon name="vue" size="44px" />
+    <svg-icon name="vue" size="35px" />
     <span class="logo-title" v-if="!collapse"> vue3-admin </span>
   </div>
 </template>
@@ -18,7 +18,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 15px 20px;
+    padding: 2px 20px;
+    cursor: pointer;
     .logo-title {
       display: inline-block;
       max-width: calc(246px - 60px);
@@ -26,6 +27,7 @@
       overflow: hidden;
       font-size: $base-font-size-max;
       font-size: 20px;
+      font-weight: bold;
       line-height: 55px;
       color: $base-title-color;
       text-overflow: ellipsis;

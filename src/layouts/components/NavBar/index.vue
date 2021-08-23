@@ -7,12 +7,14 @@
             <component
               class="icon-hover fold"
               :is="collapse ? 'menu-fold-one' : 'menu-unfold-one'"
-              theme="outline"
-              size="24"
+              theme="filled"
+              size="18"
+              :strokeWidth="3"
               fill="#333"
               @click="handleCollapse"
             />
           </el-tooltip>
+          <Breadcrumb />
         </div>
       </el-col>
       <el-col :xs="20" :sm="12" :md="12" :lg="12" :xl="12">
@@ -20,6 +22,7 @@
           <FullScreen @refresh="onRefresh" />
           <el-tooltip effect="dark" content="刷新" placement="bottom">
             <refresh
+              @click="handleRefresh"
               class="icon-hover refresh"
               theme="filled"
               size="18"
@@ -51,6 +54,7 @@
 
   import Avatar from '../Avatar/index.vue';
   import FullScreen from '@/components/FullScreen/index.vue';
+  import Breadcrumb from '../Breadcrumb/index.vue';
   const store = useStore();
   const collapse = computed(() => {
     return store.getters.collapse;
@@ -59,8 +63,10 @@
   const handleCollapse = () => {
     emit('handleCollapse');
   };
-  const onRefresh = (value) => {
-    console.log(value);
+  const onRefresh = (value) => {};
+
+  const handleRefresh = (val) => {
+    location.reload();
   };
 </script>
 

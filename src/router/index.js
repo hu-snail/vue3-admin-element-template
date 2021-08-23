@@ -84,8 +84,8 @@ export const asyncRoutes = [
         },
       },
       {
-        path: '/iconPark233',
-        name: 'IconPark3',
+        path: '/iconPark23223',
+        name: 'iconPark2323',
         component: () => import('@/views/iconPark/index.vue'),
         meta: {
           title: '图标2233',
@@ -105,6 +105,46 @@ export const asyncRoutes = [
         component: () => import('@/views/iconPark/index.vue'),
         meta: {
           title: '图标223www3',
+        },
+      },
+      {
+        path: '/iconPark234243',
+        name: 'IconPark443',
+        component: () => import('@/views/iconPark/index.vue'),
+        meta: {
+          title: '图标223www3',
+        },
+      },
+      {
+        path: '/iconPark234433',
+        name: 'IconPark435543',
+        component: () => import('@/views/iconPark/index.vue'),
+        meta: {
+          title: '图标223www3',
+        },
+      },
+      {
+        path: '/iconPark233443',
+        name: 'IconPark44543',
+        component: () => import('@/views/iconPark/index.vue'),
+        meta: {
+          title: '图标223www3',
+        },
+      },
+      {
+        path: '/iconPark233433343',
+        name: 'IconPark44333543',
+        component: () => import('@/views/iconPark/index.vue'),
+        meta: {
+          title: '图标223www3',
+        },
+      },
+      {
+        path: '/iconPark233433333343',
+        name: '33333',
+        component: () => import('@/views/iconPark/index.vue'),
+        meta: {
+          title: '图标223w3ww3',
         },
       },
     ],

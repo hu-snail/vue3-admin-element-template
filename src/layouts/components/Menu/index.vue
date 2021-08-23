@@ -44,7 +44,6 @@
 
   const defaultActive = computed(() => {
     const { fullPath } = router.currentRoute.value;
-    console.log(import.meta.env.VITE_PUBLIC_PATH);
     return fullPath || '/index';
   });
 
