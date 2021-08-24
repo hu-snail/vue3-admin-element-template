@@ -3,8 +3,13 @@
  * @author hu-snail 1217437592@qq.com
  */
 const state = {
+  routerView: true, // 是否显示路由
   collapse: false, // 菜单是否展开
   fullScreen: false, // 是否全屏
+};
+
+const getters = {
+  routerView: (state) => state.routerView,
 };
 
 const mutations = {
@@ -13,6 +18,9 @@ const mutations = {
   },
   CHANGE_FULL_SCREEN: (state, fullScreen) => {
     state.fullScreen = fullScreen;
+  },
+  SET_ROUTER_VIEW: (state) => {
+    state.routerView = !state.routerView;
   },
 };
 
@@ -29,9 +37,16 @@ const actions = {
   changeFullScreen: ({ commit }, fullScreen) => {
     commit('CHANGE_FULL_SCREEN', fullScreen);
   },
+  /**
+   * @description 是否刷新路由
+   */
+  setRouterView: ({ commit }, flag) => {
+    commit('SET_ROUTER_VIEW', flag);
+  },
 };
 
 export default {
+  getters,
   state,
   mutations,
   actions,

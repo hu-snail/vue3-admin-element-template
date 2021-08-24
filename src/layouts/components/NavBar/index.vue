@@ -49,7 +49,7 @@
 </script>
 
 <script setup>
-  import { defineEmits, computed } from 'vue';
+  import { defineEmits, computed, nextTick } from 'vue';
   import { useStore } from 'vuex';
 
   import Avatar from '../Avatar/index.vue';
@@ -66,7 +66,10 @@
   const onRefresh = (value) => {};
 
   const handleRefresh = (val) => {
-    location.reload();
+    store.dispatch('setting/setRouterView', false);
+    nextTick(() => {
+      store.dispatch('setting/setRouterView', true);
+    });
   };
 </script>
 

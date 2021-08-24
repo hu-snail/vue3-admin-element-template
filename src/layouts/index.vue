@@ -23,7 +23,6 @@
   import AppMain from './components/AppMain/index.vue';
   import TabBar from './components/TabBar/index.vue';
   const store = useStore();
-
   const isCollapse = computed(() => {
     return store.getters.collapse;
   });

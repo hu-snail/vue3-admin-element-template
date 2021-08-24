@@ -1,5 +1,5 @@
 <template>
-  <div class="app-main-container">
+  <div v-if="store.getters['setting/routerView']" class="app-main-container">
     <transition mode="out-in" name="fade-transform">
       <keep-alive>
         <router-view class="app-main-height" />
@@ -9,10 +9,9 @@
   </div>
 </template>
 
-<script>
-  export default {
-    name: 'AppMain',
-  };
+<script setup>
+  import { useStore } from 'vuex';
+  const store = useStore();
 </script>
 
 <style lang="scss" scoped>
@@ -20,10 +19,8 @@
     position: relative;
     box-sizing: border-box;
     width: 100%;
-    padding: 40px 60px 0 60px;
     overflow: hidden;
     text-align: left;
-    background-color: $base-color-white;
     .app-main-height {
       min-height: calc(100vh - 140px);
     }
