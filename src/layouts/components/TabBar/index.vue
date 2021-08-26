@@ -8,101 +8,89 @@
       @tab-remove="handleTabRemove"
     >
       <el-tab-pane
-        v-for="item in visitedRoutes"
+        v-for="item in visitedRouteList"
         :key="item.path"
         :label="item.meta.title"
         :name="item.path"
         :closable="!isAffix(item)"
       ></el-tab-pane>
     </el-tabs>
-
-    <el-dropdown @command="handleCommand">
-      <span class="more" style="cursor: pointer">
-        <more-app theme="filled" size="18" fill="#999" :strokeWidth="3" />
-      </span>
-      <template #dropdown>
-        <el-dropdown-menu>
-          <el-dropdown-item command="closeOtherstabs">关闭其他</el-dropdown-item>
-          <el-dropdown-item command="closeLefttabs">关闭左侧</el-dropdown-item>
-          <el-dropdown-item command="closeRighttabs">关闭右侧</el-dropdown-item>
-          <el-dropdown-item command="closeAlltabs">关闭全部</el-dropdown-item>
-        </el-dropdown-menu>
+    <el-popover
+      placement="bottom"
+      :width="100"
+      trigger="hover"
+      @show="handleShow"
+      @hide="handleHide"
+    >
+      <template #reference>
+        <span class="more" :class="{ active: visible }" style="cursor: pointer">
+          <all-application theme="filled" size="18" :strokeWidth="3" />
+        </span>
       </template>
-    </el-dropdown>
+      <div
+        class="command-item"
+        v-for="(item, index) in commandList"
+        :key="index"
+        @click="handleCommand(item.command)"
+      >
+        <component class="icon" theme="filled" size="14" :strokeWidth="3" :is="item.icon" />
+        <span class="command-label">{{ item.text }}</span>
+      </div>
+    </el-popover>
   </div>
 </template>
 
 <script>
-  import { mapGetters } from 'vuex';
-
+  import { reactive, watch, toRefs, computed, nextTick } from 'vue';
+  import { useStore } from 'vuex';
+  import { useRouter } from 'vue-router';
   export default {
-    name: 'VabTabsBar',
-    data() {
-      return {
+    setup() {
+      const store = useStore();
+      const router = useRouter();
+
+      const state = reactive({
         affixtabs: [],
         tabActive: '',
-      };
-    },
+        visible: false,
+        commandList: [
+          {
+            command: 'refreshRoute',
+            text: '重新加载',
+            icon: 'refresh',
+          },
+          {
+            command: 'closeOtherstabs',
+            text: '关闭其他',
+            icon: 'close',
+          },
+          {
+            command: 'closeLefttabs',
+            text: '关闭左侧',
+            icon: 'to-left',
+          },
+          {
+            command: 'closeRighttabs',
+            text: '关闭右侧',
+            icon: 'to-right',
+          },
+          {
+            command: 'closeAlltabs',
+            text: '关闭全部',
+            icon: 'minus',
+          },
+        ],
+      });
 
-    computed: {
-      ...mapGetters({
-        visitedRoutes: 'tabsBar/visitedRoutes',
-        routes: 'routes/routes',
-      }),
-    },
-    watch: {
-      $route: {
-        handler() {
-          this.inittabs();
-          this.addtabs();
-          let tabActive = '';
-          this.visitedRoutes.forEach((item) => {
-            if (item.path === this.$route.path) {
-              tabActive = item.path;
-            }
-          });
-          this.tabActive = tabActive;
-        },
-        immediate: true,
-      },
-    },
-    mounted() {
-      //console.log(this.visitedRoutes);
-    },
-    methods: {
-      async handleTabRemove(tabActive) {
-        let view;
-        this.visitedRoutes.forEach((item) => {
-          if (tabActive == item.path) {
-            view = item;
-          }
-        });
-        const { visitedRoutes } = await this.$store.dispatch('tabsBar/delRoute', view);
-        if (this.isActive(view)) {
-          this.toLastTag(visitedRoutes, view);
-        }
-      },
-      handleTabClick(tab) {
-        const route = this.visitedRoutes.filter((item, index) => {
-          if (tab.index == index) return item;
-        })[0];
-        if (this.$route.path !== route.path) {
-          this.$router.push({
-            path: route.path,
-            query: route.query,
-            fullPath: route.fullPath,
-          });
-        } else {
-          return false;
-        }
-      },
-      isActive(route) {
-        return route.path === this.$route.path;
-      },
-      isAffix(tag) {
-        return tag.meta && tag.meta.affix;
-      },
-      filterAffixtabs(routes) {
+      const visitedRouteList = computed(() => {
+        return store.getters['tabsBar/visitedRoutes'];
+      });
+
+      const routes = computed(() => {
+        return store.getters['routes/routes'];
+      });
+
+      const filterAffixtabs = (routes) => {
         let tabs = [];
         routes.forEach((route) => {
           if (route.meta && route.meta.affix) {
@@ -114,94 +102,182 @@
             });
           }
           if (route.children) {
-            const temptabs = this.filterAffixtabs(route.children, route.path);
+            const temptabs = filterAffixtabs(route.children, route.path);
             if (temptabs.length >= 1) {
               tabs = [...tabs, ...temptabs];
             }
           }
         });
         return tabs;
-      },
-      inittabs() {
-        const affixtabs = (this.affixtabs = this.filterAffixtabs(this.routes));
+      };
+      const inittabs = () => {
+        let affixtabs = (state.affixtabs = filterAffixtabs(routes.value));
         for (const tag of affixtabs) {
           if (tag.name) {
-            this.$store.dispatch('tabsBar/addVisitedRoute', tag);
+            store.dispatch('tabsBar/addVisitedRoute', tag);
           }
         }
-      },
-      addtabs() {
-        const { name } = this.$route;
+      };
+      const addtabs = () => {
+        const { name } = router.currentRoute.value;
         if (name) {
-          this.$store.dispatch('tabsBar/addVisitedRoute', this.$route);
+          store.dispatch('tabsBar/addVisitedRoute', router.currentRoute.value);
         }
         return false;
-      },
-      handleCommand(command) {
-        switch (command) {
-          case 'refreshRoute':
-            this.refreshRoute();
-            break;
-          case 'closeOtherstabs':
-            this.closeOtherstabs();
-            break;
-          case 'closeLefttabs':
-            this.closeLefttabs();
-            break;
-          case 'closeRighttabs':
-            this.closeRighttabs();
-            break;
-          case 'closeAlltabs':
-            this.closeAlltabs();
-            break;
-        }
-      },
-      async refreshRoute() {
-        this.$baseEventBus.$emit('reloadrouter-view');
-      },
-      async closeSelectedTag(view) {
-        const { visitedRoutes } = await this.$store.dispatch('tabsBar/delRoute', view);
-        if (this.isActive(view)) {
-          this.toLastTag(visitedRoutes, view);
-        }
-      },
-      async closeOtherstabs() {
-        const view = await this.toThisTag();
-        await this.$store.dispatch('tabsBar/delOthersRoutes', view);
-      },
-      async closeLefttabs() {
-        const view = await this.toThisTag();
-        await this.$store.dispatch('tabsBar/delLeftRoutes', view);
-      },
-      async closeRighttabs() {
-        const view = await this.toThisTag();
-        await this.$store.dispatch('tabsBar/delRightRoutes', view);
-      },
-      async closeAlltabs() {
-        const view = await this.toThisTag();
-        const { visitedRoutes } = await this.$store.dispatch('tabsBar/delAllRoutes');
-        if (this.affixtabs.some((tag) => tag.path === view.path)) {
-          return;
-        }
-        this.toLastTag(visitedRoutes, view);
-      },
-      toLastTag(visitedRoutes) {
+      };
+
+      watch(
+        () => router.currentRoute.value,
+        (val) => {
+          inittabs();
+          addtabs();
+          console.log(val);
+          let tabActiveR = '';
+          visitedRouteList.value.forEach((item) => {
+            if (item.path === router.currentRoute.value.path) {
+              tabActiveR = item.path;
+            }
+          });
+          state.tabActive = tabActiveR;
+        },
+        { immediate: true }
+      );
+
+      const isActive = (route) => {
+        return route.path === router.currentRoute.value.path;
+      };
+      const isAffix = (tag) => {
+        return tag.meta && tag.meta.affix;
+      };
+
+      const toLastTag = (visitedRoutes) => {
         const latestView = visitedRoutes.slice(-1)[0];
         if (latestView) {
-          this.$router.push(latestView);
+          router.push(latestView);
         } else {
-          this.$router.push('/');
+          router.push('/');
         }
-      },
-      async toThisTag() {
-        const view = this.visitedRoutes.filter((item) => {
-          if (item.path === this.$route.fullPath) {
+      };
+
+      const handleTabRemove = async (tabActive) => {
+        let view;
+        visitedRouteList.value.forEach((item) => {
+          if (tabActive == item.path) {
+            view = item;
+          }
+        });
+        const { visitedRoutes } = await store.dispatch('tabsBar/delRoute', view);
+        if (isActive(view)) {
+          toLastTag(visitedRoutes, view);
+        }
+      };
+
+      const handleTabClick = (tab) => {
+        const route = visitedRouteList.value.filter((item, index) => {
+          if (tab.index == index) return item;
+        })[0];
+        if (router.currentRoute.value.path !== route.path) {
+          router.push({
+            path: route.path,
+            query: route.query,
+            fullPath: route.fullPath,
+          });
+        } else {
+          return false;
+        }
+      };
+
+      const refreshRoute = async () => {
+        store.dispatch('setting/setRouterView', false);
+        nextTick(() => {
+          store.dispatch('setting/setRouterView', true);
+        });
+      };
+      // const closeSelectedTag = async (view) => {
+      //   const { visitedRoutes } = await store.dispatch('tabsBar/delRoute', view);
+      //   if (isActive(view)) {
+      //     toLastTag(visitedRoutes, view);
+      //   }
+      // };
+      const closeOtherstabs = async () => {
+        const view = await toThisTag();
+        await store.dispatch('tabsBar/delOthersRoutes', view);
+      };
+      const closeLefttabs = async () => {
+        const view = await toThisTag();
+        await store.dispatch('tabsBar/delLeftRoutes', view);
+      };
+      const closeRighttabs = async () => {
+        const view = await toThisTag();
+        await store.dispatch('tabsBar/delRightRoutes', view);
+      };
+      const closeAlltabs = async () => {
+        const view = await toThisTag();
+        const { visitedRoutes } = await store.dispatch('tabsBar/delAllRoutes');
+        if (state.affixtabs.some((tag) => tag.path === view.path)) {
+          return;
+        }
+        toLastTag(visitedRoutes, view);
+      };
+
+      const toThisTag = async () => {
+        const { fullPath, path } = router.currentRoute.value;
+
+        const view = visitedRouteList.value.filter((item) => {
+          if (item.path === fullPath) {
             return item;
           }
         })[0];
-        if (this.$route.path !== view.path) this.$router.push(view);
+        if (path !== view.path) router.push(view);
         return view;
-      },
+      };
+
+      const handleCommand = (command) => {
+        switch (command) {
+          case 'refreshRoute':
+            refreshRoute();
+            break;
+          case 'closeOtherstabs':
+            closeOtherstabs();
+            break;
+          case 'closeLefttabs':
+            closeLefttabs();
+            break;
+          case 'closeRighttabs':
+            closeRighttabs();
+            break;
+          case 'closeAlltabs':
+            closeAlltabs();
+            break;
+          default:
+            return '错误的事件类型';
+        }
+      };
+
+      const handleShow = () => {
+        state.visible = true;
+      };
+
+      const handleHide = () => {
+        state.visible = false;
+      };
+
+      return {
+        ...toRefs(state),
+        visitedRouteList,
+        routes,
+        isAffix,
+        refreshRoute,
+        closeAlltabs,
+        closeRighttabs,
+        closeLefttabs,
+        closeOtherstabs,
+        handleTabClick,
+        handleTabRemove,
+        handleCommand,
+        handleShow,
+        handleHide,
+      };
     },
   };
 </script>
@@ -268,15 +344,34 @@
         }
       }
     }
-
-    .more {
+  }
+  .command-item {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    padding: 5px 10px;
+    cursor: pointer;
+    .command-label {
+      padding-left: 5px;
+    }
+    &:hover {
+      color: $base-color-default;
+      background-color: rgba($base-color-default, 0.1);
+    }
+    .icon {
       display: flex;
-      align-content: center;
-      align-items: center;
-      cursor: pointer;
-      &:hover {
-        color: $base-color-default !important;
-      }
+    }
+  }
+  .more {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    color: $base-font-color;
+    cursor: pointer;
+    transition: all 0.5s;
+    &.active {
+      color: $base-color-default !important;
+      transform: rotate(180deg);
     }
   }
 </style>

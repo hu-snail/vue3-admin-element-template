@@ -1,14 +1,13 @@
 <template>
-  <span class="icon-hover full-screen-wrapper">
-    <el-tooltip effect="dark" :content="fullScreen ? '退出全屏' : '全屏'" placement="bottom">
-      <component
-        theme="filled"
-        size="18"
-        fill="#333"
-        :is="(fullScreen ? 'off' : 'full') + '-screen-one'"
-        @click="handleClick"
-      />
-    </el-tooltip>
+  <span class="icon-hover full-screen-wrapper" :title="fullScreen ? '退出全屏' : '全屏'">
+    <component
+      theme="filled"
+      size="16"
+      fill="#333"
+      :strokeWidth="4"
+      :is="(fullScreen ? 'off' : 'full') + '-screen'"
+      @click="handleClick"
+    />
   </span>
 </template>
 

@@ -19,11 +19,16 @@ import {
   Google,
   MenuUnfoldOne,
   MenuFoldOne,
-  FullScreenOne,
-  OffScreenOne,
+  FullScreen,
+  OffScreen,
   Refresh,
   Remind,
-  MoreApp,
+  AllApplication,
+  Close,
+  ToLeft,
+  ToRight,
+  Minus,
+  Mail,
 } from '@icon-park/vue-next';
 
 // el-icon
@@ -41,11 +46,16 @@ export const components = [
   Google,
   MenuUnfoldOne,
   MenuFoldOne,
-  FullScreenOne,
-  OffScreenOne,
+  FullScreen,
+  OffScreen,
   Refresh,
   Remind,
-  MoreApp,
+  AllApplication,
+  Close,
+  ToLeft,
+  ToRight,
+  Minus,
+  Mail,
 ];
 
 import SvgIcon from '@/components/SvgIcon/index.vue';

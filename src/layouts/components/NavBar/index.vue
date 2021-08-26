@@ -3,33 +3,53 @@
     <el-row :gutter="15">
       <el-col :xs="4" :sm="12" :md="12" :lg="12" :xl="12">
         <div class="left-panel">
-          <el-tooltip effect="dark" :content="collapse ? '展开' : '收起'" placement="bottom">
-            <component
-              class="icon-hover fold"
-              :is="collapse ? 'menu-fold-one' : 'menu-unfold-one'"
-              theme="filled"
-              size="18"
-              :strokeWidth="3"
-              fill="#333"
-              @click="handleCollapse"
-            />
-          </el-tooltip>
+          <component
+            :title="collapse ? '展开' : '收起'"
+            class="icon-hover fold"
+            :is="collapse ? 'menu-fold-one' : 'menu-unfold-one'"
+            theme="filled"
+            size="16"
+            :strokeWidth="4"
+            fill="#666"
+            @click="handleCollapse"
+          />
           <Breadcrumb />
         </div>
       </el-col>
       <el-col :xs="20" :sm="12" :md="12" :lg="12" :xl="12">
         <div class="right-panel">
+          <el-popover placement="bottom" :width="320" trigger="click">
+            <template #reference>
+              <el-badge type="danger" :value="5" class="msg-badge">
+                <remind
+                  title="消息通知"
+                  class="icon-hover refresh"
+                  theme="outline"
+                  size="16"
+                  fill="#666"
+                  :strokeWidth="3"
+                />
+              </el-badge>
+            </template>
+            <div class="message-box">
+              <el-tabs v-model="activeName" stretch @tab-click="handleClick">
+                <el-tab-pane label="通知 (10)" name="first"><Cell /></el-tab-pane>
+                <el-tab-pane label="消息 (5)" name="second">配置管理</el-tab-pane>
+                <el-tab-pane label="邮件 (8)" name="third">角色管理</el-tab-pane>
+              </el-tabs>
+            </div>
+          </el-popover>
+
           <FullScreen @refresh="onRefresh" />
-          <el-tooltip effect="dark" content="刷新" placement="bottom">
-            <refresh
-              @click="handleRefresh"
-              class="icon-hover refresh"
-              theme="filled"
-              size="18"
-              fill="#333"
-              :strokeWidth="3"
-            />
-          </el-tooltip>
+          <refresh
+            title="刷新"
+            @click="handleRefresh"
+            class="icon-hover refresh"
+            theme="filled"
+            size="16"
+            fill="#666"
+            :strokeWidth="4"
+          />
           <Avatar />
           <!--  <vab-icon
             title="退出系统"
@@ -49,13 +69,17 @@
 </script>
 
 <script setup>
-  import { defineEmits, computed, nextTick } from 'vue';
+  import { defineEmits, computed, nextTick, ref } from 'vue';
   import { useStore } from 'vuex';
 
   import Avatar from '../Avatar/index.vue';
   import FullScreen from '@/components/FullScreen/index.vue';
   import Breadcrumb from '../Breadcrumb/index.vue';
+  import Cell from '@/components/Cell/index.vue';
   const store = useStore();
+
+  let activeName = ref('first');
+
   const collapse = computed(() => {
     return store.getters.collapse;
   });
@@ -107,8 +131,23 @@
       align-items: center;
       justify-content: flex-end;
       height: $base-nav-bar-height;
+      .msg-badge {
+        :deep {
+          .el-badge__content.is-fixed {
+            right: calc(10px + var(--el-badge-size) / 2);
+          }
+        }
+      }
       .refresh {
         padding: 20px 10px;
+      }
+    }
+  }
+  .message-box {
+    padding: 5px 15px;
+    :deep {
+      .el-tabs__active-bar {
+        width: 70px !important;
       }
     }
   }

@@ -20,6 +20,7 @@
     "axios": "^0.21.1",
     "echarts": "^5.1.2",
     "element-plus": "^1.0.2-beta.70",
+    "lodash": "^4.17.21",
     "mockjs": "^1.1.0",
     "nprogress": "^0.2.0",
     "qs": "^6.10.1",

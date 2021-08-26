@@ -57,3 +57,8 @@
     border: none !important;
     outline: none !important;
   }
+
+  .el-popover.el-popper {
+    min-width: 100px !important;
+    padding: 5px 0 !important;
+  }
