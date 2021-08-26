@@ -29,10 +29,13 @@ import {
   ToRight,
   Minus,
   Mail,
+  Home,
+  Code,
+  ChartLine,
 } from '@icon-park/vue-next';
 
 // el-icon
-import { Edit } from '@element-plus/icons';
+import { Edit, Calendar } from '@element-plus/icons';
 
 // 所需的组件
 export const components = [
@@ -56,6 +59,10 @@ export const components = [
   ToRight,
   Minus,
   Mail,
+  Home,
+  Code,
+  ChartLine,
+  Calendar,
 ];
 
 import SvgIcon from '@/components/SvgIcon/index.vue';

@@ -62,3 +62,14 @@
     min-width: 100px !important;
     padding: 5px 0 !important;
   }
+  .el-menu--collapse>.el-menu-item span, .el-menu--collapse>.el-submenu>.el-submenu__title span{
+    display: inline-block !important;
+    width: 16px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    visibility: inherit !important;
+  }
+  .el-menu--collapse>.el-menu-item .title, .el-menu--collapse>.el-submenu>.el-submenu__title .title{
+    display: none !important;
+  }

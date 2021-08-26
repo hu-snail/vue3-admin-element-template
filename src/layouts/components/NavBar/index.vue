@@ -18,7 +18,7 @@
       </el-col>
       <el-col :xs="20" :sm="12" :md="12" :lg="12" :xl="12">
         <div class="right-panel">
-          <el-popover placement="bottom" :width="320" trigger="click">
+          <el-popover placement="bottom" :width="320" trigger="hover">
             <template #reference>
               <el-badge type="danger" :value="5" class="msg-badge">
                 <remind
@@ -33,7 +33,9 @@
             </template>
             <div class="message-box">
               <el-tabs v-model="activeName" stretch @tab-click="handleClick">
-                <el-tab-pane label="通知 (10)" name="first"><Cell /></el-tab-pane>
+                <el-tab-pane label="通知 (10)" name="first">
+                  <Cell :list="noticeList" />
+                </el-tab-pane>
                 <el-tab-pane label="消息 (5)" name="second">配置管理</el-tab-pane>
                 <el-tab-pane label="邮件 (8)" name="third">角色管理</el-tab-pane>
               </el-tabs>
@@ -71,6 +73,8 @@
 <script setup>
   import { defineEmits, computed, nextTick, ref } from 'vue';
   import { useStore } from 'vuex';
+
+  import { noticeList } from './data';
 
   import Avatar from '../Avatar/index.vue';
   import FullScreen from '@/components/FullScreen/index.vue';

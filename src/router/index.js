@@ -37,6 +37,7 @@ export const asyncRoutes = [
         meta: {
           title: '首页',
           icon: 'home',
+          iconType: 'icon-park',
           affix: true,
           noKeepAlive: true,
         },
@@ -47,7 +48,7 @@ export const asyncRoutes = [
     path: '/comp',
     component: Layout,
     name: 'Comp',
-    meta: { title: '组件', icon: '' },
+    meta: { title: '组件', icon: 'code', iconType: 'icon-park' },
     children: [
       {
         path: '/iconPark',
@@ -55,6 +56,8 @@ export const asyncRoutes = [
         component: () => import('@/views/iconPark/index.vue'),
         meta: {
           title: '图标',
+          icon: 'chart-line',
+          iconType: 'icon-park',
         },
         children: [
           {
@@ -81,6 +84,8 @@ export const asyncRoutes = [
         component: () => import('@/views/iconPark/index.vue'),
         meta: {
           title: '图标22',
+          icon: 'calendar',
+          iconType: 'el-icon',
         },
       },
       {
@@ -89,6 +94,7 @@ export const asyncRoutes = [
         component: () => import('@/views/iconPark/index.vue'),
         meta: {
           title: '图标2233',
+          icon: 'el-icon-eleme',
         },
       },
       {

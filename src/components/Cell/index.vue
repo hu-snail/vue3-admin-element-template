@@ -1,31 +1,38 @@
 <template>
   <div class="cell-container">
-    <div class="cell-item">
+    <div class="cell-item" v-for="(item, index) in list" :key="index">
       <div class="cell-item-meta-avatar">
-        <div class="icon-box">
-          <mail class="icon" theme="outline" size="16" :strokeWidth="3" />
+        <div class="icon-box" v-if="item.icon">
+          <component class="icon" theme="outline" size="16" :strokeWidth="3" :is="item.icon" />
         </div>
       </div>
       <div class="cell-item-meta-content">
-        <div class="cell-item-meta-title">您收到一条消息</div>
+        <div class="cell-item-meta-title">{{ item[name] }}</div>
         <div class="cell-item-meta-desc">
-          <div class="time">2021-8-26</div>
-        </div>
-      </div>
-    </div>
-    <div class="cell-item">
-      <div class="cell-item-meta-avatar">
-        <div class="icon-box"></div>
-      </div>
-      <div class="cell-item-meta-content">
-        <div class="cell-item-meta-title">您收到一条消息</div>
-        <div class="cell-item-meta-desc">
-          <div class="time">2021-8-26</div>
+          <div class="time">{{ item.time }}</div>
         </div>
       </div>
     </div>
   </div>
 </template>
+
+<script setup>
+  import { defineProps } from 'vue';
+  defineProps({
+    // 数据
+    list: {
+      type: Array,
+      default: () => {
+        return [];
+      },
+    },
+    // key
+    name: {
+      type: String,
+      default: 'title',
+    },
+  });
+</script>
 
 <style lang="scss" scoped>
   .cell-container {
@@ -70,9 +77,12 @@
         }
         &-title {
           margin-bottom: 4px;
+          overflow: hidden;
           font-size: 14px;
           line-height: 1.5715;
           color: $base-color-black;
+          text-overflow: ellipsis;
+          white-space: nowrap;
         }
         &-desc {
           font-size: 14px;
