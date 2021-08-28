@@ -1,13 +1,14 @@
 <template>
   <div class="login-container">
-    <div class="login-left">
+    <div class="login-left hidden-sm-and-down">
       <div class="login-left-wrap">
         <h2 class="title"> <span class="logo-text">Hu-Snail</span> Vue3-Admin </h2>
         <img class="img" src="@/assets/login.png" alt="login-bg" />
         <h2 class="desc">开箱即用的中后台管理系统</h2>
+        <p class="tip">点击登录快速体验</p>
       </div>
     </div>
-    <div class="login-form">
+    <div class="login-form" :class="{ 'is-mobile': isMobile }">
       <div class="form-warp">
         <el-tabs v-model="activeName" @tab-click="handleClick">
           <el-tab-pane label="登录" name="first">
@@ -23,10 +24,20 @@
 </template>
 
 <script setup>
-  import { ref } from 'vue';
+  import { ref, computed } from 'vue';
+  import { useStore } from 'vuex';
   import LoginForm from 'views/login/comp/LoginForm.vue';
   import RegisterForm from './comp/RegisterForm.vue';
+
+  const store = useStore();
+
   const activeName = ref('first');
+
+  const isMobile = computed(() => {
+    console.log(store.getters['setting/isMobile']);
+    return store.getters['setting/isMobile'];
+  });
+
   const handleClick = (val) => {
     console.log(val);
   };
@@ -65,6 +76,12 @@
           color: #fff;
           letter-spacing: 1.2px;
         }
+        .desc {
+          font-size: 28px;
+        }
+        .tip {
+          color: #999;
+        }
       }
     }
     .login-form {
@@ -79,6 +96,13 @@
         margin: auto;
         background-color: #fff;
         border-radius: 8px;
+      }
+      &.is-mobile {
+        width: 100%;
+        .form-warp {
+          width: 100%;
+          margin: 0 15px;
+        }
       }
     }
   }

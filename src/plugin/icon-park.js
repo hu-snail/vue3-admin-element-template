@@ -32,6 +32,16 @@ import {
   Home,
   Code,
   ChartLine,
+  Like,
+  Xigua,
+  Performance,
+  Pic,
+  MoveOne,
+  Search,
+  Tailoring,
+  TailoringTwo,
+  AddText,
+  ScanCode,
 } from '@icon-park/vue-next';
 
 // el-icon
@@ -63,6 +73,16 @@ export const components = [
   Code,
   ChartLine,
   Calendar,
+  Like,
+  Xigua,
+  Performance,
+  Pic,
+  MoveOne,
+  Search,
+  Tailoring,
+  TailoringTwo,
+  AddText,
+  ScanCode,
 ];
 
 import SvgIcon from '@/components/SvgIcon/index.vue';

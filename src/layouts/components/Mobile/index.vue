@@ -1,10 +1,8 @@
 <template>
   <div class="admin-container">
-    <Mobile v-if="isMobile" />
-    <el-container v-else>
-      <Menu :isCollapse="isCollapse" class="hidden-xs-only" />
-      <el-container class="container" :style="{ left: isCollapse ? '65px' : '240px' }">
-        <el-header class="header" height="60px" :style="{ left: isCollapse ? '65px' : '240px' }">
+    <el-container>
+      <el-container class="container">
+        <el-header class="header" height="60px">
           <NavBar @handleCollapse="handleCollapse" />
           <TabBar />
         </el-header>
@@ -13,29 +11,32 @@
         </el-main>
       </el-container>
     </el-container>
+    <el-drawer v-model="isDrawer" direction="ltr" :with-header="false" @close="closeDrawer">
+      <Menu />
+    </el-drawer>
   </div>
 </template>
 
 <script setup>
   import { computed } from 'vue';
   import { useStore } from 'vuex';
-  import Menu from './components/Menu/index.vue';
-  import NavBar from './components/NavBar/index.vue';
-  import AppMain from './components/AppMain/index.vue';
-  import TabBar from './components/TabBar/index.vue';
-  import Mobile from './components/Mobile/index.vue';
+  import NavBar from '../NavBar/index.vue';
+  import AppMain from '../AppMain/index.vue';
+  import TabBar from '../TabBar/index.vue';
+  import Menu from '../Menu/index.vue';
 
   const store = useStore();
-  const isMobile = computed(() => {
-    return store.getters['setting/isMobile'];
-  });
 
-  const isCollapse = computed(() => {
-    return store.getters.collapse;
+  const isDrawer = computed(() => {
+    return store.getters['setting/isDrawer'];
   });
 
   const handleCollapse = () => {
-    store.dispatch('setting/changeCollapse');
+    store.dispatch('setting/changeDrawer', true);
+  };
+
+  const closeDrawer = () => {
+    store.dispatch('setting/changeDrawer', false);
   };
 </script>
 
@@ -46,12 +47,14 @@
     .container {
       position: absolute;
       right: 0;
+      left: 0;
       transition: all 0.4s;
     }
     .header {
       position: fixed;
       top: 0;
       right: 0;
+      left: 0;
       z-index: 99;
       padding: 0;
       transition: all 0.4s;
@@ -60,6 +63,11 @@
       position: relative;
       top: 110px;
       background-color: $base-content-bg-color;
+    }
+    :deep {
+      .el-menu {
+        border-right: 0 !important;
+      }
     }
   }
 </style>

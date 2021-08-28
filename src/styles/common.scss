@@ -16,14 +16,14 @@
     }
   
     &::-webkit-scrollbar-thumb:hover {
-      background-color: rgba(144, 147, 153, 0.3);
+      // background-color: rgba(144, 147, 153, 0.3);
     }
   }
   
   @mixin base-scrollbar {
     &::-webkit-scrollbar {
-      width: 13px;
-      height: 13px;
+      width: 10px;
+      height: 10px;
     }
   
     &::-webkit-scrollbar-thumb {
@@ -42,7 +42,7 @@
     }
   
     &::-webkit-scrollbar-track:hover {
-      background-color: #f8fafc;
+      // background-color: #f8fafc;
     }
   }
 
@@ -73,3 +73,13 @@
   .el-menu--collapse>.el-menu-item .title, .el-menu--collapse>.el-submenu>.el-submenu__title .title{
     display: none !important;
   }
+
+
+html {
+  body {
+    @include base-scrollbar;
+  }
+  div {
+    @include base-scrollbar;
+  }
+}

@@ -1,20 +1,24 @@
 <template>
-  <el-menu-item :key="item.path" :index="item.children[0].path" v-if="!item.meta">
+  <el-menu-item
+    :key="item.path"
+    :index="item.children ? item.children[0].path : item.path"
+    v-if="!item.meta || !item.children"
+  >
     <component
       class="menu-icon"
-      v-if="item.children[0].meta.icon"
+      v-if="item.children ? item.children[0].meta.icon : item.meta.icon"
       theme="outline"
       size="14"
       strokeWidth="3"
-      :is="item.children[0].meta.icon"
+      :is="item.children ? item.children[0].meta.icon : item.meta.icon"
     />
     <template #title>
       <span class="title">
-        {{ item.children[0].meta.title }}
+        {{ item.children ? item.children[0].meta.title : item.meta.title }}
       </span>
     </template>
   </el-menu-item>
-  <el-submenu :index="item.path" :key="item.path" v-if="item.children.length && item.meta">
+  <el-submenu :index="item.path" :key="item.path" v-else>
     <template #title>
       <component
         class="menu-icon"
@@ -35,7 +39,7 @@
           theme="outline"
           size="14"
           strokeWidth="3"
-          :is="option.meta.iconn"
+          :is="option.meta.icon"
         />
         <span class="title">
           {{ option.meta.title }}

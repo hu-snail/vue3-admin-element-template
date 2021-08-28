@@ -5,8 +5,8 @@
   "scripts": {
     "lint": "eslint \"src/**/*.{js,vue}\"",
     "serve": "cross-env NODE_ENV=development vite",
-    "build": "vite build --mode production",
-    "preview": "vite preview",
+    "build": "cross-env vite build --mode production",
+    "preview": "cross-env vite preview",
     "build:preview": "vite build --mode production && vite preview",
     "lint:eslint": "eslint --cache --max-warnings 0  \"{src,mock}/**/*.{vue,ts,tsx}\" --fix",
     "lint:prettier": "prettier --write  \"src/**/*.{js,json,tsx,css,less,scss,vue,html,md}\"",

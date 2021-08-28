@@ -54,7 +54,7 @@
     ToolboxComponent,
   ]);
 
-  const props = defineProps({
+  defineProps({
     headerIcon: {
       type: String,
       default: 'full-screen',
@@ -72,7 +72,6 @@
 
   let chart = reactive(null);
   onMounted(() => {
-    console.log(props);
     initChart();
     window.addEventListener(
       'resize',

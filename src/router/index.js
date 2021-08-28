@@ -37,7 +37,6 @@ export const asyncRoutes = [
         meta: {
           title: '首页',
           icon: 'home',
-          iconType: 'icon-park',
           affix: true,
           noKeepAlive: true,
         },
@@ -48,112 +47,155 @@ export const asyncRoutes = [
     path: '/comp',
     component: Layout,
     name: 'Comp',
-    meta: { title: '组件', icon: 'code', iconType: 'icon-park' },
+    meta: { title: '常用组件', icon: 'code' },
     children: [
       {
         path: '/iconPark',
         name: 'IconPark',
-        component: () => import('@/views/iconPark/index.vue'),
+        component: () => import('@/views/icon/index.vue'),
         meta: {
-          title: '图标',
-          icon: 'chart-line',
-          iconType: 'icon-park',
+          title: '图标库',
+          icon: 'like',
+        },
+      },
+      {
+        path: '/play/video',
+        name: 'PlayVideo',
+        component: () => import('@/views/video/index.vue'),
+        meta: {
+          title: '文本编辑器',
+          icon: 'add-text',
         },
         children: [
           {
-            path: '/iconPark2',
-            name: 'IconPark2',
-            component: () => import('@/views/iconPark/index.vue'),
+            path: '/chart/line',
+            name: 'ChartLine',
+            component: () => import('@/views/video/index.vue'),
             meta: {
-              title: '图标2211',
+              title: '富文本',
             },
           },
           {
-            path: '/iconPark236',
-            name: 'IconParkw2',
-            component: '',
+            path: '/chart/line',
+            name: 'ChartLine',
+            component: () => import('@/views/video/index.vue'),
             meta: {
-              title: '图标2211',
+              title: 'Markdown',
             },
           },
         ],
       },
       {
-        path: '/iconPark235',
-        name: 'IconPark32',
-        component: () => import('@/views/iconPark/index.vue'),
+        path: '/chart',
+        name: 'Chart',
+        component: () => import('@/views/video/index.vue'),
         meta: {
-          title: '图标22',
-          icon: 'calendar',
-          iconType: 'el-icon',
+          title: 'Echarts图表',
+          icon: 'chart-line',
+        },
+        children: [
+          {
+            path: '/chart/line',
+            name: 'ChartLine',
+            component: () => import('@/views/video/index.vue'),
+            meta: {
+              title: '折线图',
+            },
+          },
+          {
+            path: '/chart/line',
+            name: 'ChartLine',
+            component: () => import('@/views/video/index.vue'),
+            meta: {
+              title: '条形图',
+            },
+          },
+        ],
+      },
+      {
+        path: '/play/video',
+        name: 'PlayVideo',
+        component: () => import('@/views/video/index.vue'),
+        meta: {
+          title: '视频播放器',
+          icon: 'xigua',
         },
       },
       {
-        path: '/iconPark23223',
-        name: 'iconPark2323',
-        component: () => import('@/views/iconPark/index.vue'),
+        path: '/play/video',
+        name: 'PlayVideo',
+        component: () => import('@/views/video/index.vue'),
         meta: {
-          title: '图标2233',
-          icon: 'el-icon-eleme',
+          title: '音频播放器',
+          icon: 'performance',
         },
       },
       {
-        path: '/iconPark2323',
-        name: 'IconPark233',
-        component: () => import('@/views/iconPark/index.vue'),
+        path: '/img',
+        name: 'PlayVideo',
+        component: () => import('@/views/video/index.vue'),
         meta: {
-          title: '图标2233333',
+          title: '图片相关',
+          icon: 'pic',
+        },
+        children: [
+          {
+            path: '/play/video',
+            name: 'PlayVideo',
+            component: () => import('@/views/video/index.vue'),
+            meta: {
+              title: '预览',
+              icon: 'search',
+            },
+          },
+          {
+            path: '/play/video',
+            name: 'PlayVideo',
+            component: () => import('@/views/video/index.vue'),
+            meta: {
+              title: '裁剪',
+              icon: 'tailoring',
+            },
+          },
+          {
+            path: '/play/video',
+            name: 'PlayVideo',
+            component: () => import('@/views/video/index.vue'),
+            meta: {
+              title: '编辑',
+              icon: 'tailoring-two',
+            },
+          },
+        ],
+      },
+      {
+        path: '/play/video',
+        name: 'PlayVideo',
+        component: () => import('@/views/video/index.vue'),
+        meta: {
+          title: '拖拽',
+          icon: 'move-one',
         },
       },
       {
-        path: '/iconPark23443',
-        name: 'IconPark443',
-        component: () => import('@/views/iconPark/index.vue'),
+        path: '/play/video',
+        name: 'PlayVideo',
+        component: () => import('@/views/video/index.vue'),
         meta: {
-          title: '图标223www3',
-        },
-      },
-      {
-        path: '/iconPark234243',
-        name: 'IconPark443',
-        component: () => import('@/views/iconPark/index.vue'),
-        meta: {
-          title: '图标223www3',
-        },
-      },
-      {
-        path: '/iconPark234433',
-        name: 'IconPark435543',
-        component: () => import('@/views/iconPark/index.vue'),
-        meta: {
-          title: '图标223www3',
-        },
-      },
-      {
-        path: '/iconPark233443',
-        name: 'IconPark44543',
-        component: () => import('@/views/iconPark/index.vue'),
-        meta: {
-          title: '图标223www3',
-        },
-      },
-      {
-        path: '/iconPark233433343',
-        name: 'IconPark44333543',
-        component: () => import('@/views/iconPark/index.vue'),
-        meta: {
-          title: '图标223www3',
-        },
-      },
-      {
-        path: '/iconPark233433333343',
-        name: '33333',
-        component: () => import('@/views/iconPark/index.vue'),
-        meta: {
-          title: '图标223w3ww3',
+          title: '二维码',
+          icon: 'scan-code',
         },
       },
     ],
+  },
+  {
+    path: '/play/video',
+    name: 'PlayVideo',
+    component: () => import('@/views/video/index.vue'),
+    meta: {
+      title: '404',
+      icon: 'scan-code',
+    },
   },
   // {
   //   path: '*',
