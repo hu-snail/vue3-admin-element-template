@@ -24,6 +24,7 @@ const {
   drop_console,
   drop_debugger,
 } = setting;
+
 const isDev = process.env.NODE_ENV === 'development';
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -55,12 +56,12 @@ export default defineConfig({
       ],
     }),
     viteMockServe({
-      mockPath: './src/server/mock',
+      mockPath: 'mock',
       supportTs: false,
       localEnabled: isDev,
       prodEnabled: !isDev,
       injectCode: `
-          import { setupProdMockServer } from './mockProdServer.js';
+          import { setupProdMockServer } from './mockProdServer';
           setupProdMockServer();
         `,
     }),

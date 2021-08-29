@@ -12,7 +12,7 @@ export const login = async (data) => {
 export const getUserInfo = (accessToken) => {
   return request({
     url: '/userInfo',
-    method: 'post',
+    method: 'get',
     data: {
       [tokenName]: accessToken,
     },

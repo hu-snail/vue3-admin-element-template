@@ -8,7 +8,7 @@ export const netConfig = {
   baseURL:
     process.env.NODE_ENV === 'development'
       ? 'http://localhost:8089/api'
-      : 'http://10.10.7.54:5000/api',
+      : 'http://localhost:5000/api',
   // 为开发服务器配置 CORS。默认启用并允许任何源，传递一个 选项对象 来调整行为或设为 false 表示禁用
   cors: true,
   // 根据后端定义配置

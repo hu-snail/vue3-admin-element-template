@@ -63,7 +63,7 @@ router.beforeResolve(async (to, from, next) => {
       next();
     } else {
       if (recordRoute) {
-        next(`/login?redirect=${to.path}`);
+        // next(`/login?redirect=${to.path}`);
       } else {
         next('/login');
       }

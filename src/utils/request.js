@@ -38,7 +38,8 @@ const handleCode = (code, msg) => {
       router.push({ path: '/401' }).catch(() => {});
       break;
     default:
-      ElMessage.error(msg || `后端接口${code}异常`, 'error');
+      console.log('---');
+      ElMessage.error(msg || `后端接口${code}异常`);
       break;
   }
 };
@@ -78,14 +79,17 @@ instance.interceptors.response.use(
     if (successCode.indexOf(code) !== -1) {
       return res;
     } else {
+      console.log('---====', response);
       handleCode(code, msg);
       return Promise.reject();
     }
   },
   (error) => {
     const { response, message } = error;
+    console.log(error);
     if (error.response && error.response.data) {
       const { status, data } = response;
+      console.log('---===1222=', response);
       handleCode(status, data.msg || message);
       return Promise.reject(error);
     } else {
@@ -98,8 +102,10 @@ instance.interceptors.response.use(
       }
       if (message.includes('Request failed with status code')) {
         const code = message.substr(message.length - 3);
+        console.log('---===2244=', response);
         message = '后端接口' + code + '异常';
       }
+      console.log('---===224ee4=', response);
       ElMessage.error(message || `后端接口未知异常`);
       return Promise.reject(error);
     }

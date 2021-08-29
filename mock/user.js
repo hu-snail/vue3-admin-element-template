@@ -25,7 +25,6 @@ export default [
     method: 'post',
     response: (config) => {
       const { username } = config.body;
-      console.log(username, '---');
       const accessToken = accessTokens[username];
       if (!accessToken) {
         return {
@@ -52,7 +51,7 @@ export default [
   },
   {
     url: '/api/userInfo',
-    type: 'post',
+    type: 'get',
     response(config) {
       const { accessToken } = config.body;
       let permissions = ['admin'];
