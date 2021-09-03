@@ -3,9 +3,6 @@
     <Echarts>
       <template #header-right> 操作 </template>
     </Echarts>
-    <Echarts>
-      <template #header-right> 操作 </template>
-    </Echarts>
   </div>
 </template>
 

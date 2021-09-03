@@ -29,7 +29,7 @@
       font-size: 20px;
       font-weight: bold;
       line-height: 55px;
-      color: $base-title-color;
+      color: #333;
       text-overflow: ellipsis;
       white-space: nowrap;
       vertical-align: middle;

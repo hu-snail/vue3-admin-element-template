@@ -2,10 +2,10 @@
   <el-scrollbar height="80vh">
     <el-menu
       :default-active="defaultActive"
-      background-color="#293246"
+      background-color="#fff"
       class="el-menu-vertical"
       :collapse="isCollapse"
-      text-color="#fff"
+      text-color="#333"
       router
       active-text-color="#08a17e"
       @open="handleOpen"
