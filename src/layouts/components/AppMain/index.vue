@@ -1,9 +1,7 @@
 <template>
   <div v-if="store.getters['setting/routerView']" class="app-main-container">
     <transition mode="out-in" name="fade-transform">
-      <keep-alive>
-        <router-view class="app-main-height" />
-      </keep-alive>
+      <router-view class="app-main-height" />
     </transition>
     <footer class="footer-copyright"> Hu-snail vue3-admin 版权所有 © 2019-2021 </footer>
   </div>
