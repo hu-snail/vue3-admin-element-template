@@ -200,6 +200,21 @@
   resolved "https://registry.nlark.com/@babel/parser/download/@babel/parser-7.15.0.tgz#b6d6e29058ca369127b0eeca2a1c4b5794f1b6b9"
   integrity sha1-ttbikFjKNpEnsO7KKhxLV5Txtrk=
 
+"@babel/runtime-corejs3@^7.11.2":
+  version "7.15.4"
+  resolved "https://registry.nlark.com/@babel/runtime-corejs3/download/@babel/runtime-corejs3-7.15.4.tgz#403139af262b9a6e8f9ba04a6fdcebf8de692bf1"
+  integrity sha1-QDE5ryYrmm6Pm6BKb9zr+N5pK/E=
+  dependencies:
+    core-js-pure "^3.16.0"
+    regenerator-runtime "^0.13.4"
+
+"@babel/runtime@^7.11.2":
+  version "7.15.4"
+  resolved "https://registry.nlark.com/@babel/runtime/download/@babel/runtime-7.15.4.tgz#fd17d16bfdf878e6dd02d19753a39fa8a8d9c84a"
+  integrity sha1-/RfRa/34eObdAtGXU6OfqKjZyEo=
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
 "@babel/standalone@^7.14.9":
   version "7.14.9"
   resolved "https://registry.nlark.com/@babel/standalone/download/@babel/standalone-7.14.9.tgz#b9a6fa913271a153ca232fdd0f2aa5e3c951d9d5"
@@ -1097,6 +1112,11 @@ copy-descriptor@^0.1.0:
   version "0.1.1"
   resolved "https://registry.nlark.com/copy-descriptor/download/copy-descriptor-0.1.1.tgz#676f6eb3c39997c2ee1ac3a924fd6124748f578d"
   integrity sha1-Z29us8OZl8LuGsOpJP1hJHSPV40=
+
+core-js-pure@^3.16.0:
+  version "3.17.2"
+  resolved "https://registry.nlark.com/core-js-pure/download/core-js-pure-3.17.2.tgz?cache=0&sync_timestamp=1630603753603&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fcore-js-pure%2Fdownload%2Fcore-js-pure-3.17.2.tgz#ba6311b6aa1e2f2adeba4ac6ec51a9ff40bdc1af"
+  integrity sha1-umMRtqoeLyreukrG7FGp/0C9wa8=
 
 core-js@^3.16.0:
   version "3.16.0"
@@ -3281,7 +3301,7 @@ redent@^3.0.0:
     indent-string "^4.0.0"
     strip-indent "^3.0.0"
 
-regenerator-runtime@^0.13.9:
+regenerator-runtime@^0.13.4, regenerator-runtime@^0.13.9:
   version "0.13.9"
   resolved "https://registry.nlark.com/regenerator-runtime/download/regenerator-runtime-0.13.9.tgz#8925742a98ffd90814988d7566ad30ca3b263b52"
   integrity sha1-iSV0Kpj/2QgUmI11Zq0wyjsmO1I=
@@ -4004,6 +4024,11 @@ tslib@^2.0.3:
   resolved "https://registry.nlark.com/tslib/download/tslib-2.3.0.tgz#803b8cdab3e12ba581a4ca41c8839bbb0dacb09e"
   integrity sha1-gDuM2rPhK6WBpMpByIObuw2ssJ4=
 
+tslib@^2.1.0:
+  version "2.3.1"
+  resolved "https://registry.nlark.com/tslib/download/tslib-2.3.1.tgz#e8a335add5ceae51aa261d32a490158ef042ef01"
+  integrity sha1-6KM1rdXOrlGqJh0ypJAVjvBC7wE=
+
 type-check@^0.4.0, type-check@~0.4.0:
   version "0.4.0"
   resolved "https://registry.npm.taobao.org/type-check/download/type-check-0.4.0.tgz#07b8203bfa7056c0657050e3ccd2c37730bab8f1"
@@ -4266,6 +4291,15 @@ vuex@^4.0.2:
   integrity sha1-+Jbb1b8qDpY/AMZ+m2EN50nMrMk=
   dependencies:
     "@vue/devtools-api" "^6.0.0-beta.11"
+
+wangeditor@^4.7.7:
+  version "4.7.7"
+  resolved "https://registry.nlark.com/wangeditor/download/wangeditor-4.7.7.tgz#3d600f3cbecde78f8177830d6cb081db1fa7c19a"
+  integrity sha1-PWAPPL7N54+Bd4MNbLCB2x+nwZo=
+  dependencies:
+    "@babel/runtime" "^7.11.2"
+    "@babel/runtime-corejs3" "^7.11.2"
+    tslib "^2.1.0"
 
 which@^1.3.1:
   version "1.3.1"

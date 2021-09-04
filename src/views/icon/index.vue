@@ -1,11 +1,12 @@
 <template>
   <div class="icon-container">
-    <h2 class="title">图标 Icon</h2>
-    <div class="desc">
-      Vue3-admin 推荐使用
-      <a href="https://iconpark.oceanengine.com/official" target="_blank">IconPark</a>
-      作为图标库
-    </div>
+    <Descrition title="图标 IconPark">
+      <template #descrition>
+        Vue3-admin 推荐使用
+        <a href="https://iconpark.oceanengine.com/official" target="_blank">IconPark</a>
+        作为图标库
+      </template>
+    </Descrition>
     <h2 class="title reset">演示</h2>
     <div class="icon-centent">
       <div class="icon-item" v-for="(item, index) in icon.icons" :key="index">
@@ -27,7 +28,9 @@
 <script>
   import { getIcons } from '@/api/icon';
   import { reactive, toRefs, onBeforeMount } from 'vue';
+  import Descrition from '@/components/Descrition/index.vue';
   export default {
+    components: { Descrition },
     setup() {
       const state = reactive({
         icon: {},
@@ -51,13 +54,8 @@
 </script>
 <style lang="scss" scoped>
   .icon-container {
-    padding: 20px 30px;
+    padding: $base-main-padding;
     background-color: $base-color-white;
-    .desc {
-      padding: 15px 20px;
-      background-color: rgba($base-color-default, 0.1);
-      border-left: 5px solid $base-color-default;
-    }
     .title {
       &.reset {
         margin-top: 40px;

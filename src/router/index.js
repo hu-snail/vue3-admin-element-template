@@ -59,18 +59,18 @@ export const asyncRoutes = [
         },
       },
       {
-        path: '/play/video',
-        name: 'PlayVideo',
-        component: () => import('@/views/video/index.vue'),
+        path: '/editor',
+        name: 'Editor',
+        component: () => import('@/views/editor/index.vue'),
         meta: {
           title: '文本编辑器',
           icon: 'add-text',
         },
         children: [
           {
-            path: '/chart/line',
-            name: 'ChartLine',
-            component: () => import('@/views/video/index.vue'),
+            path: '/wangEditor',
+            name: 'Wang',
+            component: () => import('@/views/editor/wang.vue'),
             meta: {
               title: '富文本',
             },
