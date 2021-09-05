@@ -76,9 +76,9 @@ export const asyncRoutes = [
             },
           },
           {
-            path: '/chart/line',
-            name: 'ChartLine',
-            component: () => import('@/views/video/index.vue'),
+            path: '/vditor',
+            name: 'Vditor',
+            component: () => import('@/views/editor/vditor.vue'),
             meta: {
               title: 'Markdown',
             },
@@ -88,7 +88,7 @@ export const asyncRoutes = [
       {
         path: '/chart',
         name: 'Chart',
-        component: () => import('@/views/video/index.vue'),
+        component: () => import('@/views/echarts/index.vue'),
         meta: {
           title: 'Echarts图表',
           icon: 'chart-line',
@@ -97,7 +97,7 @@ export const asyncRoutes = [
           {
             path: '/chart/line',
             name: 'ChartLine',
-            component: () => import('@/views/video/index.vue'),
+            component: () => import('@/views/echarts/index.vue'),
             meta: {
               title: '折线图',
             },
@@ -105,7 +105,7 @@ export const asyncRoutes = [
           {
             path: '/chart/line',
             name: 'ChartLine',
-            component: () => import('@/views/video/index.vue'),
+            component: () => import('@/views/echarts/index.vue'),
             meta: {
               title: '条形图',
             },
@@ -113,18 +113,18 @@ export const asyncRoutes = [
         ],
       },
       {
-        path: '/play/video',
-        name: 'PlayVideo',
-        component: () => import('@/views/video/index.vue'),
+        path: '/videoPlay',
+        name: 'Video',
+        component: () => import('@/views/videoPlay/index.vue'),
         meta: {
           title: '视频播放器',
           icon: 'xigua',
         },
       },
       {
-        path: '/play/video',
-        name: 'PlayVideo',
-        component: () => import('@/views/video/index.vue'),
+        path: '/audio',
+        name: 'PlayAudio',
+        component: () => import('@/views/audio/index.vue'),
         meta: {
           title: '音频播放器',
           icon: 'performance',
@@ -132,8 +132,8 @@ export const asyncRoutes = [
       },
       {
         path: '/img',
-        name: 'PlayVideo',
-        component: () => import('@/views/video/index.vue'),
+        name: 'Image',
+        component: () => import('@/views/image/index.vue'),
         meta: {
           title: '图片相关',
           icon: 'pic',

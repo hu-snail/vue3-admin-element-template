@@ -1,10 +1,3 @@
 <template>
-  <div class="container">
-    <router-view></router-view>
-  </div>
+  <router-view></router-view>
 </template>
-<style lang="scss" scoped>
-  .container {
-    background-color: #fff;
-  }
-</style>
