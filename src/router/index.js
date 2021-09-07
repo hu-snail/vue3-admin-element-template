@@ -142,7 +142,7 @@ export const asyncRoutes = [
           {
             path: '/play/video',
             name: 'PlayVideo',
-            component: () => import('@/views/video/index.vue'),
+            // component: () => '',
             meta: {
               title: '预览',
               icon: 'search',
@@ -151,7 +151,7 @@ export const asyncRoutes = [
           {
             path: '/play/video',
             name: 'PlayVideo',
-            component: () => import('@/views/video/index.vue'),
+            // component: () => '',
             meta: {
               title: '裁剪',
               icon: 'tailoring',
@@ -160,7 +160,7 @@ export const asyncRoutes = [
           {
             path: '/play/video',
             name: 'PlayVideo',
-            component: () => import('@/views/video/index.vue'),
+            // component: () => import('@/views/video/index.vue'),
             meta: {
               title: '编辑',
               icon: 'tailoring-two',
@@ -171,7 +171,7 @@ export const asyncRoutes = [
       {
         path: '/play/video',
         name: 'PlayVideo',
-        component: () => import('@/views/video/index.vue'),
+        // component: () => import('@/views/video/index.vue'),
         meta: {
           title: '拖拽',
           icon: 'move-one',
@@ -180,7 +180,7 @@ export const asyncRoutes = [
       {
         path: '/play/video',
         name: 'PlayVideo',
-        component: () => import('@/views/video/index.vue'),
+        // component: () => import('@/views/video/index.vue'),
         meta: {
           title: '二维码',
           icon: 'scan-code',
@@ -191,7 +191,7 @@ export const asyncRoutes = [
   {
     path: '/play/video',
     name: 'PlayVideo',
-    component: () => import('@/views/video/index.vue'),
+    // component: () => import('@/views/video/index.vue'),
     meta: {
       title: '404',
       icon: 'scan-code',

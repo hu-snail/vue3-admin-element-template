@@ -1,1 +1,0 @@
-System.register(["./vendor-legacy.1d1e74b2.js"],(function(e){"use strict";var n,t;return{setters:[function(e){n=e.o,t=e.a}],execute:function(){var r=e("default",{}),c={class:"icon-container"};r.render=function(e,r){return n(),t("div",c)}}}}));
