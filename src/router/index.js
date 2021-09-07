@@ -122,9 +122,9 @@ export const asyncRoutes = [
         },
       },
       {
-        path: '/audio',
+        path: '/audioPlay',
         name: 'PlayAudio',
-        component: () => import('@/views/audio/index.vue'),
+        component: () => import('@/views/audioPlay/index.vue'),
         meta: {
           title: '音频播放器',
           icon: 'performance',

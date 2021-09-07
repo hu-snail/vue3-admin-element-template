@@ -32,7 +32,8 @@
     "vue-router": "^4.0.10",
     "vuex": "^4.0.2",
     "wangeditor": "^4.7.7",
-    "xgplayer": "^2.29.1"
+    "xgplayer": "^2.29.1",
+    "xgplayer-music": "^2.3.2"
   },
   "devDependencies": {
     "@types/node": "^16.7.1",

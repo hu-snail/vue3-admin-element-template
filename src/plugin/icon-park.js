@@ -42,6 +42,15 @@ import {
   TailoringTwo,
   AddText,
   ScanCode,
+  Play,
+  PauseOne,
+  VolumeNotice,
+  VolumeMute,
+  PlayCycle,
+  PlayOnce,
+  GoStart,
+  GoEnd,
+  MusicList,
 } from '@icon-park/vue-next';
 
 // el-icon
@@ -83,6 +92,15 @@ export const components = [
   TailoringTwo,
   AddText,
   ScanCode,
+  Play,
+  PauseOne,
+  VolumeNotice,
+  VolumeMute,
+  PlayCycle,
+  PlayOnce,
+  GoStart,
+  GoEnd,
+  MusicList,
 ];
 
 import SvgIcon from '@/components/SvgIcon/index.vue';

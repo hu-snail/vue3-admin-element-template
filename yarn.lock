@@ -1237,6 +1237,11 @@ deepmerge@^1.5.0:
   resolved "https://registry.nlark.com/deepmerge/download/deepmerge-1.5.2.tgz#10499d868844cdad4fee0842df8c7f6f0c95a753"
   integrity sha1-EEmdhohEza1P7ghC34x/bwyVp1M=
 
+deepmerge@^2.0.1:
+  version "2.2.1"
+  resolved "https://registry.nlark.com/deepmerge/download/deepmerge-2.2.1.tgz#5d3ff22a01c00f645405a2fbc17d0778a1801170"
+  integrity sha1-XT/yKgHAD2RUBaL7wX0HeKGAEXA=
+
 deepmerge@^4.2.2:
   version "4.2.2"
   resolved "https://registry.nlark.com/deepmerge/download/deepmerge-4.2.2.tgz#44d2ea3679b8f4d4ffba33f03d865fc1e7bf4955"
@@ -4518,6 +4523,14 @@ write-file-atomic@^3.0.3:
     is-typedarray "^1.0.0"
     signal-exit "^3.0.2"
     typedarray-to-buffer "^3.1.5"
+
+xgplayer-music@^2.3.2:
+  version "2.3.2"
+  resolved "https://registry.nlark.com/xgplayer-music/download/xgplayer-music-2.3.2.tgz#553fd2ba03c01fabef2e74ba27efa216680eb0cc"
+  integrity sha1-VT/SugPAH6vvLnS6J++iFmgOsMw=
+  dependencies:
+    deepmerge "^2.0.1"
+    event-emitter "^0.3.5"
 
 xgplayer-subtitles@^1.0.13:
   version "1.0.13"

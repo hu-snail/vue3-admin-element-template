@@ -7,10 +7,11 @@
     ></i>
     <component
       v-if="type === 'icon-park'"
-      theme="outline"
+      :theme="theme"
       :size="size"
       :strokeWidth="strokeWidth"
       :is="name"
+      :fill="color"
       class="icon"
     />
     <el-icon v-if="type === 'el-icon'" :style="{ color, 'font-size': size + 'px' }">
@@ -24,7 +25,7 @@
   defineProps({
     type: {
       type: String,
-      default: 'el-icon',
+      default: 'icon-park',
     },
     size: {
       type() {
