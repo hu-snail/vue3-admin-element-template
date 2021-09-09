@@ -140,9 +140,9 @@ export const asyncRoutes = [
         },
         children: [
           {
-            path: '/play/video',
-            name: 'PlayVideo',
-            // component: () => '',
+            path: '/imgPreview',
+            name: 'ImgPreview',
+            component: () => import('@/views/image/preview.vue'),
             meta: {
               title: '预览',
               icon: 'search',

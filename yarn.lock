@@ -4427,6 +4427,11 @@ vite@^2.4.4:
   optionalDependencies:
     fsevents "~2.3.2"
 
+vue-cropper@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.nlark.com/vue-cropper/download/vue-cropper-1.0.1.tgz#24fc077609bef147c8765306f4cdec6d85f46cfe"
+  integrity sha1-JPwHdgm+8UfIdlMG9M3sbYX0bP4=
+
 vue-eslint-parser@^7.10.0:
   version "7.10.0"
   resolved "https://registry.nlark.com/vue-eslint-parser/download/vue-eslint-parser-7.10.0.tgz?cache=0&sync_timestamp=1627452685676&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fvue-eslint-parser%2Fdownload%2Fvue-eslint-parser-7.10.0.tgz#ea4e4b10fd10aa35c8a79ac783488d8abcd29be8"

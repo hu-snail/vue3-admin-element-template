@@ -29,6 +29,7 @@
     "screenfull": "^5.1.0",
     "vditor": "^3.8.6",
     "vue": "^3.0.5",
+    "vue-cropper": "^1.0.1",
     "vue-router": "^4.0.10",
     "vuex": "^4.0.2",
     "wangeditor": "^4.7.7",
