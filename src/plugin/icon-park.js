@@ -53,6 +53,7 @@ import {
   MusicList,
   LinkCloudFaild,
   LinkInterrupt,
+  Copy,
 } from '@icon-park/vue-next';
 
 // el-icon
@@ -106,6 +107,7 @@ export const components = [
   LinkCloudFaild,
   Error,
   LinkInterrupt,
+  Copy,
 ];
 
 import SvgIcon from '@/components/SvgIcon/index.vue';

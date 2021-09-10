@@ -7,6 +7,8 @@ import 'element-plus/dist/index.css';
 import 'element-plus/theme-chalk/display.css';
 import App from './App.vue';
 
+import { VueClipboard } from '@soerenmartius/vue3-clipboard';
+
 import router from './router/index';
 import store from '@/store';
 
@@ -14,7 +16,7 @@ const app = createApp(App);
 
 app.use(router);
 app.use(store);
-
+app.use(VueClipboard);
 // 注册 elementPlus组件/插件
 // elementPlus(app);
 // 完整引入

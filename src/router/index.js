@@ -179,11 +179,20 @@ export const asyncRoutes = [
       },
       {
         path: '/qrcode',
-        name: 'qrcode',
+        name: 'Qrcode',
         component: () => import('@/views/qrcode/index.vue'),
         meta: {
           title: '二维码',
           icon: 'scan-code',
+        },
+      },
+      {
+        path: '/clipboard',
+        name: 'Clipboard',
+        component: () => import('@/views/clipboard/index.vue'),
+        meta: {
+          title: '粘贴板',
+          icon: 'copy',
         },
       },
     ],
