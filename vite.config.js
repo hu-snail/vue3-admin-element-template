@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 const path = require('path');
 import vue from '@vitejs/plugin-vue';
-import styleImport from 'vite-plugin-style-import';
+import VitePluginElementPlus from 'vite-plugin-element-plus';
 import legacy from '@vitejs/plugin-legacy';
 import { viteMockServe } from 'vite-plugin-mock';
 import { setting } from './src/config/setting';
@@ -39,21 +39,12 @@ export default defineConfig({
       polyfills: ['es.promise.finally', 'es/map', 'es/set'],
       modernPolyfills: ['es.promise.finally'],
     }),
-    styleImport({
-      libs: [
-        {
-          libraryName: 'element-plus',
-          esModule: true,
-          ensureStyleFile: true,
-          resolveStyle: (name) => {
-            name = name.slice(3);
-            return `element-plus/packages/theme-chalk/src/${name}.scss`;
-          },
-          resolveComponent: (name) => {
-            return `element-plus/lib/${name}`;
-          },
-        },
-      ],
+    VitePluginElementPlus({
+      // 如果你需要使用 [component name].scss 源文件，你需要把下面的注释取消掉。
+      // 对于所有的 API 你可以参考 https://github.com/element-plus/vite-plugin-element-plus
+      // 的文档注释
+      // useSource: true,
+      format: isDev ? 'esm' : 'cjs',
     }),
     viteMockServe({
       mockPath: 'mock',
@@ -126,6 +117,14 @@ export default defineConfig({
   optimizeDeps: {
     // 检测需要预构建的依赖项
     entries: [],
-    include: ['element-plus', 'vue', 'vue-router', 'vditor'],
+    include: [
+      'element-plus',
+      'vue',
+      'vue-cropper',
+      'vue-router',
+      'vditor',
+      'xgplayer',
+      'xgplayer-music',
+    ],
   },
 });

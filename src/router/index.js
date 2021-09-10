@@ -149,9 +149,9 @@ export const asyncRoutes = [
             },
           },
           {
-            path: '/play/video',
-            name: 'PlayVideo',
-            // component: () => '',
+            path: '/imgCropper',
+            name: 'ImgCropper',
+            component: () => import('@/views/image/cropper.vue'),
             meta: {
               title: '裁剪',
               icon: 'tailoring',

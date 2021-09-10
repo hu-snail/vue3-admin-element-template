@@ -18,7 +18,7 @@
       </span>
     </template>
   </el-menu-item>
-  <el-submenu :index="item.path" :key="item.path" v-else>
+  <el-sub-menu :index="item.path" :key="item.path" v-else>
     <template #title>
       <component
         class="menu-icon"
@@ -46,7 +46,7 @@
         </span>
       </el-menu-item>
     </template>
-  </el-submenu>
+  </el-sub-menu>
 </template>
 <script setup>
   import { defineProps } from 'vue';
@@ -65,7 +65,9 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    width: 16px !important;
     height: 50px !important;
     margin-right: 5px;
+    visibility: initial !important;
   }
 </style>

@@ -2,11 +2,9 @@ import { createApp } from 'vue';
 // import elementPlus from './plugin/el-comp';
 import iconPark from './plugin/icon-park';
 import './config/permission';
-import 'element-plus/lib/theme-chalk/display.css';
-// import 'element-plus/packages/theme-chalk/src/base.scss';
 import ElementPlus from 'element-plus';
-import 'element-plus/lib/theme-chalk/index.css';
-
+import 'element-plus/dist/index.css';
+import 'element-plus/theme-chalk/display.css';
 import App from './App.vue';
 
 import router from './router/index';
