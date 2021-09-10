@@ -178,9 +178,9 @@ export const asyncRoutes = [
         },
       },
       {
-        path: '/play/video',
-        name: 'PlayVideo',
-        // component: () => import('@/views/video/index.vue'),
+        path: '/qrcode',
+        name: 'qrcode',
+        component: () => import('@/views/qrcode/index.vue'),
         meta: {
           title: '二维码',
           icon: 'scan-code',
