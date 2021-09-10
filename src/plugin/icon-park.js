@@ -51,6 +51,8 @@ import {
   GoStart,
   GoEnd,
   MusicList,
+  LinkCloudFaild,
+  LinkInterrupt,
 } from '@icon-park/vue-next';
 
 // el-icon
@@ -101,6 +103,9 @@ export const components = [
   GoStart,
   GoEnd,
   MusicList,
+  LinkCloudFaild,
+  Error,
+  LinkInterrupt,
 ];
 
 import SvgIcon from '@/components/SvgIcon/index.vue';

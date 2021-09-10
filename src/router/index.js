@@ -189,13 +189,33 @@ export const asyncRoutes = [
     ],
   },
   {
-    path: '/play/video',
-    name: 'PlayVideo',
-    // component: () => import('@/views/video/index.vue'),
+    path: '/errorPage',
+    name: 'ErrorPage',
+    component: Layout,
     meta: {
-      title: '404',
-      icon: 'scan-code',
+      title: '错误页面',
+      icon: 'link-cloud-faild',
     },
+    children: [
+      {
+        path: '/404Page',
+        name: '404Page',
+        component: () => import('@/views/errorPage/404.vue'),
+        meta: {
+          title: '404',
+          icon: 'link-cloud-faild',
+        },
+      },
+      {
+        path: '/401Page',
+        name: '401Page',
+        component: () => import('@/views/errorPage/401.vue'),
+        meta: {
+          title: '401',
+          icon: 'link-interrupt',
+        },
+      },
+    ],
   },
   // {
   //   path: '*',
