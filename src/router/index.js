@@ -169,9 +169,9 @@ export const asyncRoutes = [
         ],
       },
       {
-        path: '/play/video',
-        name: 'PlayVideo',
-        // component: () => import('@/views/video/index.vue'),
+        path: '/draggable',
+        name: 'Draggable',
+        component: () => import('@/views/draggable/index.vue'),
         meta: {
           title: '拖拽',
           icon: 'move-one',

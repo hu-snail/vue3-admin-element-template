@@ -39,8 +39,11 @@
           canMove: true,
           autoCrop: true,
           infoTrue: true,
-          autoCropWidth: 1000,
-          autoCropHeight: 1000,
+          centerBox: true,
+          fixedBox: false,
+          enlarge: 1,
+          autoCropWidth: 5000,
+          autoCropHeight: 5000,
         },
       });
 

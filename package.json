@@ -31,6 +31,7 @@
     "vue": "^3.2.4",
     "vue-cropper": "^1.0.1",
     "vue-router": "^4.0.10",
+    "vuedraggable": "^4.1.0",
     "vuex": "^4.0.2",
     "wangeditor": "^4.7.7",
     "xgplayer": "^2.29.1",

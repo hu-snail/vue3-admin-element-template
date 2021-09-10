@@ -3717,6 +3717,11 @@ snapdragon@^0.8.1:
     source-map-resolve "^0.5.0"
     use "^3.1.0"
 
+sortablejs@1.14.0:
+  version "1.14.0"
+  resolved "https://registry.nlark.com/sortablejs/download/sortablejs-1.14.0.tgz#6d2e17ccbdb25f464734df621d4f35d4ab35b3d8"
+  integrity sha1-bS4XzL2yX0ZHNN9iHU811Ks1s9g=
+
 source-map-js@^0.6.2:
   version "0.6.2"
   resolved "https://registry.npm.taobao.org/source-map-js/download/source-map-js-0.6.2.tgz#0bb5de631b41cfbda6cfba8bd05a80efdfd2385e"
@@ -4462,6 +4467,13 @@ vue@^3.2.4:
     "@vue/compiler-dom" "3.2.11"
     "@vue/runtime-dom" "3.2.11"
     "@vue/shared" "3.2.11"
+
+vuedraggable@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.nlark.com/vuedraggable/download/vuedraggable-4.1.0.tgz#edece68adb8a4d9e06accff9dfc9040e66852270"
+  integrity sha1-7ezmituKTZ4GrM/538kEDmaFInA=
+  dependencies:
+    sortablejs "1.14.0"
 
 vuex@^4.0.2:
   version "4.0.2"
