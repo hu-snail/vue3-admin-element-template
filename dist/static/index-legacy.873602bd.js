@@ -1,0 +1,1 @@
+System.register(["./vendor-legacy.46b2cbba.js"],(function(e){"use strict";var r,t,n;return{setters:[function(e){r=e.a2,t=e.o,n=e.a6}],execute:function(){e("default",{}).render=function(e,u){var c=r("router-view");return t(),n(c)}}}}));
