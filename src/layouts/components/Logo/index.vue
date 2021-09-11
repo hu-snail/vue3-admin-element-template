@@ -1,5 +1,5 @@
 <template>
-  <div class="logo-wrapper">
+  <div class="logo-wrapper" :class="{ phone: collapse }">
     <svg-icon name="vue" size="35px" />
     <span class="logo-title" v-if="!collapse"> vue3-admin </span>
   </div>
@@ -18,8 +18,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 2px 20px;
+    width: 240px;
+    // padding: 2px 20px;
     cursor: pointer;
+    &.phone {
+      width: 60px;
+      padding: 10px 0;
+    }
+
     .logo-title {
       display: inline-block;
       max-width: calc(246px - 60px);

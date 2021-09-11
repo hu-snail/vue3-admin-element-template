@@ -54,6 +54,7 @@ import {
   LinkCloudFaild,
   LinkInterrupt,
   Copy,
+  ChartHistogram,
 } from '@icon-park/vue-next';
 
 // el-icon
@@ -108,6 +109,7 @@ export const components = [
   Error,
   LinkInterrupt,
   Copy,
+  ChartHistogram,
 ];
 
 import SvgIcon from '@/components/SvgIcon/index.vue';

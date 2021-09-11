@@ -95,19 +95,27 @@ export const asyncRoutes = [
         },
         children: [
           {
-            path: '/chart/line',
-            name: 'ChartLine',
-            component: () => import('@/views/echarts/index.vue'),
+            path: '/line',
+            name: 'Line',
+            component: () => import('@/views/echarts/line.vue'),
             meta: {
               title: '折线图',
             },
           },
           {
-            path: '/chart/line',
-            name: 'ChartLine',
-            component: () => import('@/views/echarts/index.vue'),
+            path: '/bar',
+            name: 'Bar',
+            component: () => import('@/views/echarts/bar.vue'),
             meta: {
-              title: '条形图',
+              title: '柱状图',
+            },
+          },
+          {
+            path: '/otherChart',
+            name: 'OtherChart',
+            component: () => import('@/views/echarts/other.vue'),
+            meta: {
+              title: '其他图表',
             },
           },
         ],
@@ -162,7 +170,7 @@ export const asyncRoutes = [
             name: 'PlayVideo',
             // component: () => import('@/views/video/index.vue'),
             meta: {
-              title: '编辑',
+              title: '轮播',
               icon: 'tailoring-two',
             },
           },

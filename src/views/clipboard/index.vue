@@ -1,6 +1,6 @@
 <template>
   <div class="clipboard-container">
-    <Descrition title="列表拖拽 vue3-clipboard">
+    <Descrition title="粘贴板 vue3-clipboard">
       <template #descrition>
         Vue3-admin 推荐使用
         <a href="https://github.com/soerenmartius/vue3-clipboard" target="_blank">vue3-clipboard</a>

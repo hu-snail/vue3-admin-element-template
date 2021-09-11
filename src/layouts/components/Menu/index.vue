@@ -1,5 +1,5 @@
 <template>
-  <el-scrollbar height="80vh">
+  <el-scrollbar height="100vh">
     <el-menu
       :default-active="defaultActive"
       background-color="#fff"
@@ -63,6 +63,7 @@
     bottom: 0;
     left: 0;
     height: 100vh;
+    overflow-x: hidden;
     overflow-y: auto;
     @include base-scrollbar;
     &:not(.el-menu--collapse) {
