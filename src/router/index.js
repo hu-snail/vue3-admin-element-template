@@ -166,12 +166,12 @@ export const asyncRoutes = [
             },
           },
           {
-            path: '/play/video',
-            name: 'PlayVideo',
-            // component: () => import('@/views/video/index.vue'),
+            path: '/carousel',
+            name: 'Carousel',
+            component: () => import('@/views/carousel/index.vue'),
             meta: {
               title: '轮播',
-              icon: 'tailoring-two',
+              icon: 'multi-picture-carousel',
             },
           },
         ],
