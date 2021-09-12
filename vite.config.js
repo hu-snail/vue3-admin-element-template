@@ -117,14 +117,6 @@ export default defineConfig({
   optimizeDeps: {
     // 检测需要预构建的依赖项
     entries: [],
-    include: [
-      'element-plus',
-      'vue',
-      'vue-cropper',
-      'vue-router',
-      'vditor',
-      'xgplayer',
-      'xgplayer-music',
-    ],
+    include: ['element-plus', 'vue-router'],
   },
 });

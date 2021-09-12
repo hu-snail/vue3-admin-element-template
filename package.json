@@ -17,28 +17,19 @@
     "lint:pretty": "pretty-quick --staged"
   },
   "dependencies": {
-    "@chenfengyuan/vue-qrcode": "^2.0.0-rc.1",
     "@element-plus/icons": "^0.0.11",
     "@icon-park/vue-next": "^1.3.5",
-    "@soerenmartius/vue3-clipboard": "^0.1.2",
     "axios": "^0.21.1",
     "echarts": "^5.1.2",
     "element-plus": "^1.1.0-beta.9",
     "lodash": "^4.17.21",
     "mockjs": "^1.1.0",
     "nprogress": "^0.2.0",
-    "qrcode": "^1.4.4",
     "qs": "^6.10.1",
     "screenfull": "^5.1.0",
-    "vditor": "^3.8.6",
     "vue": "^3.2.4",
-    "vue-cropper": "^1.0.1",
     "vue-router": "^4.0.10",
-    "vuedraggable": "^4.1.0",
-    "vuex": "^4.0.2",
-    "wangeditor": "^4.7.7",
-    "xgplayer": "^2.29.1",
-    "xgplayer-music": "^2.3.2"
+    "vuex": "^4.0.2"
   },
   "devDependencies": {
     "@types/node": "^16.7.1",
