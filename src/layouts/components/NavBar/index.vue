@@ -13,7 +13,9 @@
             fill="#666"
             @click="handleCollapse"
           />
-          <Breadcrumb class="hidden-xs-only" />
+          <template v-if="isBreadcrumb">
+            <Breadcrumb class="hidden-xs-only" />
+          </template>
         </div>
       </el-col>
       <el-col :xs="20" :sm="12" :md="12" :lg="12" :xl="12">
@@ -27,7 +29,7 @@
             fill="#666"
             @click="handleChangeTheme"
           />
-          <el-popover placement="bottom" :width="320" trigger="hover">
+          <el-popover v-if="settings.notice" placement="bottom" :width="320" trigger="hover">
             <template #reference>
               <el-badge type="danger" :value="5" class="msg-badge">
                 <remind
@@ -51,8 +53,9 @@
             </div>
           </el-popover>
 
-          <FullScreen @refresh="onRefresh" />
+          <FullScreen v-if="settings.fullScreen" @refresh="onRefresh" />
           <refresh
+            v-if="settings.refresh"
             title="刷新"
             @click="handleRefresh"
             class="icon-hover refresh"
@@ -97,6 +100,14 @@
 
   const collapse = computed(() => {
     return store.getters.collapse;
+  });
+
+  const isBreadcrumb = computed(() => {
+    return store.getters['setting/isBreadcrumb'];
+  });
+
+  const settings = computed(() => {
+    return store.getters['setting/settings'];
   });
 
   const emit = defineEmits(['handleCollapse']);

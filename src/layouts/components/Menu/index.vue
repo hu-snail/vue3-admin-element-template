@@ -12,7 +12,7 @@
       @open="handleOpen"
       @close="handleClose"
     >
-      <Logo />
+      <Logo v-if="isLogo" />
       <template v-for="item in routes">
         <template v-if="!item.hidden">
           <MenuItem :item="item" :key="item.path" />
@@ -44,6 +44,10 @@
 
   const routes = computed(() => {
     return store.getters['routes/routes'];
+  });
+
+  const isLogo = computed(() => {
+    return store.getters['setting/isLogo'];
   });
 
   const defaultOpened = computed(() => {

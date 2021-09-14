@@ -6,14 +6,16 @@
       <el-container class="container" :style="{ left: isCollapse ? '65px' : '240px' }">
         <el-header
           class="header"
-          :class="{ fixed: true }"
+          :class="{ fixed: fixedHead, istag: !tag }"
           height="60px"
           :style="{ left: isCollapse ? '65px' : '240px' }"
         >
           <NavBar @handleCollapse="handleCollapse" />
-          <TabBar />
+          <template v-if="tag">
+            <TabBar />
+          </template>
         </el-header>
-        <el-main class="main" :class="{ fixed: true }">
+        <el-main class="main" :class="{ fixed: fixedHead, istag: !tag }">
           <AppMain />
         </el-main>
       </el-container>
@@ -31,8 +33,17 @@
   import Mobile from './components/Mobile/index.vue';
 
   const store = useStore();
+
   const isMobile = computed(() => {
     return store.getters['setting/isMobile'];
+  });
+
+  const fixedHead = computed(() => {
+    return store.getters['setting/fixedHead'];
+  });
+
+  const tag = computed(() => {
+    return store.getters['setting/tag'];
   });
 
   const isCollapse = computed(() => {
@@ -68,6 +79,12 @@
       top: 50px;
       &.fixed {
         top: 110px;
+      }
+      &[class='el-main main fixed istag'] {
+        top: 60px;
+      }
+      &[class='el-main main istag'] {
+        top: 0;
       }
       background-color: $base-content-bg-color;
     }

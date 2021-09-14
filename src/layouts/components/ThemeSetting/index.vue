@@ -1,7 +1,7 @@
 <template>
   <el-drawer
     title="主题设置"
-    v-model="isDrawerSetting"
+    v-model="settings.isDrawerSetting"
     :direction="direction"
     :before-close="handleClose"
     destroy-on-close
@@ -47,25 +47,25 @@
               <el-color-picker v-model="setting.menuBgColor"></el-color-picker>
             </el-form-item>
             <el-form-item label="Logo">
-              <el-switch v-model="setting.isLogo" />
+              <el-switch v-model="settings.isLogo" />
             </el-form-item>
             <el-form-item label="标签">
-              <el-switch v-model="setting.tag" />
+              <el-switch @change="handleChangeTag" v-model="setting.tag" />
             </el-form-item>
             <el-form-item label="面包导航">
-              <el-switch v-model="setting.isBreadcrumb" />
+              <el-switch @change="handleChangeBread" v-model="setting.isBreadcrumb" />
             </el-form-item>
             <el-form-item label="固定头部">
-              <el-switch v-model="setting.fixedHead" />
+              <el-switch :disabled="isMobile" v-model="settings.fixedHead" />
             </el-form-item>
             <el-form-item label="全屏">
-              <el-switch v-model="setting.fullscreen" />
+              <el-switch v-model="settings.fullScreen" />
             </el-form-item>
             <el-form-item label="刷新">
-              <el-switch v-model="setting.refresh" />
+              <el-switch v-model="settings.refresh" />
             </el-form-item>
             <el-form-item label="通知">
-              <el-switch v-model="setting.notice" />
+              <el-switch v-model="settings.notice" />
             </el-form-item>
           </el-form>
         </div>
@@ -73,7 +73,7 @@
 
       <div class="drawer-footer">
         <el-button size="small">恢复默认</el-button>
-        <el-button type="primary" size="small">保存</el-button>
+        <el-button type="primary" size="small" @click="handleToSave">保存</el-button>
       </div>
     </div>
   </el-drawer>
@@ -124,9 +124,23 @@
 
   const direction = ref('rtl');
 
-  const isDrawerSetting = computed(() => {
-    return store.getters['setting/isDrawerSetting'];
+  const settings = computed(() => {
+    return store.getters['setting/settings'];
   });
+
+  const isMobile = computed(() => {
+    return store.getters['setting/isMobile'];
+  });
+
+  const handleToSave = () => {
+    store.dispatch('setting/setSettingOptions', settings);
+  };
+  const handleChangeTag = (val) => {
+    store.dispatch('setting/setTag', val);
+  };
+  const handleChangeBread = (val) => {
+    store.dispatch('setting/setBreadcrumb', val);
+  };
 
   const getThemeCluster = (theme) => {
     const tintColor = (color, tint) => {

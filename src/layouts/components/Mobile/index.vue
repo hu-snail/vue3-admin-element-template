@@ -4,9 +4,9 @@
       <el-container class="container">
         <el-header class="header" height="60px">
           <NavBar @handleCollapse="handleCollapse" />
-          <TabBar />
+          <TabBar v-if="tag" />
         </el-header>
-        <el-main class="main">
+        <el-main class="main" :class="{ fixed: fixedHead, istag: !tag }">
           <AppMain />
         </el-main>
       </el-container>
@@ -29,6 +29,14 @@
 
   const isDrawer = computed(() => {
     return store.getters['setting/isDrawer'];
+  });
+
+  const tag = computed(() => {
+    return store.getters['setting/tag'];
+  });
+
+  const fixedHead = computed(() => {
+    return store.getters['setting/fixedHead'];
   });
 
   const handleCollapse = () => {
@@ -62,6 +70,9 @@
     .main {
       position: relative;
       top: 110px;
+      &.istag {
+        top: 60px;
+      }
       background-color: $base-content-bg-color;
     }
     :deep {
