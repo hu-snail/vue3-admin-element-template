@@ -18,6 +18,15 @@
       </el-col>
       <el-col :xs="20" :sm="12" :md="12" :lg="12" :xl="12">
         <div class="right-panel">
+          <theme
+            class="icon-hover theme"
+            title="切换皮肤"
+            theme="outline"
+            :strokeWidth="4"
+            size="16"
+            fill="#666"
+            @click="handleChangeTheme"
+          />
           <el-popover placement="bottom" :width="320" trigger="hover">
             <template #reference>
               <el-badge type="danger" :value="5" class="msg-badge">
@@ -33,11 +42,11 @@
             </template>
             <div class="message-box">
               <el-tabs v-model="activeName" stretch @tab-click="handleClick">
-                <el-tab-pane label="通知 (10)" name="first">
+                <el-tab-pane label="通知 (5)" name="first">
                   <Cell :list="noticeList" />
                 </el-tab-pane>
-                <el-tab-pane label="消息 (5)" name="second">配置管理</el-tab-pane>
-                <el-tab-pane label="邮件 (8)" name="third">角色管理</el-tab-pane>
+                <el-tab-pane label="消息 (0)" name="second">暂无消息</el-tab-pane>
+                <el-tab-pane label="邮件 (0)" name="third">暂无邮件</el-tab-pane>
               </el-tabs>
             </div>
           </el-popover>
@@ -61,6 +70,7 @@
         </div>
       </el-col>
     </el-row>
+    <ThemeSetting />
   </div>
 </template>
 
@@ -80,6 +90,7 @@
   import FullScreen from '@/components/FullScreen/index.vue';
   import Breadcrumb from '../Breadcrumb/index.vue';
   import Cell from '@/components/Cell/index.vue';
+  import ThemeSetting from '../ThemeSetting/index.vue';
   const store = useStore();
 
   let activeName = ref('first');
@@ -87,6 +98,7 @@
   const collapse = computed(() => {
     return store.getters.collapse;
   });
+
   const emit = defineEmits(['handleCollapse']);
   const handleCollapse = () => {
     emit('handleCollapse');
@@ -98,6 +110,10 @@
     nextTick(() => {
       store.dispatch('setting/setRouterView', true);
     });
+  };
+
+  const handleChangeTheme = () => {
+    store.dispatch('setting/setSettingDrawer', true);
   };
 </script>
 
@@ -142,7 +158,8 @@
           }
         }
       }
-      .refresh {
+      .refresh,
+      .theme {
         padding: 20px 10px;
       }
     }

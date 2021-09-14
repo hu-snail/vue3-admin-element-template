@@ -74,6 +74,22 @@
     display: none !important;
   }
 
+  .el-menu-item{
+      &.is-active{
+        background-color: $base-color-primary-light9 !important;
+        .title{
+          color: $base-color-primary !important;
+        }
+    }
+    &:hover{
+      color: $base-color-primary !important;
+      background-color: $base-color-primary-light9 !important;
+    }
+  }
+  .el-sub-menu__title:hover{
+    background-color: transparent !important;
+  }
+  
 
 html {
   body {
@@ -82,4 +98,8 @@ html {
   div {
     @include base-scrollbar;
   }
+}
+
+.el-header{
+  --el-header-padding: 0;
 }

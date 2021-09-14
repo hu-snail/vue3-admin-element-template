@@ -193,12 +193,7 @@
           store.dispatch('setting/setRouterView', true);
         });
       };
-      // const closeSelectedTag = async (view) => {
-      //   const { visitedRoutes } = await store.dispatch('tabsBar/delRoute', view);
-      //   if (isActive(view)) {
-      //     toLastTag(visitedRoutes, view);
-      //   }
-      // };
+
       const closeOtherstabs = async () => {
         const view = await toThisTag();
         await store.dispatch('tabsBar/delOthersRoutes', view);
@@ -329,14 +324,14 @@
             border-radius: $base-border-radius;
             transition: padding 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) !important;
             &.is-active {
-              color: $base-color-default;
-              background: rgba($color: $base-color-default, $alpha: 0.1);
+              color: $base-color-primary;
+              background: $base-color-primary-light9;
               border: none;
               border-bottom: 2px solid;
             }
             &:hover {
-              color: $base-color-default;
-              background: rgba($color: $base-color-default, $alpha: 0.1);
+              color: $base-color-primary;
+              background: $base-color-primary-light9;
               border: none;
               border-bottom: 2px solid;
             }
@@ -355,8 +350,8 @@
       padding-left: 5px;
     }
     &:hover {
-      color: $base-color-default;
-      background-color: rgba($base-color-default, 0.1);
+      color: $base-color-primary;
+      background-color: $base-color-primary-light9;
     }
     .icon {
       display: flex;
@@ -370,7 +365,7 @@
     cursor: pointer;
     transition: all 0.5s;
     &.active {
-      color: $base-color-default !important;
+      color: $base-color-primary !important;
       transform: rotate(180deg);
     }
   }

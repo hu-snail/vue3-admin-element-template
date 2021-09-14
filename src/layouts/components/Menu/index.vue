@@ -3,11 +3,12 @@
     <el-menu
       :default-active="defaultActive"
       background-color="#fff"
+      :default-openeds="defaultOpened"
+      :unique-opened="uniqueOpenedFlag"
       class="el-menu-vertical"
       :collapse="isCollapse"
       text-color="#333"
       router
-      active-text-color="#08a17e"
       @open="handleOpen"
       @close="handleClose"
     >
@@ -22,12 +23,13 @@
 </template>
 
 <script setup>
-  import { defineProps, computed } from 'vue';
+  import { defineProps, computed, ref } from 'vue';
   import { useRouter } from 'vue-router';
   import Logo from '../Logo/index.vue';
   import MenuItem from './MenuItem.vue';
   import { useStore } from 'vuex';
-
+  import { setting } from '@/config/setting';
+  const { defaultOpeneds, uniqueOpened } = setting;
   defineProps({
     isCollapse: {
       type: Boolean,
@@ -35,11 +37,17 @@
     },
   });
 
+  const uniqueOpenedFlag = ref(uniqueOpened);
+
   const store = useStore();
   const router = useRouter();
 
   const routes = computed(() => {
     return store.getters['routes/routes'];
+  });
+
+  const defaultOpened = computed(() => {
+    return defaultOpeneds;
   });
 
   const defaultActive = computed(() => {

@@ -34,6 +34,10 @@ export const setting = {
   open: true,
   //是否显示顶部进度条
   progressBar: true,
+  // 菜单栏默认打开路由
+  defaultOpeneds: ['/comp', '/errorPage', '/chart'],
+  // vertical布局时是否只保持一个子菜单的展开
+  uniqueOpened: false,
   //token名称
   tokenName: 'accessToken',
   //是否开启登录拦截

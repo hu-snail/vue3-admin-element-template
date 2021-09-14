@@ -27,8 +27,9 @@
   .desc-wrapper {
     .desc {
       padding: 15px 20px;
-      background-color: rgba($base-color-default, 0.1);
-      border-left: 5px solid $base-color-default;
+      color: $base-color-primary;
+      background-color: $base-color-primary-light9;
+      border-left: 5px solid $base-color-primary;
     }
   }
 </style>

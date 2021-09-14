@@ -8,12 +8,16 @@ const state = {
   fullScreen: false, // 是否全屏
   isMobile: false, // 是否为移动端
   isDrawer: false, // 是否展开移动端菜单
+  theme: 'default', // 主题色
+  isDrawerSetting: false, // 是否打开主题设置
 };
 
 const getters = {
   routerView: (state) => state.routerView,
   isMobile: (state) => state.isMobile,
   isDrawer: (state) => state.isDrawer,
+  theme: (state) => state.theme,
+  isDrawerSetting: (state) => state.isDrawerSetting,
 };
 
 const mutations = {
@@ -31,6 +35,12 @@ const mutations = {
   },
   CHANGE_IS_DRAWER: (state, flag) => {
     state.isDrawer = flag;
+  },
+  SET_THEME: (state, theme) => {
+    state.theme = theme;
+  },
+  CHANGE_SETTING_DRAWER: (state, flag) => {
+    state.isDrawerSetting = flag;
   },
 };
 
@@ -61,6 +71,12 @@ const actions = {
   },
   changeDrawer: ({ commit }, flag) => {
     commit('CHANGE_IS_DRAWER', flag);
+  },
+  setTheme: ({ commit }, theme) => {
+    commit('SET_THEME', theme);
+  },
+  setSettingDrawer: ({ commit }, flag) => {
+    commit('CHANGE_SETTING_DRAWER', flag);
   },
 };
 

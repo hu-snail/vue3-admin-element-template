@@ -57,7 +57,7 @@
         line-height: 32px;
         color: $base-color-white;
         text-align: center;
-        background-color: #f45;
+        background-color: $base-color-primary;
         border-radius: 50%;
         .icon {
           display: inline-flex;

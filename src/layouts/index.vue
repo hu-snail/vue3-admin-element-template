@@ -4,11 +4,16 @@
     <el-container v-else>
       <Menu :isCollapse="isCollapse" class="hidden-xs-only" />
       <el-container class="container" :style="{ left: isCollapse ? '65px' : '240px' }">
-        <el-header class="header" height="60px" :style="{ left: isCollapse ? '65px' : '240px' }">
+        <el-header
+          class="header"
+          :class="{ fixed: true }"
+          height="60px"
+          :style="{ left: isCollapse ? '65px' : '240px' }"
+        >
           <NavBar @handleCollapse="handleCollapse" />
           <TabBar />
         </el-header>
-        <el-main class="main">
+        <el-main class="main" :class="{ fixed: true }">
           <AppMain />
         </el-main>
       </el-container>
@@ -49,16 +54,21 @@
       transition: all 0.4s;
     }
     .header {
-      position: fixed;
-      top: 0;
-      right: 0;
-      z-index: 99;
       padding: 0;
       transition: all 0.4s;
+      &.fixed {
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 99;
+      }
     }
     .main {
       position: relative;
-      top: 110px;
+      top: 50px;
+      &.fixed {
+        top: 110px;
+      }
       background-color: $base-content-bg-color;
     }
   }

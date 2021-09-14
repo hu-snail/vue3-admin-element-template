@@ -50,6 +50,15 @@ export const asyncRoutes = [
     meta: { title: '组件', icon: 'code' },
     children: [
       {
+        path: '/element',
+        name: 'ElementComp',
+        component: () => import('@/views/element/index.vue'),
+        meta: {
+          title: 'Element组件',
+          icon: 'code',
+        },
+      },
+      {
         path: '/iconPark',
         name: 'IconPark',
         component: () => import('@/views/icon/index.vue'),

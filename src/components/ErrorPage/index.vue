@@ -76,7 +76,7 @@
         padding: 40px 20px;
         .error-title {
           font-size: 36px;
-          color: $base-color-default;
+          color: $base-color-primary;
         }
         .desc {
           width: 290px;

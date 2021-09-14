@@ -5,4 +5,6 @@
 export const themeConfig = {
   // 模式 horizontal / vertical
   mode: 'vertical',
+  // 主题
+  theme: 'red',
 };

@@ -56,6 +56,7 @@ import {
   Copy,
   ChartHistogram,
   MultiPictureCarousel,
+  Theme,
 } from '@icon-park/vue-next';
 
 // el-icon
@@ -112,6 +113,7 @@ export const components = [
   Copy,
   ChartHistogram,
   MultiPictureCarousel,
+  Theme,
 ];
 
 import SvgIcon from '@/components/SvgIcon/index.vue';

@@ -170,7 +170,7 @@
       .result {
         padding: 15px;
         margin: 15px 0;
-        background-color: rgba($base-color-default, 0.1);
+        background-color: $base-color-primary-light9;
       }
       .alter-info {
         margin-top: 15px;

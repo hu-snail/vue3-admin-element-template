@@ -1,1 +1,0 @@
-import{_ as r}from"./index.90fb9274.js";import{a2 as o,o as e,a6 as t}from"./vendor.dc16c2e2.js";const s={components:{ErrorPage:r}};s.render=function(r,s,a,n,c,m){const d=o("ErrorPage");return e(),t(d,{type:"404",title:"当前页面不存在...",msg:"请检查您输入的网址是否正确，或点击下面的按钮返回首页"})};export{s as default};

@@ -1,1 +1,0 @@
-System.register(["./index-legacy.67e1cb0c.js","./vendor-legacy.46b2cbba.js"],(function(e){"use strict";var r,t,n,c;return{setters:[function(e){r=e._},function(e){t=e.a2,n=e.o,c=e.a6}],execute:function(){e("default",{components:{ErrorPage:r}}).render=function(e,r,o,a,s,u){var i=t("ErrorPage");return n(),c(i,{type:"404",title:"当前页面不存在...",msg:"请检查您输入的网址是否正确，或点击下面的按钮返回首页"})}}}}));
