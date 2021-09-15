@@ -62,22 +62,10 @@
     min-width: 100px !important;
     padding: 5px 0 !important;
   }
-  .el-menu--collapse>.el-menu-item span, .el-menu--collapse>.el-submenu>.el-submenu__title span{
-    display: inline-block !important;
-    width: 16px;
-    height: 50px;
-    line-height: 50px;
-    text-align: center;
-    visibility: inherit !important;
-  }
-  .el-menu--collapse>.el-menu-item .title, .el-menu--collapse>.el-submenu>.el-submenu__title .title{
-    display: none !important;
-  }
-
   .el-menu-item{
       &.is-active{
         background-color: $base-color-primary-light9 !important;
-        .title{
+        span{
           color: $base-color-primary !important;
         }
     }
@@ -89,11 +77,21 @@
   .el-sub-menu__title:hover{
     background-color: transparent !important;
   }
+
+  .el-menu--horizontal .el-menu .el-menu-item, .el-menu--horizontal .el-menu .el-sub-menu__title{
+    height: 50px !important;
+    line-height: 50px !important;
+  }
   
 
 html {
   body {
     @include base-scrollbar;
+    position: relative;
+    box-sizing: border-box;
+    height: 100vh;
+    padding: 0;
+    // overflow: hidden;
   }
   div {
     @include base-scrollbar;
@@ -102,4 +100,9 @@ html {
 
 .el-header{
   --el-header-padding: 0;
+}
+
+.el-button--primary:active{
+  background-color: $base-color-primary;
+  border-color: $base-color-primary;
 }

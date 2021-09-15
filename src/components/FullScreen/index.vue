@@ -5,7 +5,7 @@
       size="16"
       fill="#333"
       :strokeWidth="4"
-      :is="(fullScreen ? 'off' : 'full') + '-screen'"
+      :is="(isFullScreen ? 'off' : 'full') + '-screen'"
       @click="handleClick"
     />
   </span>
@@ -18,8 +18,8 @@
   import { ElMessage } from 'element-plus';
   const store = useStore();
 
-  const fullScreen = computed(() => {
-    return store.getters.fullScreen;
+  const isFullScreen = computed(() => {
+    return store.getters['setting/isFullScreen'];
   });
 
   const emit = defineEmits(['refresh']);
@@ -28,7 +28,7 @@
       ElMessage.warning('进入全屏失败');
       return false;
     }
-    store.dispatch('setting/changeFullScreen', !fullScreen.value);
+    store.dispatch('setting/changeFullScreen', !isFullScreen.value);
     screenfull.toggle();
     emit('refresh', screenfull.isFullscreen);
   };

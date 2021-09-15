@@ -9,6 +9,7 @@
       :collapse="isCollapse"
       text-color="#333"
       router
+      :mode="mode"
       @open="handleOpen"
       @close="handleClose"
     >
@@ -34,6 +35,10 @@
     isCollapse: {
       type: Boolean,
       default: false,
+    },
+    mode: {
+      type: String,
+      default: 'vertical',
     },
   });
 

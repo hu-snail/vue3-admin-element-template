@@ -1,5 +1,9 @@
 <template>
-  <div id="tabs-bar-container" class="tabs-bar-container">
+  <div
+    id="tabs-bar-container"
+    class="tabs-bar-container"
+    :class="{ horizontal: mode === 'horizontal' }"
+  >
     <el-tabs
       v-model="tabActive"
       type="card"
@@ -88,6 +92,10 @@
 
       const routes = computed(() => {
         return store.getters['routes/routes'];
+      });
+
+      const mode = computed(() => {
+        return store.getters['setting/mode'];
       });
 
       const filterAffixtabs = (routes) => {
@@ -261,6 +269,7 @@
         ...toRefs(state),
         visitedRouteList,
         routes,
+        mode,
         isAffix,
         refreshRoute,
         closeAlltabs,
@@ -291,6 +300,9 @@
     user-select: none;
     background: $base-color-white;
     border-top: 1px solid #f6f6f6;
+    &.horizontal {
+      padding: 0 40px;
+    }
     ::v-deep {
       .fold-unfold {
         margin-right: $base-padding;

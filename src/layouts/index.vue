@@ -1,25 +1,29 @@
 <template>
   <div class="admin-container">
     <Mobile v-if="isMobile" />
-    <el-container v-else>
-      <Menu :isCollapse="isCollapse" class="hidden-xs-only" />
-      <el-container class="container" :style="{ left: isCollapse ? '65px' : '240px' }">
-        <el-header
-          class="header"
-          :class="{ fixed: fixedHead, istag: !tag }"
-          height="60px"
-          :style="{ left: isCollapse ? '65px' : '240px' }"
-        >
-          <NavBar @handleCollapse="handleCollapse" />
-          <template v-if="tag">
-            <TabBar />
-          </template>
-        </el-header>
-        <el-main class="main" :class="{ fixed: fixedHead, istag: !tag }">
-          <AppMain />
-        </el-main>
+    <template v-else>
+      <el-container v-if="mode === 'vertical'">
+        <Menu :isCollapse="isCollapse" class="hidden-xs-only" />
+        <el-container class="container" :style="{ left: isCollapse ? '65px' : '240px' }">
+          <el-header
+            class="header"
+            :class="{ fixed: fixedHead, istag: !tag }"
+            height="60px"
+            :style="{ left: isCollapse ? '65px' : '240px' }"
+          >
+            <NavBar @handleCollapse="handleCollapse" />
+            <template v-if="tag">
+              <TabBar />
+            </template>
+          </el-header>
+          <el-main class="main" :class="{ fixed: fixedHead, istag: !tag }">
+            <AppMain />
+          </el-main>
+        </el-container>
       </el-container>
-    </el-container>
+      <Horizontal v-if="mode === 'horizontal'" />
+      <el-backtop />
+    </template>
   </div>
 </template>
 
@@ -31,7 +35,7 @@
   import AppMain from './components/AppMain/index.vue';
   import TabBar from './components/TabBar/index.vue';
   import Mobile from './components/Mobile/index.vue';
-
+  import Horizontal from './components/Horizontal/index.vue';
   const store = useStore();
 
   const isMobile = computed(() => {
@@ -48,6 +52,10 @@
 
   const isCollapse = computed(() => {
     return store.getters.collapse;
+  });
+
+  const mode = computed(() => {
+    return store.getters['setting/mode'];
   });
 
   const handleCollapse = () => {
@@ -77,6 +85,7 @@
     .main {
       position: relative;
       top: 50px;
+      overflow-y: auto;
       &.fixed {
         top: 110px;
       }

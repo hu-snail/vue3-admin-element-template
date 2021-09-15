@@ -1,5 +1,5 @@
 <template>
-  <div class="logo-wrapper" :class="{ phone: collapse }">
+  <div class="logo-wrapper" :class="{ phone: collapse, horizontal: mode === 'horizontal' }">
     <svg-icon name="vue" size="35px" />
     <span class="logo-title" v-if="!collapse"> vue3-admin </span>
   </div>
@@ -8,9 +8,12 @@
 <script setup>
   import { computed } from 'vue';
   import { useStore } from 'vuex';
-  const state = useStore();
+  const store = useStore();
   const collapse = computed(() => {
-    return state.getters.collapse;
+    return store.getters.collapse;
+  });
+  const mode = computed(() => {
+    return store.getters['setting/mode'];
   });
 </script>
 <style lang="scss" scoped>
@@ -19,11 +22,13 @@
     align-items: center;
     justify-content: center;
     width: 240px;
-    // padding: 2px 20px;
     cursor: pointer;
     &.phone {
       width: 60px;
       padding: 10px 0;
+    }
+    &.horizontal {
+      justify-content: flex-start;
     }
 
     .logo-title {

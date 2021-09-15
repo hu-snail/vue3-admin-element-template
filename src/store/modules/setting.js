@@ -22,6 +22,7 @@ const state = {
   isDrawerSetting: false, // 是否打开主题设置
   isMobile: false, // 是否为移动端
   isDrawer: false, // 是否展开移动端菜单
+  isFullScreen: false, // 是否显示全屏
   collapse,
   fullScreen,
   refresh,
@@ -39,6 +40,7 @@ const getters = {
   routerView: (state) => state.routerView,
   isMobile: (state) => state.isMobile,
   isDrawer: (state) => state.isDrawer,
+  isFullScreen: (state) => state.isFullScreen,
   theme: (state) => state.theme,
   isDrawerSetting: (state) => state.isDrawerSetting,
   fullScreen: (state) => state.fullScreen,
@@ -57,8 +59,9 @@ const mutations = {
   CHANGE_COLLAPSE: (state) => {
     state.collapse = !state.collapse;
   },
-  CHANGE_FULL_SCREEN: (state, fullScreen) => {
-    state.fullScreen = fullScreen;
+  CHANGE_FULL_SCREEN: (state, flag) => {
+    console.log(flag);
+    state.isFullScreen = flag;
   },
   SET_ROUTER_VIEW: (state) => {
     state.routerView = !state.routerView;
@@ -81,6 +84,9 @@ const mutations = {
   CHANGE_TAG: (state, flag) => {
     state.tag = flag;
   },
+  CHANE_MODE: (state, mode) => {
+    state.mode = mode;
+  },
   SET_SETTING_OPTIONS: (state, options) => {
     Object.assign(state, { ...options });
   },
@@ -96,8 +102,8 @@ const actions = {
   /**
    * @description 切换是否全屏
    */
-  changeFullScreen: ({ commit }, fullScreen) => {
-    commit('CHANGE_FULL_SCREEN', fullScreen);
+  changeFullScreen: ({ commit }, flag) => {
+    commit('CHANGE_FULL_SCREEN', flag);
   },
   /**
    * @description 是否刷新路由
@@ -142,6 +148,14 @@ const actions = {
   setTag: ({ commit }, flag) => {
     commit('CHANGE_TAG', flag);
   },
+
+  /**
+   * @description 切换主题
+   */
+  setMode: ({ commit }, mode) => {
+    commit('CHANE_MODE', mode);
+  },
+
   /**
    * @description 设置主题配置
    */

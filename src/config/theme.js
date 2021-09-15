@@ -4,7 +4,7 @@
  */
 export const themeConfig = {
   // 模式 horizontal / vertical
-  mode: 'vertical',
+  mode: 'horizontal',
   // 主题
   theme: '#08a17e',
   // 是否固定头部

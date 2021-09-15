@@ -14,9 +14,10 @@
             <el-form-item label="布局">
               <el-select
                 class="theme-select-width"
-                v-model="setting.mode"
+                v-model="settings.mode"
                 size="small"
                 placeholder="请选择"
+                @change="handleChangeMode"
               >
                 <el-option
                   v-for="item in setting.modeOption"
@@ -53,7 +54,11 @@
               <el-switch @change="handleChangeTag" v-model="setting.tag" />
             </el-form-item>
             <el-form-item label="面包导航">
-              <el-switch @change="handleChangeBread" v-model="setting.isBreadcrumb" />
+              <el-switch
+                :disabled="mode === 'horizontal'"
+                @change="handleChangeBread"
+                v-model="setting.isBreadcrumb"
+              />
             </el-form-item>
             <el-form-item label="固定头部">
               <el-switch :disabled="isMobile" v-model="settings.fixedHead" />
@@ -134,12 +139,16 @@
 
   const handleToSave = () => {
     store.dispatch('setting/setSettingOptions', settings);
+    store.dispatch('setting/setSettingDrawer', false);
   };
   const handleChangeTag = (val) => {
     store.dispatch('setting/setTag', val);
   };
   const handleChangeBread = (val) => {
     store.dispatch('setting/setBreadcrumb', val);
+  };
+  const handleChangeMode = (val) => {
+    store.dispatch('setting/setMode', val);
   };
 
   const getThemeCluster = (theme) => {
@@ -223,7 +232,7 @@
         };
       };
       if (!setting.chalk) {
-        const url = `https://unpkg.com/element-plus/dist/index.css`;
+        const url = `https://cdn.jsdelivr.net/npm/element-plus/dist/index.css`;
         await getCSSString(url, 'chalk');
       }
       const chalkHandler = getHandler('chalk', 'chalk-style');
