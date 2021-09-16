@@ -55,7 +55,7 @@
             </el-form-item>
             <el-form-item label="面包导航">
               <el-switch
-                :disabled="mode === 'horizontal'"
+                :disabled="settings.mode === 'horizontal'"
                 @change="handleChangeBread"
                 v-model="setting.isBreadcrumb"
               />

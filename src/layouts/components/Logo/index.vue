@@ -52,8 +52,6 @@
       padding-left: 10px;
       overflow: hidden;
       font-size: $base-font-size-max;
-      font-size: 20px;
-      font-weight: bold;
       line-height: 55px;
       color: #333;
       text-overflow: ellipsis;
