@@ -17,13 +17,15 @@
   </div>
 </template>
 
+<script>
+  export default {
+    name: 'Mobile',
+  };
+</script>
+
 <script setup>
   import { computed } from 'vue';
   import { useStore } from 'vuex';
-  import NavBar from '../NavBar/index.vue';
-  import AppMain from '../AppMain/index.vue';
-  import TabBar from '../TabBar/index.vue';
-  import Menu from '../Menu/index.vue';
 
   const store = useStore();
 

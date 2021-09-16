@@ -23,11 +23,15 @@
   </el-scrollbar>
 </template>
 
+<script>
+  export default {
+    name: 'Menu',
+  };
+</script>
+
 <script setup>
   import { defineProps, computed, ref } from 'vue';
   import { useRouter } from 'vue-router';
-  import Logo from '../Logo/index.vue';
-  import MenuItem from './MenuItem.vue';
   import { useStore } from 'vuex';
   import { setting } from '@/config/setting';
   const { defaultOpeneds, uniqueOpened } = setting;

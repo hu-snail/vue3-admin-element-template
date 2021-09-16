@@ -3,6 +3,8 @@ import { createApp } from 'vue';
 import iconPark from './plugin/icon-park';
 import './config/permission';
 
+import layoutComp from './layouts/components/export';
+
 import ElementPlus from 'element-plus';
 import './styles/element-variables.scss';
 import 'element-plus/theme-chalk/display.css';
@@ -23,5 +25,6 @@ app.use(ElementPlus, {
 });
 // 注册字节跳动图标
 iconPark(app);
+layoutComp(app);
 
 app.mount('#app');

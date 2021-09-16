@@ -7,6 +7,12 @@
   </div>
 </template>
 
+<script>
+  export default {
+    name: 'AppMain',
+  };
+</script>
+
 <script setup>
   import { ref } from 'vue';
   import { useStore } from 'vuex';

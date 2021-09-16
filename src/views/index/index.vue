@@ -104,8 +104,49 @@
               </div>
             </div>
           </el-card>
+          <el-card class="card" shadow="hover">
+            <template #header>
+              <h3 class="title">生产环境依赖信息</h3>
+            </template>
+            <el-descriptions class="margin-top" :column="3" :size="size" border>
+              <el-descriptions-item v-for="(value, key) in packpage.dependencies" :key="key">
+                <template #label>
+                  {{ key }}
+                </template>
+                {{ value }}
+              </el-descriptions-item>
+            </el-descriptions>
+          </el-card>
         </el-col>
         <el-col :xs="24" :sm="24" :md="24" :lg="8" :xl="8">
+          <el-card class="card" shadow="hover">
+            <template #header>
+              <h3 class="title">技能列表</h3>
+            </template>
+            <div class="skill-title">JavaScript</div>
+            <el-progress
+              :text-inside="true"
+              :stroke-width="15"
+              :percentage="50"
+              status="success"
+            ></el-progress>
+            <div class="skill-title">HTML</div>
+            <el-progress
+              :text-inside="true"
+              :stroke-width="15"
+              :percentage="90"
+              status="warning"
+            ></el-progress>
+            <div class="skill-title">CSS</div>
+            <el-progress :text-inside="true" :stroke-width="15" :percentage="70"></el-progress>
+            <div class="skill-title">Vue</div>
+            <el-progress
+              :text-inside="true"
+              :stroke-width="15"
+              :percentage="80"
+              status="exception"
+            ></el-progress>
+          </el-card>
           <el-card class="card" shadow="hover">
             <template #header>
               <h3 class="title">快捷导航</h3>
@@ -127,32 +168,6 @@
           </el-card>
         </el-col>
       </el-row>
-      <el-card class="card" shadow="hover">
-        <template #header>
-          <h3 class="title">生产环境依赖信息</h3>
-        </template>
-        <el-descriptions class="margin-top" :column="3" :size="size" border>
-          <el-descriptions-item v-for="(value, key) in packpage.dependencies" :key="key">
-            <template #label>
-              {{ key }}
-            </template>
-            {{ value }}
-          </el-descriptions-item>
-        </el-descriptions>
-      </el-card>
-      <el-card class="card" shadow="hover">
-        <template #header>
-          <h3 class="title">开发环境依赖信息</h3>
-        </template>
-        <el-descriptions class="margin-top" :column="3" :size="size" border>
-          <el-descriptions-item v-for="(value, key) in packpage.devDependencies" :key="key">
-            <template #label>
-              {{ key }}
-            </template>
-            {{ value }}
-          </el-descriptions-item>
-        </el-descriptions>
-      </el-card>
     </div>
   </div>
 </template>
@@ -238,6 +253,10 @@
       margin: 15px 0;
       .title {
         margin: 0;
+      }
+      .skill-title {
+        padding: 10px 0;
+        font-weight: 500;
       }
       .card {
         margin-bottom: 15px;

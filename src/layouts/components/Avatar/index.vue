@@ -19,7 +19,7 @@
 
 <script>
   export default {
-    name: 'VabAvatar',
+    name: 'Avatar',
   };
 </script>
 

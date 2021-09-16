@@ -34,8 +34,6 @@
 <script setup>
   import { defineEmits, computed } from 'vue';
   import { useStore } from 'vuex';
-  import RightPanel from './RightPanel.vue';
-  import Breadcrumb from '../Breadcrumb/index.vue';
 
   const store = useStore();
 

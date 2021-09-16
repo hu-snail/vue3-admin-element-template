@@ -74,10 +74,10 @@ export const components = [
   ElTag,
   ElTable,
 ];
-
 // 注册
 export default (app) => {
   components.forEach((component) => {
+    console.log(component);
     app.component(component.name, component);
   });
 };

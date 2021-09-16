@@ -65,8 +65,9 @@
   .el-menu-item{
       &.is-active{
         background-color: $base-color-primary-light9 !important;
+        border-right: 3px solid $base-color-primary;
         span{
-          color: $base-color-primary !important;
+          color: $base-color-primary;
         }
     }
     &:hover{
@@ -76,6 +77,11 @@
   }
   .el-sub-menu__title:hover{
     background-color: transparent !important;
+  }
+  .el-menu--horizontal> .el-menu-item {
+    &.is-active{
+      border-right: none;
+    }
   }
 
   .el-menu--horizontal .el-menu .el-menu-item, .el-menu--horizontal .el-menu .el-sub-menu__title{

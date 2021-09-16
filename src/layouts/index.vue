@@ -30,12 +30,6 @@
 <script setup>
   import { computed } from 'vue';
   import { useStore } from 'vuex';
-  import Menu from './components/Menu/index.vue';
-  import NavBar from './components/NavBar/index.vue';
-  import AppMain from './components/AppMain/index.vue';
-  import TabBar from './components/TabBar/index.vue';
-  import Mobile from './components/Mobile/index.vue';
-  import Horizontal from './components/Horizontal/index.vue';
   const store = useStore();
 
   const isMobile = computed(() => {

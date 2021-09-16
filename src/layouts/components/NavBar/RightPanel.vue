@@ -48,15 +48,20 @@
     <ThemeSetting />
   </div>
 </template>
+
+<script>
+  export default {
+    name: 'RightPanel',
+  };
+</script>
+
 <script setup>
   import { computed, nextTick, ref } from 'vue';
 
   import { noticeList } from './data';
 
-  import Avatar from '../Avatar/index.vue';
   import FullScreen from '@/components/FullScreen/index.vue';
   import Cell from '@/components/Cell/index.vue';
-  import ThemeSetting from '../ThemeSetting/index.vue';
 
   import { useStore } from 'vuex';
 

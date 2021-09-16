@@ -48,6 +48,13 @@
     </template>
   </el-sub-menu>
 </template>
+
+<script>
+  export default {
+    name: 'MenuItem',
+  };
+</script>
+
 <script setup>
   import { defineProps } from 'vue';
   defineProps({

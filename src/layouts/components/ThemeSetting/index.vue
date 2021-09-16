@@ -84,6 +84,12 @@
   </el-drawer>
 </template>
 
+<script>
+  export default {
+    name: 'ThemeSetting',
+  };
+</script>
+
 <script setup>
   import { ref, reactive, computed, watch } from 'vue';
   import { useStore } from 'vuex';

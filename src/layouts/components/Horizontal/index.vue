@@ -26,13 +26,14 @@
   </el-container>
 </template>
 
+<script>
+  export default {
+    name: 'Horizontal',
+  };
+</script>
+
 <script setup>
   import { computed, ref } from 'vue';
-  import RightPanel from '../NavBar/RightPanel.vue';
-  import Logo from '../Logo/index.vue';
-  import MenuItem from '../Menu/MenuItem.vue';
-  import TabBar from '../TabBar/index.vue';
-  import AppMain from '../AppMain/index.vue';
   import { setting } from '@/config/setting';
   const { uniqueOpened } = setting;
 

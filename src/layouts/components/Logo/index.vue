@@ -1,20 +1,35 @@
 <template>
-  <div class="logo-wrapper" :class="{ phone: collapse, horizontal: mode === 'horizontal' }">
+  <div
+    @click="handleClick"
+    class="logo-wrapper"
+    :class="{ phone: collapse, horizontal: mode === 'horizontal' }"
+  >
     <svg-icon name="vue" size="35px" />
     <span class="logo-title" v-if="!collapse"> vue3-admin </span>
   </div>
 </template>
 
+<script>
+  export default {
+    name: 'Logo',
+  };
+</script>
+
 <script setup>
   import { computed } from 'vue';
+  import { useRouter } from 'vue-router';
   import { useStore } from 'vuex';
   const store = useStore();
+  const router = useRouter();
   const collapse = computed(() => {
     return store.getters.collapse;
   });
   const mode = computed(() => {
     return store.getters['setting/mode'];
   });
+  const handleClick = () => {
+    router.replace('/');
+  };
 </script>
 <style lang="scss" scoped>
   .logo-wrapper {
