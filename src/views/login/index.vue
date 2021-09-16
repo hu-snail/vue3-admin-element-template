@@ -2,7 +2,7 @@
   <div class="login-container">
     <div class="login-left hidden-sm-and-down">
       <div class="login-left-wrap">
-        <h2 class="title"> <span class="logo-text">Hu-Snail</span> Vue3-Admin </h2>
+        <h2 class="title"> <span class="logo-text">Hu-Snail</span> {{ siteTitle }} </h2>
         <img class="img" src="@/assets/login.png" alt="login-bg" />
         <h2 class="desc">开箱即用的中后台管理系统</h2>
         <p class="tip">点击登录快速体验</p>
@@ -28,11 +28,12 @@
   import { useStore } from 'vuex';
   import LoginForm from 'views/login/comp/LoginForm.vue';
   import RegisterForm from './comp/RegisterForm.vue';
-
+  import { setting } from '@/config/setting';
+  const { title } = setting;
   const store = useStore();
 
   const activeName = ref('first');
-
+  const siteTitle = ref(title);
   const isMobile = computed(() => {
     console.log(store.getters['setting/isMobile']);
     return store.getters['setting/isMobile'];
@@ -80,7 +81,7 @@
           font-size: 28px;
         }
         .tip {
-          color: #999;
+          color: #fff;
         }
       }
     }

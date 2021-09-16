@@ -29,6 +29,7 @@
   // 引入 echarts 核心模块，核心模块提供了 echarts 使用必须要的接口。
   import * as echarts from 'echarts/core';
   // 引入柱状图图表，图表后缀都为 Chart
+  import theme from './theme.json';
   import {
     BarChart,
     CandlestickChart,
@@ -112,7 +113,7 @@
         return {
           top: '10px',
           left: 0,
-          right: 0,
+          right: '1px',
           bottom: 0,
           containLabel: true,
         };
@@ -132,7 +133,8 @@
   });
 
   const initChart = () => {
-    chart = echarts.init(document.getElementById('echarts' + props.index));
+    echarts.registerTheme('wonderland', theme);
+    chart = echarts.init(document.getElementById('echarts' + props.index), theme);
     // 绘制图表
     chart.setOption({
       grid: props.grid,

@@ -35,6 +35,6 @@
 }
 
 .el-button--primary:active {
-  background-color: $base-color-primary;
-  border-color: $base-color-primary;
+  background-color: $base-color-primary !important;
+  border-color: $base-color-primary !important;
 }

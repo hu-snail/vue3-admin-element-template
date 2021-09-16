@@ -147,25 +147,20 @@
               status="exception"
             ></el-progress>
           </el-card>
-          <el-card class="card" shadow="hover">
-            <template #header>
-              <h3 class="title">快捷导航</h3>
-            </template>
-            <el-timeline>
-              <el-timeline-item
-                v-for="(activity, index) in activities"
-                :key="index"
-                :icon="activity.icon"
-                :type="activity.type"
-                :color="activity.color"
-                :size="activity.size"
-                :hollow="activity.hollow"
-                :timestamp="activity.timestamp"
-              >
-                {{ activity.content }}
-              </el-timeline-item>
-            </el-timeline>
-          </el-card>
+          <Echarts
+            title="基础平滑折线图 Smoothed Line Chart"
+            :index="1"
+            headerIcon="chart-line"
+            :style="{
+              height: '200px',
+            }"
+            :options="{
+              series: series2,
+              xAxis,
+              yAxis,
+              toolbox,
+            }"
+          />
         </el-col>
       </el-row>
     </div>
@@ -182,6 +177,7 @@
   import packpage from '../../../package.json';
   import { ref, computed, reactive } from 'vue';
   import { useStore } from 'vuex';
+  import Echarts from '@/components/Echarts/index.vue';
   const hour = new Date().getHours();
   const thisTime =
     hour < 8
@@ -195,39 +191,23 @@
       : '晚上好';
   const sayHi = ref(thisTime);
   const avatar = ref('https://i.gtimg.cn/club/item/face/img/2/15922_100.gif');
-  const activities = reactive([
+  const series2 = reactive([
     {
-      content: '支持使用图标',
-      timestamp: '2018-04-12 20:46',
-      size: 'large',
-      type: 'primary',
-      icon: 'el-icon-more',
-    },
-    {
-      content: '支持自定义颜色',
-      timestamp: '2018-04-03 20:46',
-      color: '#0bbd87',
-    },
-    {
-      content: '支持自定义尺寸',
-      timestamp: '2018-04-03 20:46',
-      size: 'large',
-    },
-    {
-      content: '支持空心点',
-      timestamp: '2018-04-03 20:46',
-      type: 'primary',
-      hollow: true,
-    },
-    {
-      content: '默认样式的节点',
-      timestamp: '2018-04-03 20:46',
-    },
-    {
-      content: '默认样式的节点',
-      timestamp: '2018-04-03 20:46',
+      data: [820, 932, 901, 934, 1290, 1330, 1320],
+      type: 'line',
+      smooth: true,
     },
   ]);
+  const xAxis = reactive({
+    type: 'category',
+    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+  });
+  const yAxis = reactive({
+    type: 'value',
+  });
+  const toolbox = reactive({
+    show: true,
+  });
   const store = useStore();
   const isMobile = computed(() => {
     return store.getters['setting/isMobile'];
