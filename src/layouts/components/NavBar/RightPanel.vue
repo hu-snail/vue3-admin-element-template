@@ -34,6 +34,7 @@
     </el-popover>
 
     <FullScreen v-if="settings.fullScreen" @refresh="onRefresh" />
+    <LangChange />
     <refresh
       v-if="settings.refresh"
       title="刷新"
@@ -62,6 +63,7 @@
 
   import FullScreen from '@/components/FullScreen/index.vue';
   import Cell from '@/components/Cell/index.vue';
+  import LangChange from '@/components/LangChange/index.vue';
 
   import { useStore } from 'vuex';
 

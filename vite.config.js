@@ -23,6 +23,7 @@ const {
   clearScreen,
   drop_console,
   drop_debugger,
+  chunkSizeWarningLimit,
 } = setting;
 
 const isDev = process.env.NODE_ENV === 'development';
@@ -106,7 +107,7 @@ export default defineConfig({
         drop_debugger,
       },
     },
-    chunkSizeWarningLimit: 2000,
+    chunkSizeWarningLimit,
   },
 
   esbuild: {

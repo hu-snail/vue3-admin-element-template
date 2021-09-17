@@ -39,4 +39,7 @@ app.use(ElementPlus, {
 import iconPark from './plugin/icon-park';
 iconPark(app);
 
+import loadI18n from './plugin/i18n';
+loadI18n(app);
+
 app.mount('#app');

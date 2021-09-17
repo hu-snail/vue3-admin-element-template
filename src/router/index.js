@@ -35,7 +35,7 @@ export const asyncRoutes = [
         name: 'Index',
         component: () => import('../views/index/index.vue'),
         meta: {
-          title: '首页',
+          title: 'home',
           icon: 'home',
           affix: true,
           noKeepAlive: true,
@@ -47,14 +47,14 @@ export const asyncRoutes = [
     path: '/comp',
     component: Layout,
     name: 'Comp',
-    meta: { title: '组件', icon: 'code' },
+    meta: { title: 'components', icon: 'code' },
     children: [
       {
         path: '/element',
         name: 'ElementComp',
         component: () => import('@/views/element/index.vue'),
         meta: {
-          title: 'Element组件',
+          title: 'eleComponents',
           icon: 'code',
         },
       },
@@ -63,7 +63,7 @@ export const asyncRoutes = [
         name: 'IconPark',
         component: () => import('@/views/icon/index.vue'),
         meta: {
-          title: '图标库',
+          title: 'icons',
           icon: 'like',
         },
       },
@@ -72,7 +72,7 @@ export const asyncRoutes = [
         name: 'Chart',
         component: () => import('@/views/echarts/index.vue'),
         meta: {
-          title: 'Echarts图表',
+          title: 'charts',
           icon: 'chart-line',
         },
         children: [
@@ -81,7 +81,7 @@ export const asyncRoutes = [
             name: 'Line',
             component: () => import('@/views/echarts/line.vue'),
             meta: {
-              title: '折线图',
+              title: 'lineChart',
             },
           },
           {
@@ -89,7 +89,7 @@ export const asyncRoutes = [
             name: 'Bar',
             component: () => import('@/views/echarts/bar.vue'),
             meta: {
-              title: '柱状图',
+              title: 'barChart',
             },
           },
           {
@@ -97,7 +97,7 @@ export const asyncRoutes = [
             name: 'OtherChart',
             component: () => import('@/views/echarts/other.vue'),
             meta: {
-              title: '其他图表',
+              title: 'mixedChart',
             },
           },
         ],
@@ -109,7 +109,7 @@ export const asyncRoutes = [
     name: 'ErrorPage',
     component: Layout,
     meta: {
-      title: '错误页面',
+      title: 'errorPages',
       icon: 'link-cloud-faild',
     },
     children: [
@@ -118,7 +118,7 @@ export const asyncRoutes = [
         name: '404Page',
         component: () => import('@/views/errorPage/404.vue'),
         meta: {
-          title: '404',
+          title: 'page404',
           icon: 'link-cloud-faild',
         },
       },
@@ -127,7 +127,7 @@ export const asyncRoutes = [
         name: '401Page',
         component: () => import('@/views/errorPage/401.vue'),
         meta: {
-          title: '401',
+          title: 'page401',
           icon: 'link-interrupt',
         },
       },

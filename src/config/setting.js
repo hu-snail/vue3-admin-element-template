@@ -18,7 +18,7 @@ export const setting = {
   // 构建后是否生成 source map 文件
   sourcemap: false,
   // chunk 大小警告的限制
-  chunkSizeWarningLimit: 500,
+  chunkSizeWarningLimit: 2000,
   // 启用/禁用 CSS 代码拆分
   // 压缩大型输出文件可能会很慢，因此禁用该功能可能会提高大型项目的构建性能。
   cssCodeSplit: true,
@@ -44,6 +44,10 @@ export const setting = {
   loginInterception: true,
   //token在localStorage、sessionStorage存储的key的名称
   tokenTableName: 'vue3-admin-template',
+  // lang storage
+  langKey: 'i18nLang',
+  // default language
+  lang: 'zh-ch',
   //token存储位置localStorage sessionStorage
   storage: 'localStorage',
   // 标题
@@ -58,10 +62,10 @@ export const setting = {
   authentication: 'intelligence',
   //token失效回退到登录页时是否记录本次的路由
   recordRoute: true,
-  // 不经过token校验的路由
+  // 路由白名单不经过token校验的路由
   routesWhiteList: ['/login', '/register', '/404', '/401'],
   // 需要加loading层的请求，防止重复提交
-  debounce: ['doEdit'],
+  debounce: [],
   // 导入时想要省略的扩展名列表
   extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json'],
   // 调整控制台输出的级别 'info' | 'warn' | 'error' | 'silent'

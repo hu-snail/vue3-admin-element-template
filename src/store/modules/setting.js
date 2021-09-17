@@ -4,6 +4,9 @@
  */
 
 import { themeConfig } from '@/config/theme';
+import { setting } from '@/config/setting';
+import { getLanguage, setLanguage } from '@/utils/i18n';
+
 const {
   mode,
   theme,
@@ -17,6 +20,9 @@ const {
   tag,
   menuBgColor,
 } = themeConfig;
+
+const { lang } = setting;
+
 const state = {
   routerView: true, // 是否显示路由
   isDrawerSetting: false, // 是否打开主题设置
@@ -34,6 +40,7 @@ const state = {
   isLogo,
   tag,
   menuBgColor,
+  lang: getLanguage() || lang,
 };
 
 const getters = {
@@ -53,6 +60,7 @@ const getters = {
   menuBgColor: (state) => state.menuBgColor,
   mode: (state) => state.mode,
   settings: (state) => state,
+  lang: (state) => state.lang,
 };
 
 const mutations = {
@@ -89,6 +97,10 @@ const mutations = {
   },
   SET_SETTING_OPTIONS: (state, options) => {
     Object.assign(state, { ...options });
+  },
+  CHANGE_LANGUAGE: (state, lang) => {
+    setLanguage(lang);
+    state.lang = lang;
   },
 };
 
@@ -161,6 +173,14 @@ const actions = {
    */
   setSettingOptions: ({ commit }, options) => {
     commit('SET_SETTING_OPTIONS', options.value);
+  },
+
+  /**
+   * @description 切换语言
+   */
+  changeLanguage: ({ commit }, lang) => {
+    console.log(lang, '---');
+    commit('CHANGE_LANGUAGE', lang);
   },
 };
 

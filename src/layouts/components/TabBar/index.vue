@@ -14,7 +14,7 @@
       <el-tab-pane
         v-for="item in visitedRouteList"
         :key="item.path"
-        :label="item.meta.title"
+        :label="t('route.' + item.meta.title)"
         :name="item.path"
         :closable="!isAffix(item)"
       ></el-tab-pane>
@@ -48,11 +48,13 @@
   import { reactive, watch, toRefs, computed, nextTick } from 'vue';
   import { useStore } from 'vuex';
   import { useRouter } from 'vue-router';
+  import { useI18n } from 'vue-i18n';
   export default {
     name: 'TabBar',
     setup() {
       const store = useStore();
       const router = useRouter();
+      const { t } = useI18n();
 
       const state = reactive({
         affixtabs: [],
@@ -270,6 +272,7 @@
         ...toRefs(state),
         visitedRouteList,
         routes,
+        t,
         mode,
         isAffix,
         refreshRoute,

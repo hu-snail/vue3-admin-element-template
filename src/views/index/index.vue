@@ -5,7 +5,7 @@
         <el-avatar :size="50" :src="avatar"></el-avatar>
       </div>
       <div class="head-card-content">
-        <h2 class="title">{{ sayHi }}! Vue3-Admin, 开始您一天的工作吧！</h2>
+        <h2 class="title">{{ sayHi }}! Vue3-Admin, {{ t('indexPage.descTitle') }}</h2>
         <p class="desc">
           vue3-admin 是基于 vue3 + vite2 + Element-Plus + Vue-Router4.x + Vuex4.x +
           Javascript开发的中后台管理平台，开箱即用！赶快试试吧...
@@ -17,7 +17,7 @@
         <el-col :xs="24" :sm="24" :md="24" :lg="16" :xl="16">
           <el-card class="card" shadow="hover">
             <template #header>
-              <h3 class="title">vue3相关资源推荐</h3>
+              <h3 class="title">{{ t('indexPage.resourceTitle') }}</h3>
             </template>
             <div class="card-body" :class="{ mobile: isMobile }">
               <div class="item">
@@ -106,7 +106,7 @@
           </el-card>
           <el-card class="card" shadow="hover">
             <template #header>
-              <h3 class="title">生产环境依赖信息</h3>
+              <h3 class="title">{{ t('indexPage.envTitle') }}</h3>
             </template>
             <el-descriptions class="margin-top" :column="3" :size="size" border>
               <el-descriptions-item v-for="(value, key) in packpage.dependencies" :key="key">
@@ -121,15 +121,15 @@
         <el-col :xs="24" :sm="24" :md="24" :lg="8" :xl="8">
           <el-card class="card" shadow="hover">
             <template #header>
-              <h3 class="title">订单清单</h3>
+              <h3 class="title">{{ t('indexPage.orderTitle') }}</h3>
             </template>
             <div class="count-box">
               <div class="item">
-                <span class="label">计划订单</span>
+                <span class="label">{{ t('indexPage.order.planned') }}</span>
                 <CountTo class="count" :startVal="0" :endVal="5021" :duration="3000"></CountTo>
               </div>
               <div class="item">
-                <span class="label">已完成订单</span>
+                <span class="label">{{ t('indexPage.order.finished') }}</span>
                 <CountTo
                   class="count success"
                   :startVal="0"
@@ -138,7 +138,7 @@
                 ></CountTo>
               </div>
               <div class="item">
-                <span class="label">未完成订单</span>
+                <span class="label">{{ t('indexPage.order.unfinished') }}</span>
                 <CountTo
                   class="count error"
                   :startVal="0"
@@ -150,34 +150,21 @@
           </el-card>
           <el-card class="card" shadow="hover">
             <template #header>
-              <h3 class="title">技能列表</h3>
+              <h3 class="title">{{ t('indexPage.skillTitle') }}</h3>
             </template>
             <div class="skill-title">JavaScript</div>
-            <el-progress
-              :text-inside="true"
-              :stroke-width="15"
-              :percentage="50"
-              status="success"
-            ></el-progress>
+            <el-progress :stroke-width="8" :percentage="50" color="#67c23a"></el-progress>
             <div class="skill-title">HTML</div>
-            <el-progress
-              :text-inside="true"
-              :stroke-width="15"
-              :percentage="90"
-              status="warning"
-            ></el-progress>
+            <el-progress :stroke-width="8" :percentage="90" color="#e6a23c"></el-progress>
             <div class="skill-title">CSS</div>
-            <el-progress :text-inside="true" :stroke-width="15" :percentage="70"></el-progress>
+            <el-progress :stroke-width="8" :percentage="70"></el-progress>
             <div class="skill-title">Vue</div>
-            <el-progress
-              :text-inside="true"
-              :stroke-width="15"
-              :percentage="80"
-              status="exception"
-            ></el-progress>
+            <el-progress :stroke-width="8" :percentage="80" color="#f56c6d"></el-progress>
+            <div class="skill-title">Node</div>
+            <el-progress :stroke-width="8" :percentage="60" color="#a650fe"></el-progress>
           </el-card>
           <Echarts
-            title="基础平滑折线图 Smoothed Line Chart"
+            :title="t('indexPage.chartTitle')"
             :index="1"
             headerIcon="chart-line"
             :style="{
@@ -208,17 +195,19 @@
   import { ref, computed, reactive } from 'vue';
   import { useStore } from 'vuex';
   import Echarts from '@/components/Echarts/index.vue';
+  import { useI18n } from 'vue-i18n';
+  const { t } = useI18n();
   const hour = new Date().getHours();
   const thisTime =
     hour < 8
-      ? '早上好'
+      ? t('sayHi.early')
       : hour <= 11
-      ? '上午好'
+      ? t('sayHi.morning')
       : hour <= 13
-      ? '中午好'
+      ? t('sayHi.noon')
       : hour < 18
-      ? '下午好'
-      : '晚上好';
+      ? t('sayHi.afternoon')
+      : t('sayHi.evening');
   const sayHi = ref(thisTime);
   const avatar = ref('https://i.gtimg.cn/club/item/face/img/2/15922_100.gif');
   const series2 = reactive([

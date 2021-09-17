@@ -1,6 +1,6 @@
 <template>
   <el-drawer
-    title="主题设置"
+    :title="t('settings.title')"
     v-model="settings.isDrawerSetting"
     :direction="direction"
     :before-close="handleClose"
@@ -11,7 +11,7 @@
       <el-scrollbar height="85vh">
         <div class="form">
           <el-form label-width="80px" label-position="left">
-            <el-form-item label="布局">
+            <el-form-item :label="t('settings.layout')">
               <el-select
                 class="theme-select-width"
                 v-model="settings.mode"
@@ -28,7 +28,7 @@
                 </el-option>
               </el-select>
             </el-form-item>
-            <el-form-item label="主题">
+            <el-form-item :label="t('settings.theme')">
               <el-select
                 class="theme-select-width"
                 v-model="setting.theme"
@@ -44,32 +44,32 @@
                 </el-option>
               </el-select>
             </el-form-item>
-            <el-form-item label="菜单背景">
+            <el-form-item :label="t('settings.menuBg')">
               <el-color-picker v-model="setting.menuBgColor"></el-color-picker>
             </el-form-item>
             <el-form-item label="Logo">
               <el-switch v-model="settings.isLogo" />
             </el-form-item>
-            <el-form-item label="标签">
+            <el-form-item :label="t('settings.tag')">
               <el-switch @change="handleChangeTag" v-model="setting.tag" />
             </el-form-item>
-            <el-form-item label="面包导航">
+            <el-form-item :label="t('settings.breadcurmb')">
               <el-switch
                 :disabled="settings.mode === 'horizontal'"
                 @change="handleChangeBread"
                 v-model="setting.isBreadcrumb"
               />
             </el-form-item>
-            <el-form-item label="固定头部">
+            <el-form-item :label="t('settings.fixed')">
               <el-switch :disabled="isMobile" v-model="settings.fixedHead" />
             </el-form-item>
-            <el-form-item label="全屏">
+            <el-form-item :label="t('settings.fullscreen')">
               <el-switch v-model="settings.fullScreen" />
             </el-form-item>
-            <el-form-item label="刷新">
+            <el-form-item :label="t('settings.refresh')">
               <el-switch v-model="settings.refresh" />
             </el-form-item>
-            <el-form-item label="通知">
+            <el-form-item :label="t('settings.notice')">
               <el-switch v-model="settings.notice" />
             </el-form-item>
           </el-form>
@@ -93,6 +93,8 @@
 <script setup>
   import { ref, reactive, computed, watch } from 'vue';
   import { useStore } from 'vuex';
+  import { useI18n } from 'vue-i18n';
+  const { t } = useI18n();
   const ORIGINAL_THEME = '#409EFF';
   const store = useStore();
   const setting = reactive({
