@@ -25,7 +25,8 @@
 
 <script setup>
   import debounce from 'lodash/debounce';
-  import { onMounted, reactive, defineProps } from 'vue';
+  import { onMounted, ref, reactive, defineProps, computed, watch, onBeforeUnmount } from 'vue';
+  import { useStore } from 'vuex';
   // 引入 echarts 核心模块，核心模块提供了 echarts 使用必须要的接口。
   import * as echarts from 'echarts/core';
   // 引入柱状图图表，图表后缀都为 Chart
@@ -74,6 +75,7 @@
   ]);
 
   const props = defineProps({
+    // 图表下标 同个页面有多个图表时，必填
     index: {
       type: Number,
       default: 0,
@@ -93,12 +95,6 @@
           width: '100%',
           height: '380px',
         };
-      },
-    },
-    series: {
-      type: Array,
-      default: () => {
-        return [];
       },
     },
     options: {
@@ -121,7 +117,29 @@
     },
   });
 
+  const store = useStore();
+
+  const isCollapse = computed(() => {
+    return store.getters.collapse;
+  });
+
   let chart = reactive(null);
+  let timer = ref(null);
+
+  watch(
+    () => isCollapse,
+    () => {
+      timer = setTimeout(() => {
+        chart.resize(); //页面大小变化后Echarts也更改大小
+        clearTimeout(timer);
+        timer = null;
+      }, 300);
+    },
+    {
+      deep: true,
+    }
+  );
+
   onMounted(() => {
     initChart();
     window.addEventListener(
@@ -130,6 +148,11 @@
         chart.resize(); //页面大小变化后Echarts也更改大小
       }, 200)
     );
+  });
+
+  onBeforeUnmount(() => {
+    clearTimeout(timer);
+    timer = null;
   });
 
   const initChart = () => {
