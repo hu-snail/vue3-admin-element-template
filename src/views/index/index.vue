@@ -121,6 +121,35 @@
         <el-col :xs="24" :sm="24" :md="24" :lg="8" :xl="8">
           <el-card class="card" shadow="hover">
             <template #header>
+              <h3 class="title">订单清单</h3>
+            </template>
+            <div class="count-box">
+              <div class="item">
+                <span class="label">计划订单</span>
+                <CountTo class="count" :startVal="0" :endVal="5021" :duration="3000"></CountTo>
+              </div>
+              <div class="item">
+                <span class="label">已完成订单</span>
+                <CountTo
+                  class="count success"
+                  :startVal="0"
+                  :endVal="3204.25"
+                  :duration="3000"
+                ></CountTo>
+              </div>
+              <div class="item">
+                <span class="label">未完成订单</span>
+                <CountTo
+                  class="count error"
+                  :startVal="0"
+                  :endVal="1816.75"
+                  :duration="3000"
+                ></CountTo>
+              </div>
+            </div>
+          </el-card>
+          <el-card class="card" shadow="hover">
+            <template #header>
               <h3 class="title">技能列表</h3>
             </template>
             <div class="skill-title">JavaScript</div>
@@ -174,6 +203,7 @@
 </script>
 
 <script setup>
+  import { CountTo } from 'vue3-count-to';
   import packpage from '../../../package.json';
   import { ref, computed, reactive } from 'vue';
   import { useStore } from 'vuex';
@@ -231,6 +261,31 @@
     }
     .content {
       margin: 15px 0;
+      .count-box {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .item {
+          display: flex;
+          flex-direction: column;
+          text-align: center;
+          .label {
+            padding: 10px 0;
+            font-size: $base-font-size-big;
+          }
+          .count {
+            font-size: $base-font-size-max;
+            font-weight: bolder;
+            color: $base-color-primary;
+            &.error {
+              color: var(--el-color-danger);
+            }
+            &.success {
+              color: var(--el-color-success);
+            }
+          }
+        }
+      }
       .title {
         margin: 0;
       }

@@ -29,6 +29,7 @@
     "screenfull": "^5.1.0",
     "vue": "^3.2.4",
     "vue-router": "^4.0.10",
+    "vue3-count-to": "^1.0.11",
     "vuex": "^4.0.2"
   },
   "devDependencies": {
