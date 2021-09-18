@@ -1,4 +1,4 @@
-import { getUserInfo, login, logout } from '@/api/user';
+import { getUserInfo, login } from '@/api/user';
 import { getAccessToken, removeAccessToken, setAccessToken } from '@/utils/accessToken';
 
 import { setting } from '@/config/setting';
@@ -85,7 +85,7 @@ const actions = {
     }
   },
   async logout({ dispatch }) {
-    await logout(state.accessToken);
+    // await logout(state.accessToken);
     await dispatch('resetAccessToken');
     await resetRouter();
   },
