@@ -1,6 +1,6 @@
 <template>
   <div class="echarts-container">
-    <Descrition title="折线图 Line">
+    <Descrition :title="t('echarts.line.title')">
       <template #descrition>
         Vue3-admin 推荐使用
         <a href="https://echarts.apache.org/examples/zh/index.html#chart-type-line" target="_blank"
@@ -9,11 +9,11 @@
         作为图表库
       </template>
     </Descrition>
-    <Descrition title="演示" :showDesc="false"></Descrition>
+    <Descrition :title="t('echarts.demo')" :showDesc="false"></Descrition>
     <el-row :gutter="10">
       <el-col :xs="24" :sm="24" :md="24" :lg="8" :xl="8">
         <Echarts
-          title="基础折线图 Stacked area chart"
+          :title="t('echarts.line.demo1Title')"
           headerIcon="chart-line"
           :style="{
             height: '200px',
@@ -28,7 +28,7 @@
       </el-col>
       <el-col :xs="24" :sm="24" :md="24" :lg="8" :xl="8">
         <Echarts
-          title="基础平滑折线图 Smoothed Line Chart"
+          :title="t('echarts.line.demo2Title')"
           :index="1"
           headerIcon="chart-line"
           :style="{
@@ -44,7 +44,7 @@
       </el-col>
       <el-col :xs="24" :sm="24" :md="24" :lg="8" :xl="8">
         <Echarts
-          title="堆叠面积图 Stacked area chart"
+          :title="t('echarts.line.demo3Title')"
           :index="2"
           headerIcon="chart-line"
           :style="{
@@ -67,9 +67,11 @@
   import { reactive, toRefs } from 'vue';
   import Descrition from '@/components/Descrition/index.vue';
   import Echarts from '@/components/Echarts/index.vue';
+  import { useI18n } from 'vue-i18n';
   export default {
     components: { Descrition, Echarts },
     setup() {
+      const { t } = useI18n();
       const state = reactive({
         series: [{ data: [150, 230, 224, 218, 135, 147, 260], type: 'line' }],
         series2: [
@@ -180,6 +182,7 @@
 
       return {
         ...toRefs(state),
+        t,
       };
     },
   };

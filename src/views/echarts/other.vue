@@ -1,6 +1,6 @@
 <template>
   <div class="echarts-container">
-    <Descrition title="其他图表">
+    <Descrition :title="t('echarts.other.title')">
       <template #descrition>
         Vue3-admin 推荐使用
         <a href="https://echarts.apache.org/examples/zh/index.html#chart-type-line" target="_blank"
@@ -9,11 +9,11 @@
         作为图表库
       </template>
     </Descrition>
-    <Descrition title="演示" :showDesc="false"></Descrition>
+    <Descrition :title="t('echarts.demo')" :showDesc="false"></Descrition>
     <el-row :gutter="20">
       <el-col :xs="24" :sm="24" :md="24" :lg="8" :xl="8">
         <Echarts
-          title="基础 K 线图"
+          :title="t('echarts.other.demo1Title')"
           headerIcon="chart-histogram"
           :style="{
             height: '200px',
@@ -28,7 +28,7 @@
       <el-col :xs="24" :sm="24" :md="24" :lg="8" :xl="8">
         <Echarts
           :index="1"
-          title="基础散点图"
+          :title="t('echarts.other.demo2Title')"
           headerIcon="chart-histogram"
           :style="{
             height: '200px',
@@ -43,7 +43,7 @@
       <el-col :xs="24" :sm="24" :md="24" :lg="8" :xl="8">
         <Echarts
           :index="2"
-          title="圆角环形图"
+          :title="t('echarts.other.demo3Title')"
           headerIcon="chart-histogram"
           :style="{
             height: '200px',
@@ -59,7 +59,7 @@
       <el-col :xs="24" :sm="24" :md="24" :lg="8" :xl="8">
         <Echarts
           :index="3"
-          title="基础雷达图"
+          :title="t('echarts.other.demo4Title')"
           headerIcon="chart-histogram"
           :style="{
             height: '200px',
@@ -73,7 +73,7 @@
       <el-col :xs="24" :sm="24" :md="24" :lg="8" :xl="8">
         <Echarts
           :index="4"
-          title="数字动画仪表盘"
+          :title="t('echarts.other.demo5Title')"
           headerIcon="chart-histogram"
           :style="{
             height: '200px',
@@ -90,7 +90,7 @@
       <el-col :xs="24" :sm="24" :md="24" :lg="8" :xl="8">
         <Echarts
           :index="5"
-          title="漏斗图"
+          :title="t('echarts.other.demo6Title')"
           headerIcon="chart-histogram"
           :style="{
             height: '200px',
@@ -109,9 +109,11 @@
   import { reactive, toRefs } from 'vue';
   import Descrition from '@/components/Descrition/index.vue';
   import Echarts from '@/components/Echarts/index.vue';
+  import { useI18n } from 'vue-i18n';
   export default {
     components: { Descrition, Echarts },
     setup() {
+      const { t } = useI18n();
       const state = reactive({
         xAxis: {
           data: ['2017-10-24', '2017-10-25', '2017-10-26', '2017-10-27'],
@@ -295,6 +297,7 @@
 
       return {
         ...toRefs(state),
+        t,
       };
     },
   };

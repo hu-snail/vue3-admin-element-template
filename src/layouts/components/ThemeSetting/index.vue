@@ -77,8 +77,10 @@
       </el-scrollbar>
 
       <div class="drawer-footer">
-        <el-button size="small">恢复默认</el-button>
-        <el-button type="primary" size="small" @click="handleToSave">保存</el-button>
+        <el-button size="small">{{ t('settings.defaultBtn') }}</el-button>
+        <el-button type="primary" size="small" @click="handleToSave">{{
+          t('settings.saveBtn')
+        }}</el-button>
       </div>
     </div>
   </el-drawer>
@@ -110,26 +112,26 @@
     modeOption: [
       {
         value: 'vertical',
-        label: '纵向',
+        label: t('layout.vertical'),
       },
       {
         value: 'horizontal',
-        label: '横向',
+        label: t('layout.horizontal'),
       },
     ],
     theme: '#08a17e',
     themeOptions: [
       {
         value: '#08a17e',
-        label: '翠绿',
+        label: t('theme.green'),
       },
       {
         value: '#f45555',
-        label: '红色',
+        label: t('theme.red'),
       },
       {
         value: '#409eff',
-        label: '默认',
+        label: t('theme.default'),
       },
     ],
     menuBgColor: '#ffffff',

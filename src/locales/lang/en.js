@@ -38,94 +38,19 @@ export default {
     thirdpartyTips:
       'Can not be simulated on local, so please combine you own business simulation! ! !',
   },
-  documentation: {
-    documentation: 'Documentation',
-    github: 'Github Repository',
-  },
-  permission: {
-    createRole: 'New Role',
-    editPermission: 'Edit',
-    roles: 'Your roles',
-    switchRoles: 'Switch roles',
-    tips: 'In some cases, using v-permission will have no effect. For example: Element-UI  el-tab or el-table-column and other scenes that dynamically render dom. You can only do this with v-if.',
-    delete: 'Delete',
-    confirm: 'Confirm',
-    cancel: 'Cancel',
-  },
-  guide: {
-    description:
-      'The guide page is useful for some people who entered the project for the first time. You can briefly introduce the features of the project. Demo is based on ',
-    button: 'Show Guide',
-  },
-  components: {
-    documentation: 'Documentation',
-    tinymceTips:
-      'Rich text is a core feature of the management backend, but at the same time it is a place with lots of pits. In the process of selecting rich texts, I also took a lot of detours. The common rich texts on the market have been basically used, and I finally chose Tinymce. See the more detailed rich text comparison and introduction.',
-    stickyTips: 'when the page is scrolled to the preset position will be sticky on the top.',
-    backToTopTips1:
-      'When the page is scrolled to the specified position, the Back to Top button appears in the lower right corner',
-    backToTopTips2:
-      'You can customize the style of the button, show / hide, height of appearance, height of the return. If you need a text prompt, you can use element-ui el-tooltip elements externally',
-    imageUploadTips:
-      'Since I was using only the vue@1 version, and it is not compatible with mockjs at the moment, I modified it myself, and if you are going to use it, it is better to use official version.',
-  },
-  table: {
-    dynamicTips1: 'Fixed header, sorted by header order',
-    dynamicTips2: 'Not fixed header, sorted by click order',
-    dragTips1: 'The default order',
-    dragTips2: 'The after dragging order',
-    title: 'Title',
-    importance: 'Importance',
-    type: 'Type',
-    remark: 'Remark',
-    search: 'Search',
-    add: 'Add',
-    export: 'Export',
-    reviewer: 'Reviewer',
-    id: 'ID',
-    date: 'Date',
-    author: 'Author',
-    readings: 'Readings',
-    status: 'Status',
-    actions: 'Actions',
-    edit: 'Edit',
-    publish: 'Publish',
-    draft: 'Draft',
-    delete: 'Delete',
-    cancel: 'Cancel',
-    confirm: 'Confirm',
-  },
-  example: {
-    warning:
-      "Creating and editing pages cannot be cached by keep-alive because keep-alive's 'include' currently does not support caching based on routes, so now it's cached based on component name. If you want to achieve a similar caching effect, you can use a browser caching scheme such as localStorage. Or don't use keep-alive's 'include' to cache all pages directly. See details",
-  },
-  errorLog: {
-    tips: 'Please click the bug icon in the upper right corner',
-    description:
-      'Now the management system are basically the form of the spa, it enhances the user experience, but it also increases the possibility of page problems, a small negligence may lead to the entire page deadlock. Fortunately Vue provides a way to catch handling exceptions, where you can handle errors or report exceptions.',
-    documentation: 'Document introduction',
-  },
-  excel: {
-    export: 'Export',
-    selectedExport: 'Export Selected Items',
-    placeholder: 'Please enter the file name (default excel-list)',
-  },
-  zip: {
-    export: 'Export',
-    placeholder: 'Please enter the file name (default file)',
-  },
-  pdf: {
-    tips: 'Here we use window.print() to implement the feature of downloading PDF.',
-  },
   theme: {
     change: 'Change Theme',
     documentation: 'Theme documentation',
     tips: 'Tips: It is different from the theme-pick on the navbar is two different skinning methods, each with different application scenarios. Refer to the documentation for details.',
     loading: 'Theme change loading...',
+    green: 'Green',
+    red: 'Red',
+    default: 'Default',
   },
   tagsView: {
     refresh: 'Refresh',
-    close: 'Close',
+    closeLeft: 'Close Left',
+    closeRight: 'Close Right',
     closeOthers: 'Close Others',
     closeAll: 'Close All',
   },
@@ -135,11 +60,17 @@ export default {
     theme: 'Theme',
     logo: 'Logo',
     tag: 'Tag',
-    breadcurmb: 'Breadcurmb NavBar',
+    breadcurmb: 'Breadcurmb',
     fixed: 'fixed Header',
     fullscreen: 'Fuscreen',
     refresh: 'Refresh',
     notice: 'Notice',
+    defaultBtn: 'Restore the default',
+    saveBtn: 'Save',
+  },
+  layout: {
+    vertical: 'Vertical',
+    horizontal: 'Horizontal',
   },
   sayHi: {
     early: 'Good early morning',
@@ -160,5 +91,62 @@ export default {
     skillTitle: 'The skills list',
     envTitle: 'Production environments depend on information',
     chartTitle: 'Smoothed Line Chart',
+  },
+  errorPages: {
+    title: 'Sorry!',
+    btn: 'Back Home',
+    404: {
+      desc: 'Current page does not exist...',
+      remark:
+        'Please check whether the url you entered is correct, or click the button below to return to the home page',
+    },
+    401: {
+      desc: "You don't have permission to go to this page...",
+      remark:
+        'Please contact the administrator or click the button below to return to the home page',
+    },
+  },
+  echarts: {
+    demo: 'Demo',
+    line: {
+      title: 'Line',
+      demo1Title: 'Stacked area chart',
+      demo2Title: 'Smoothed Line Chart',
+      demo3Title: 'Stacked area chart',
+    },
+    bar: {
+      title: 'Bar',
+      demo1Title: 'Basic Bar',
+      demo2Title: 'The amount of evaporation and precipitation in an area',
+    },
+    other: {
+      title: 'Other Charts',
+      demo1Title: 'Basic Candlestick',
+      demo2Title: 'Basic Scatter Chart',
+      demo3Title: 'Doughnut Chart with Rounded Corner',
+      demo4Title: 'Basic Radar Chart',
+      demo5Title: 'Simple Gauge',
+      demo6Title: 'Funnel Chart',
+    },
+  },
+  iconPage: {
+    title: 'Icons',
+    demo: 'Demo',
+    props: 'Props',
+    table: {
+      label1: 'Params',
+      label2: 'Type',
+      label3: 'Options',
+      label4: 'Default',
+      label5: 'Descrition',
+    },
+  },
+  element: {
+    title: 'Element-Plus Demo',
+    btn: 'Button',
+    radio: 'Radio',
+    checkBox: 'CheckBox',
+    datePicker: 'DatePicker',
+    dateTimePicker: 'DataTimePicker',
   },
 };

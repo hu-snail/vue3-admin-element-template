@@ -27,6 +27,7 @@ const {
 } = setting;
 
 const isDev = process.env.NODE_ENV === 'development';
+
 // https://vitejs.dev/config/
 export default defineConfig({
   root: process.cwd(),

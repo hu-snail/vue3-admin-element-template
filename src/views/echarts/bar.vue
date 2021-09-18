@@ -1,6 +1,6 @@
 <template>
   <div class="echarts-container">
-    <Descrition title="柱状图 Bar">
+    <Descrition :title="t('echarts.bar.title')">
       <template #descrition>
         Vue3-admin 推荐使用
         <a href="https://echarts.apache.org/examples/zh/index.html#chart-type-line" target="_blank"
@@ -9,11 +9,11 @@
         作为图表库
       </template>
     </Descrition>
-    <Descrition title="演示" :showDesc="false"></Descrition>
+    <Descrition :title="t('echarts.demo')" :showDesc="false"></Descrition>
     <el-row :gutter="10">
       <el-col :xs="24" :sm="24" :md="24" :lg="12" :xl="12">
         <Echarts
-          title="基础柱状图 Basic Bar"
+          :title="t('echarts.bar.demo1Title')"
           headerIcon="chart-histogram"
           :style="{
             height: '280px',
@@ -28,7 +28,7 @@
       <el-col :xs="24" :sm="24" :md="24" :lg="12" :xl="12">
         <Echarts
           :index="1"
-          title="某地区蒸发量和降水量"
+          :title="t('echarts.bar.demo2Title')"
           headerIcon="chart-histogram"
           :style="{
             height: '280px',
@@ -51,9 +51,13 @@
   import { reactive, toRefs } from 'vue';
   import Descrition from '@/components/Descrition/index.vue';
   import Echarts from '@/components/Echarts/index.vue';
+
+  import { useI18n } from 'vue-i18n';
   export default {
     components: { Descrition, Echarts },
     setup() {
+      const { t } = useI18n();
+
       const state = reactive({
         xAxis: {
           type: 'category',
@@ -138,6 +142,7 @@
 
       return {
         ...toRefs(state),
+        t,
       };
     },
   };

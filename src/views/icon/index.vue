@@ -1,26 +1,28 @@
 <template>
   <div class="icon-container">
-    <Descrition title="图标 IconPark">
+    <Descrition :title="t('iconPage.title')">
       <template #descrition>
         Vue3-admin 推荐使用
         <a href="https://iconpark.oceanengine.com/official" target="_blank">IconPark</a>
         作为图标库
       </template>
     </Descrition>
-    <h2 class="title reset">演示</h2>
+    <Descrition :title="t('iconPage.demo')" :showDesc="false"></Descrition>
     <div class="icon-centent">
       <div class="icon-item" v-for="(item, index) in icon.icons" :key="index">
         <component class="icon-name" size="20" :is="item.name" />
         <p class="icon-title">{{ item.name }}</p>
       </div>
     </div>
-    <h2 class="title reset">属性 Props</h2>
+    <Descrition :title="t('iconPage.props')" :showDesc="false"></Descrition>
     <el-table :data="icon.props" border style="width: 100%">
-      <el-table-column prop="param" label="参数" width="180"> </el-table-column>
-      <el-table-column prop="type" label="类型" width="180"> </el-table-column>
-      <el-table-column prop="all" label="可选值"> </el-table-column>
-      <el-table-column prop="default" label="默认值"> </el-table-column>
-      <el-table-column prop="desc" label="说明"> </el-table-column>
+      <el-table-column prop="param" :label="t('iconPage.table.label1')" width="180">
+      </el-table-column>
+      <el-table-column prop="type" :label="t('iconPage.table.label2')" width="180">
+      </el-table-column>
+      <el-table-column prop="all" :label="t('iconPage.table.label3')"> </el-table-column>
+      <el-table-column prop="default" :label="t('iconPage.table.label4')"> </el-table-column>
+      <el-table-column prop="desc" :label="t('iconPage.table.label5')"> </el-table-column>
     </el-table>
   </div>
 </template>
@@ -29,9 +31,12 @@
   import { getIcons } from '@/api/icon';
   import { reactive, toRefs, onBeforeMount } from 'vue';
   import Descrition from '@/components/Descrition/index.vue';
+  import { useI18n } from 'vue-i18n';
+
   export default {
     components: { Descrition },
     setup() {
+      const { t } = useI18n();
       const state = reactive({
         icon: {},
       });
@@ -48,6 +53,7 @@
 
       return {
         ...toRefs(state),
+        t,
       };
     },
   };

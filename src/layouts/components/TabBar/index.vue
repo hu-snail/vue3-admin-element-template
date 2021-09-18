@@ -14,14 +14,14 @@
       <el-tab-pane
         v-for="item in visitedRouteList"
         :key="item.path"
-        :label="t('route.' + item.meta.title)"
+        :label="item.meta.title"
         :name="item.path"
         :closable="!isAffix(item)"
       ></el-tab-pane>
     </el-tabs>
     <el-popover
       placement="bottom"
-      :width="100"
+      width="auto"
       trigger="hover"
       @show="handleShow"
       @hide="handleHide"
@@ -48,7 +48,9 @@
   import { reactive, watch, toRefs, computed, nextTick } from 'vue';
   import { useStore } from 'vuex';
   import { useRouter } from 'vue-router';
+
   import { useI18n } from 'vue-i18n';
+
   export default {
     name: 'TabBar',
     setup() {
@@ -63,27 +65,27 @@
         commandList: [
           {
             command: 'refreshRoute',
-            text: '重新加载',
+            text: t('tagsView.refresh'),
             icon: 'refresh',
           },
           {
             command: 'closeOtherstabs',
-            text: '关闭其他',
+            text: t('tagsView.closeOthers'),
             icon: 'close',
           },
           {
             command: 'closeLefttabs',
-            text: '关闭左侧',
+            text: t('tagsView.closeLeft'),
             icon: 'to-left',
           },
           {
             command: 'closeRighttabs',
-            text: '关闭右侧',
+            text: t('tagsView.closeRight'),
             icon: 'to-right',
           },
           {
             command: 'closeAlltabs',
-            text: '关闭全部',
+            text: t('tagsView.closeAll'),
             icon: 'minus',
           },
         ],
@@ -272,7 +274,6 @@
         ...toRefs(state),
         visitedRouteList,
         routes,
-        t,
         mode,
         isAffix,
         refreshRoute,

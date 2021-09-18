@@ -1,7 +1,7 @@
 
 {
   "color": [
-      "#08a17e",
+      "#84a2fe",
       "#22c3aa",
       "#7bd9a5",
       "#d0648a",
@@ -110,7 +110,7 @@
       "symbol": "emptyCircle",
       "smooth": false,
       "color": [
-          "#08a17e",
+          "#84a2fe",
           "#22c3aa",
           "#7bd9a5",
           "#d0648a",
@@ -330,36 +330,36 @@
   },
   "timeline": {
       "lineStyle": {
-          "color": "#08a17e",
+          "color": "#84a2fe",
           "width": 1
       },
       "itemStyle": {
-          "color": "#08a17e",
+          "color": "#84a2fe",
           "borderWidth": 1
       },
       "controlStyle": {
-          "color": "#08a17e",
-          "borderColor": "#08a17e",
+          "color": "#84a2fe",
+          "borderColor": "#84a2fe",
           "borderWidth": 0.5
       },
       "checkpointStyle": {
-          "color": "#08a17e",
+          "color": "#84a2fe",
           "borderColor": "#3cebd2"
       },
       "label": {
-          "color": "#08a17e"
+          "color": "#84a2fe"
       },
       "emphasis": {
           "itemStyle": {
-              "color": "#08a17e"
+              "color": "#84a2fe"
           },
           "controlStyle": {
-              "color": "#08a17e",
-              "borderColor": "#08a17e",
+              "color": "#84a2fe",
+              "borderColor": "#84a2fe",
               "borderWidth": 0.5
           },
           "label": {
-              "color": "#08a17e"
+              "color": "#84a2fe"
           }
       }
   },

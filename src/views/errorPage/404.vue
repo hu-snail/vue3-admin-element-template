@@ -1,14 +1,9 @@
 <template>
-  <ErrorPage
-    type="404"
-    title="当前页面不存在..."
-    msg="请检查您输入的网址是否正确，或点击下面的按钮返回首页"
-  />
+  <ErrorPage type="404" :title="t('errorPages.404.desc')" :msg="t('errorPages.404.remark')" />
 </template>
 
-<script>
+<script setup>
   import ErrorPage from '@/components/ErrorPage/index.vue';
-  export default {
-    components: { ErrorPage },
-  };
+  import { useI18n } from 'vue-i18n';
+  const { t } = useI18n();
 </script>

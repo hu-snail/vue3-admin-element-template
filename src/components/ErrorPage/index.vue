@@ -9,11 +9,11 @@
       </el-col>
       <el-col :xs="24" :sm="24" :md="10" :lg="10" :xl="10">
         <div class="error-content">
-          <h2 class="error-title">抱歉！</h2>
+          <h2 class="error-title">{{ t('errorPages.title') }}</h2>
           <h3>{{ title }}</h3>
           <p class="desc"> {{ msg }} </p>
           <div class="btn">
-            <el-button type="primary" @click="handleBack">返回首页</el-button>
+            <el-button type="primary" @click="handleBack">{{ t('errorPages.btn') }}</el-button>
           </div>
         </div>
       </el-col>
@@ -23,6 +23,7 @@
 
 <script>
   import { useRouter } from 'vue-router';
+  import { useI18n } from 'vue-i18n';
   export default {
     props: {
       src: {
@@ -43,11 +44,13 @@
       },
     },
     setup() {
+      const { t } = useI18n();
       const router = useRouter();
       const handleBack = () => {
         router.replace('/');
       };
       return {
+        t,
         handleBack,
       };
     },

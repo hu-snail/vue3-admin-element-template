@@ -1,6 +1,6 @@
 <template>
   <div class="element-container">
-    <Descrition title="Element-Plus 组件演示">
+    <Descrition :title="t('element.title')">
       <template #descrition>
         Vue3-admin-element-template使用的是
         <a href="https://element-plus.gitee.io/#/zh-CN/component/installation" target="_blank"
@@ -9,7 +9,7 @@
         UI组件库，以下是常用的组件
       </template>
     </Descrition>
-    <Descrition :showDesc="false" title="按钮 Button" />
+    <Descrition :showDesc="false" :title="t('element.btn')" />
     <el-row>
       <el-row>
         <el-button round>圆角按钮</el-button>
@@ -33,7 +33,7 @@
         <el-button type="primary" icon="el-icon-delete"></el-button>
       </el-button-group>
     </el-row>
-    <Descrition :showDesc="false" title="单选 Radio" />
+    <Descrition :showDesc="false" :title="t('element.radio')" />
     <el-row class="row">
       <el-radio-group v-model="radio">
         <el-radio :label="3">备选项</el-radio>
@@ -47,7 +47,7 @@
         <el-radio-button label="深圳"></el-radio-button>
       </el-radio-group>
     </el-row>
-    <Descrition :showDesc="false" title="多选 CheckBox" />
+    <Descrition :showDesc="false" :title="t('element.checkBox')" />
 
     <el-row class="row">
       <el-checkbox v-model="checked1" label="备选项1"></el-checkbox>
@@ -58,7 +58,7 @@
         }}</el-checkbox-button>
       </el-checkbox-group>
     </el-row>
-    <Descrition :showDesc="false" title="日期选择器 DataPicker" />
+    <Descrition :showDesc="false" :title="t('element.datePicker')" />
 
     <el-row class="row">
       <el-date-picker
@@ -70,7 +70,7 @@
       >
       </el-date-picker>
     </el-row>
-    <Descrition :showDesc="false" title="日期时间选择器 DataTimePicker" />
+    <Descrition :showDesc="false" :title="t('element.dateTimePicker')" />
 
     <el-row class="row">
       <el-date-picker
@@ -88,6 +88,8 @@
 <script setup>
   import Descrition from '@/components/Descrition/index.vue';
   import { ref, reactive } from 'vue';
+  import { useI18n } from 'vue-i18n';
+  const { t } = useI18n();
   const cityOptions = ['上海', '北京', '广州', '深圳'];
   const radio = ref(3);
   const radio2 = ref('上海');

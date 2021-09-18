@@ -14,9 +14,7 @@
     />
     <template #title>
       <span class="title">
-        {{
-          item.children ? t('route.' + item.children[0].meta.title) : t('route.' + item.meta.title)
-        }}
+        {{ item.children ? item.children[0].meta.title : item.meta.title }}
       </span>
     </template>
   </el-menu-item>
@@ -30,7 +28,7 @@
         strokeWidth="3"
         :is="item.meta.icon"
       />
-      <span class="title">{{ t('route.' + item.meta.title) }}</span>
+      <span class="title">{{ item.meta.title }}</span>
     </template>
     <template v-for="option in item.children">
       <menu-item v-if="option.children" :key="option.path" :item="option" />
@@ -44,7 +42,7 @@
           :is="option.meta.icon"
         />
         <span class="title">
-          {{ t('route.' + option.meta.title) }}
+          {{ option.meta.title }}
         </span>
       </el-menu-item>
     </template>
@@ -59,8 +57,6 @@
 
 <script setup>
   import { defineProps } from 'vue';
-  import { useI18n } from 'vue-i18n';
-  const { t } = useI18n();
   defineProps({
     item: {
       type: Object,
