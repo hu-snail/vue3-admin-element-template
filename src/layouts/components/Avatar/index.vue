@@ -49,9 +49,9 @@
   };
 
   const handleLogout = () => {
-    ElMessageBox.confirm(`您确定要退出${title}吗？`, '操作提示', {
-      confirmButtonText: '确定',
-      cancelButtonText: '取消',
+    ElMessageBox.confirm(`${t('confirm.msg')}${title}？`, t('confirm.title'), {
+      confirmButtonText: t('btn.confirm'),
+      cancelButtonText: t('btn.cancel'),
       dangerouslyUseHTMLString: true,
       type: 'warning',
     })

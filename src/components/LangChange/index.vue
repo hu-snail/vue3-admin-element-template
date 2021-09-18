@@ -1,7 +1,7 @@
 <template>
   <div class="icon-hover icon-lang">
     <el-dropdown>
-      <translate theme="filled" size="16" fill="#333" :strokeWidth="4" />
+      <translate theme="filled" size="16" :fill="color" :strokeWidth="4" />
       <template #dropdown>
         <el-dropdown-menu>
           <el-dropdown-item
@@ -18,9 +18,14 @@
 </template>
 
 <script setup>
-  import { reactive, computed } from 'vue';
+  import { reactive, computed, defineProps } from 'vue';
   import { useStore } from 'vuex';
-
+  defineProps({
+    color: {
+      type: String,
+      default: '#333',
+    },
+  });
   const languages = reactive([
     {
       name: '简体中文',

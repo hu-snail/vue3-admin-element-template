@@ -6,7 +6,7 @@ import './config/permission';
 // element
 import ElementPlus from 'element-plus';
 import 'element-plus/theme-chalk/display.css';
-import zhCn from 'element-plus/es/locale/lang/zh-cn';
+// import zhCn from 'element-plus/es/locale/lang/zh-cn';
 // element theme change
 import './styles/element-variables.scss';
 
@@ -29,11 +29,8 @@ app.use(store);
 // import elementPlus from './plugin/el-comp';
 // 注册 elementPlus组件/插件
 // elementPlus(app);
-
-// 完整引入
-app.use(ElementPlus, {
-  locale: zhCn,
-});
+// // 完整引入
+app.use(ElementPlus);
 
 // 注册字节跳动图标
 import iconPark from './plugin/icon-park';

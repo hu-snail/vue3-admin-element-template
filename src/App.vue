@@ -1,13 +1,23 @@
 <template>
-  <el-scrollbar height="100vh">
-    <router-view></router-view>
-  </el-scrollbar>
+  <el-config-provider :locale="localLanguage">
+    <el-scrollbar height="100vh">
+      <router-view></router-view>
+    </el-scrollbar>
+  </el-config-provider>
 </template>
 
 <script setup>
-  import { onMounted } from 'vue';
+  import { onMounted, computed } from 'vue';
   import { useStore } from 'vuex';
+
+  import i18n from '@/locales';
+  const locale = i18n.global.locale;
+
   const store = useStore();
+
+  const localLanguage = computed(() => {
+    return i18n.global.messages[locale];
+  });
 
   onMounted(() => {
     changeBodyWidth();

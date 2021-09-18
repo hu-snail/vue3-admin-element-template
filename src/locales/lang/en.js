@@ -28,15 +28,31 @@ export default {
     size: 'Global Size',
     profile: 'Profile',
   },
+
   login: {
-    title: 'Login Form',
-    logIn: 'Login',
+    title: 'Login',
+    rules: {
+      username: 'Please enter a username',
+      password: 'Please enter your password',
+    },
+    loginBtn: 'Login',
+    desc: 'Out of the box in the background management system',
+    tip: 'Click login for a quick experience',
     username: 'Username',
     password: 'Password',
-    any: 'any',
-    thirdparty: 'Or connect with',
-    thirdpartyTips:
-      'Can not be simulated on local, so please combine you own business simulation! ! !',
+    thirdparty: 'Third-party Login',
+    rememberPwd: 'Remember the password',
+    forgotPwd: 'Forgot password',
+  },
+  register: {
+    title: 'Register',
+    registerBtn: 'Register',
+    username: 'UserName',
+    smsCode: 'SMS verification code',
+    smsbtn: 'Get Code',
+    password: 'Password',
+    confirmPwd: 'Confirm Password',
+    checkText: 'I agree with XXX Privacy Policy',
   },
   theme: {
     change: 'Change Theme',
@@ -46,6 +62,7 @@ export default {
     green: 'Green',
     red: 'Red',
     default: 'Default',
+    blue: 'Blue',
   },
   tagsView: {
     refresh: 'Refresh',
@@ -58,6 +75,7 @@ export default {
     title: 'Theme Settings',
     layout: 'Layout',
     theme: 'Theme',
+    menuBg: 'Menu Bg',
     logo: 'Logo',
     tag: 'Tag',
     breadcurmb: 'Breadcurmb',
@@ -78,6 +96,9 @@ export default {
     noon: 'Good noon',
     afternoon: 'Good afternoon',
     evening: 'Good evening',
+  },
+  notice: {
+    msg: 'Welcome to ',
   },
   indexPage: {
     descTitle: 'Start your day!',
@@ -148,5 +169,13 @@ export default {
     checkBox: 'CheckBox',
     datePicker: 'DatePicker',
     dateTimePicker: 'DataTimePicker',
+  },
+  confirm: {
+    title: 'Operating hints',
+    msg: 'Are you sure you want to exit',
+  },
+  btn: {
+    confirm: 'Confirm',
+    cancel: 'Cancel',
   },
 };

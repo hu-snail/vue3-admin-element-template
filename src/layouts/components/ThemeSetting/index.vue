@@ -119,8 +119,12 @@
         label: t('layout.horizontal'),
       },
     ],
-    theme: '#08a17e',
+    theme: '#84a2fe',
     themeOptions: [
+      {
+        value: '#84a2fe',
+        label: t('theme.blue'),
+      },
       {
         value: '#08a17e',
         label: t('theme.green'),

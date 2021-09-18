@@ -1,14 +1,19 @@
 <template>
   <el-form :model="ruleForm" :rules="rules" ref="validateForm" class="login-ruleForm">
     <el-form-item prop="username">
-      <el-input placeholder="输入用户名" v-model="ruleForm.username">
+      <el-input :placeholder="t('login.username')" v-model="ruleForm.username">
         <template #prefix>
           <user theme="outline" size="16" fill="#999" />
         </template>
       </el-input>
     </el-form-item>
     <el-form-item prop="password">
-      <el-input placeholder="输入密码" type="password" v-model="ruleForm.password">
+      <el-input
+        @keyup.enter="handleLogin"
+        :placeholder="t('login.password')"
+        type="password"
+        v-model="ruleForm.password"
+      >
         <template #prefix>
           <lock theme="outline" size="16" fill="#999" />
         </template>
@@ -16,8 +21,8 @@
     </el-form-item>
     <el-form-item>
       <div class="login-check">
-        <el-checkbox v-model="checkedPwd">记住密码</el-checkbox>
-        <el-button type="text">忘记密码</el-button>
+        <el-checkbox v-model="checkedPwd">{{ t('login.rememberPwd') }}</el-checkbox>
+        <el-button type="text">{{ t('login.forgotPwd') }}</el-button>
       </div>
     </el-form-item>
     <el-form-item>
@@ -28,10 +33,10 @@
         class="login-btn"
         round
         @click="handleLogin"
-        >登录</el-button
+        >{{ t('login.loginBtn') }}</el-button
       >
     </el-form-item>
-    <el-divider>其他登录方式</el-divider>
+    <el-divider>{{ t('login.thirdparty') }}</el-divider>
     <el-form-item>
       <div class="login-methods">
         <wechat theme="outline" size="24" fill="#333" />
@@ -48,8 +53,10 @@
   import { reactive, toRefs, ref, unref, watch } from 'vue';
   import { useStore } from 'vuex';
   import { useRouter } from 'vue-router';
+  import { useI18n } from 'vue-i18n';
   export default {
     setup() {
+      const { t } = useI18n();
       const store = useStore();
       const router = useRouter();
       const validateForm = ref(null);
@@ -62,8 +69,8 @@
         checkedPwd: false,
         redirect: undefined,
         rules: {
-          username: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
-          password: [{ required: true, message: '请输入密码', trigger: 'blur' }],
+          username: [{ required: true, message: t('login.rules.username'), trigger: 'blur' }],
+          password: [{ required: true, message: t('login.rules.password'), trigger: 'blur' }],
         },
       });
 
@@ -104,6 +111,7 @@
         ...toRefs(state),
         validateForm,
         handleLogin,
+        t,
       };
     },
   };

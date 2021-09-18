@@ -5,6 +5,9 @@ import { setting } from '@/config/setting';
 const { title, tokenName } = setting;
 import { resetRouter } from '@/router';
 
+import i18n from '@/locales';
+const { global } = i18n;
+
 import { ElMessage, ElNotification } from 'element-plus';
 
 const state = {
@@ -47,17 +50,17 @@ const actions = {
       const hour = new Date().getHours();
       const thisTime =
         hour < 8
-          ? '早上好'
+          ? global.t('sayHi.early')
           : hour <= 11
-          ? '上午好'
+          ? global.t('sayHi.morning')
           : hour <= 13
-          ? '中午好'
+          ? global.t('sayHi.noon')
           : hour < 18
-          ? '下午好'
-          : '晚上好';
+          ? global.t('sayHi.afternoon')
+          : global.t('sayHi.evening');
       ElNotification({
         title: `${thisTime}！`,
-        message: `欢迎登录${title}`,
+        message: `${global.t('notice.msg')}${title}!`,
         type: 'success',
       });
     } else {

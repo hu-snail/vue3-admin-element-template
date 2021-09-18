@@ -29,13 +29,29 @@ export default {
     profile: '个人中心',
   },
   login: {
-    title: '系统登录',
-    logIn: '登录',
+    title: '登录',
+    rules: {
+      username: '请输入用户名',
+      password: '请输入密码',
+    },
+    loginBtn: '登录',
+    desc: '开箱即用的中后台管理系统',
+    tip: '点击登录快速体验',
     username: '账号',
     password: '密码',
-    any: '随便填',
     thirdparty: '第三方登录',
-    thirdpartyTips: '本地不能模拟，请结合自己业务进行模拟！！！',
+    rememberPwd: '记住密码',
+    forgotPwd: '忘记密码',
+  },
+  register: {
+    title: '注册',
+    registerBtn: '注册',
+    username: '手机号',
+    smsCode: '短信验证码',
+    smsbtn: '获取验证码',
+    password: '密码',
+    confirmPwd: '确认密码',
+    checkText: '我同意xxx隐私政策',
   },
   theme: {
     change: '换肤',
@@ -45,6 +61,7 @@ export default {
     green: '绿色',
     red: '红色',
     default: '默认',
+    blue: '蓝色',
   },
   tagsView: {
     refresh: '重新加载',
@@ -78,6 +95,9 @@ export default {
     noon: '中午好',
     afternoon: '下午好',
     evening: '晚上好',
+  },
+  notice: {
+    msg: '欢迎登录',
   },
   indexPage: {
     descTitle: '开始您一天的工作吧！',
@@ -146,5 +166,13 @@ export default {
     checkBox: '多选',
     datePicker: '日期选择器',
     dateTimePicker: '日期时间选择器',
+  },
+  confirm: {
+    title: '操作提示',
+    msg: '您确定要退出',
+  },
+  btn: {
+    confirm: '确定',
+    cancel: '取消',
   },
 };
