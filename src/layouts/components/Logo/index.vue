@@ -5,7 +5,7 @@
     :class="{ phone: collapse, horizontal: mode === 'horizontal' }"
   >
     <svg-icon name="vue" size="35px" />
-    <span class="logo-title" v-if="!collapse"> vue3-admin </span>
+    <span class="logo-title" :style="{ color: textColor }" v-if="!collapse"> vue3-admin </span>
   </div>
 </template>
 
@@ -19,14 +19,27 @@
   import { computed } from 'vue';
   import { useRouter } from 'vue-router';
   import { useStore } from 'vuex';
+
+  import { themeConfig } from '@/config/theme';
+  const { themeOptions } = themeConfig;
+
   const store = useStore();
   const router = useRouter();
+
   const collapse = computed(() => {
     return store.getters.collapse;
   });
+
   const mode = computed(() => {
     return store.getters['setting/mode'];
   });
+
+  const textColor = computed(() => {
+    const whiteColors = ['#fff', '#ffffff', '#FFF', '#FFF', 'rgb(255, 255, 255)'];
+    const color = themeOptions[store.getters['setting/theme']][0];
+    return whiteColors.indexOf(color) !== -1 ? '#333' : '#fff';
+  });
+
   const handleClick = () => {
     router.replace('/');
   };

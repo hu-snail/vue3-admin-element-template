@@ -47,7 +47,7 @@ export const setting = {
   // lang storage
   langKey: 'i18nLang',
   // default language
-  lang: 'zh-ch',
+  lang: 'zh-cn',
   //token存储位置localStorage sessionStorage
   storage: 'localStorage',
   // 标题

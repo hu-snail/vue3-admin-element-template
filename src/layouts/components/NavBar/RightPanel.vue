@@ -23,12 +23,12 @@
         </el-badge>
       </template>
       <div class="message-box">
-        <el-tabs v-model="activeName" stretch @tab-click="handleClick">
-          <el-tab-pane label="通知 (5)" name="first">
+        <el-tabs v-model="activeName" stretch>
+          <el-tab-pane :label="`${t('tabs.notice')} (5)`" name="first">
             <Cell :list="noticeList" />
           </el-tab-pane>
-          <el-tab-pane label="消息 (0)" name="second">暂无消息</el-tab-pane>
-          <el-tab-pane label="邮件 (0)" name="third">暂无邮件</el-tab-pane>
+          <el-tab-pane :label="`${t('tabs.message')} (0)`" name="second">暂无消息</el-tab-pane>
+          <el-tab-pane :label="`${t('tabs.email')} (0)`" name="third">暂无邮件</el-tab-pane>
         </el-tabs>
       </div>
     </el-popover>
@@ -64,6 +64,9 @@
   import FullScreen from '@/components/FullScreen/index.vue';
   import Cell from '@/components/Cell/index.vue';
   import LangChange from '@/components/LangChange/index.vue';
+
+  import { useI18n } from 'vue-i18n';
+  const { t } = useI18n();
 
   import { useStore } from 'vuex';
 

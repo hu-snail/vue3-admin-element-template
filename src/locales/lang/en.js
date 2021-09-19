@@ -59,10 +59,14 @@ export default {
     documentation: 'Theme documentation',
     tips: 'Tips: It is different from the theme-pick on the navbar is two different skinning methods, each with different application scenarios. Refer to the documentation for details.',
     loading: 'Theme change loading...',
-    green: 'Green',
-    red: 'Red',
-    default: 'Default',
-    blue: 'Blue',
+    options: {
+      theme1: 'Blue white',
+      theme2: 'Blue black',
+      theme3: 'Green white',
+      theme4: 'Green black',
+      theme5: 'Red white',
+      theme6: 'Red black',
+    },
   },
   tagsView: {
     refresh: 'Refresh',
@@ -75,7 +79,7 @@ export default {
     title: 'Theme Settings',
     layout: 'Layout',
     theme: 'Theme',
-    menuBg: 'Menu Bg',
+    menuBg: 'Menu Theme',
     logo: 'Logo',
     tag: 'Tag',
     breadcurmb: 'Breadcurmb',
@@ -99,6 +103,11 @@ export default {
   },
   notice: {
     msg: 'Welcome to ',
+  },
+  tabs: {
+    notice: 'Notice',
+    message: 'Message',
+    email: 'EMail',
   },
   indexPage: {
     descTitle: 'Start your day!',

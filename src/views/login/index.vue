@@ -39,7 +39,6 @@
   const { t } = useI18n();
   const activeName = ref('first');
   const isMobile = computed(() => {
-    console.log(store.getters['setting/isMobile']);
     return store.getters['setting/isMobile'];
   });
 
@@ -67,7 +66,7 @@
         justify-content: start;
         :deep {
           .logo-title {
-            color: #fff;
+            color: #fff !important;
           }
         }
       }

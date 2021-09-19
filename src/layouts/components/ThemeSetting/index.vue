@@ -10,7 +10,7 @@
     <div class="theme-wrapper">
       <el-scrollbar height="85vh">
         <div class="form">
-          <el-form label-width="80px" label-position="left">
+          <el-form label-width="100px" label-position="left">
             <el-form-item :label="t('settings.layout')">
               <el-select
                 class="theme-select-width"
@@ -31,21 +31,19 @@
             <el-form-item :label="t('settings.theme')">
               <el-select
                 class="theme-select-width"
-                v-model="setting.theme"
+                v-model="settings.theme"
                 size="small"
                 placeholder="请选择"
+                @change="handleChangeTheme"
               >
                 <el-option
-                  v-for="item in setting.themeOptions"
+                  v-for="item in setting.colorOptions"
                   :key="item.value"
                   :label="item.label"
                   :value="item.value"
                 >
                 </el-option>
               </el-select>
-            </el-form-item>
-            <el-form-item :label="t('settings.menuBg')">
-              <el-color-picker v-model="setting.menuBgColor"></el-color-picker>
             </el-form-item>
             <el-form-item label="Logo">
               <el-switch v-model="settings.isLogo" />
@@ -98,7 +96,12 @@
   import { useI18n } from 'vue-i18n';
   const { t } = useI18n();
   const ORIGINAL_THEME = '#409EFF';
+
+  import { themeConfig } from '@/config/theme';
+  const { themeOptions } = themeConfig;
+
   const store = useStore();
+
   const setting = reactive({
     tag: true,
     chalk: '',
@@ -119,26 +122,32 @@
         label: t('layout.horizontal'),
       },
     ],
-    theme: '#84a2fe',
-    themeOptions: [
+    colorOptions: [
       {
-        value: '#84a2fe',
-        label: t('theme.blue'),
+        value: 'theme1',
+        label: t('theme.options.theme1'),
       },
       {
-        value: '#08a17e',
-        label: t('theme.green'),
+        value: 'theme2',
+        label: t('theme.options.theme2'),
       },
       {
-        value: '#f45555',
-        label: t('theme.red'),
+        value: 'theme3',
+        label: t('theme.options.theme3'),
       },
       {
-        value: '#409eff',
-        label: t('theme.default'),
+        value: 'theme4',
+        label: t('theme.options.theme4'),
+      },
+      {
+        value: 'theme5',
+        label: t('theme.options.theme5'),
+      },
+      {
+        value: 'theme6',
+        label: t('theme.options.theme6'),
       },
     ],
-    menuBgColor: '#ffffff',
   });
 
   const direction = ref('rtl');
@@ -155,14 +164,21 @@
     store.dispatch('setting/setSettingOptions', settings);
     store.dispatch('setting/setSettingDrawer', false);
   };
+
   const handleChangeTag = (val) => {
     store.dispatch('setting/setTag', val);
   };
+
   const handleChangeBread = (val) => {
     store.dispatch('setting/setBreadcrumb', val);
   };
+
   const handleChangeMode = (val) => {
     store.dispatch('setting/setMode', val);
+  };
+
+  const handleChangeTheme = (val) => {
+    store.dispatch('setting/setTheme', val);
   };
 
   const getThemeCluster = (theme) => {
@@ -225,9 +241,10 @@
   };
 
   watch(
-    () => setting.theme,
-    async (val) => {
-      const oldVal = setting.chalk ? setting.theme : ORIGINAL_THEME;
+    () => settings.value.theme,
+    async (theme) => {
+      const val = themeOptions[theme][1];
+      const oldVal = setting.chalk ? settings.value.theme : ORIGINAL_THEME;
       if (typeof val !== 'string') return;
       const themeCluster = getThemeCluster(val.replace('#', ''));
       const originalCluster = getThemeCluster(oldVal.replace('#', ''));
@@ -260,7 +277,6 @@
         if (typeof innerText !== 'string') return;
         style.innerText = updateStyle(innerText, originalCluster, themeCluster);
       });
-      store.dispatch('setting/setTheme', val);
     }
   );
 

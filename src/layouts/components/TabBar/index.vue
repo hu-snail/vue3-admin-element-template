@@ -14,10 +14,24 @@
       <el-tab-pane
         v-for="item in visitedRouteList"
         :key="item.path"
-        :label="item.meta.title"
         :name="item.path"
         :closable="!isAffix(item)"
-      ></el-tab-pane>
+      >
+        <template #label>
+          <div class="item">
+            <component
+              class="menu-icon"
+              v-if="item.meta.icon"
+              theme="outline"
+              strokeWidth="3"
+              :is="item.meta.icon"
+            />
+            <span>
+              {{ item.meta.title }}
+            </span>
+          </div>
+        </template>
+      </el-tab-pane>
     </el-tabs>
     <el-popover
       placement="bottom"
@@ -311,6 +325,18 @@
     ::v-deep {
       .fold-unfold {
         margin-right: $base-padding;
+      }
+      .el-tabs__item {
+        display: inline-flex;
+        align-items: center;
+      }
+    }
+    .item {
+      display: inline-flex;
+      align-items: center;
+      .menu-icon {
+        display: flex;
+        padding-right: 5px;
       }
     }
 

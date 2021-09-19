@@ -2,12 +2,14 @@
   <el-scrollbar height="100vh">
     <el-menu
       :default-active="defaultActive"
-      background-color="#fff"
+      :background-color="menuBgColor"
       :default-openeds="defaultOpened"
       :unique-opened="uniqueOpenedFlag"
       class="el-menu-vertical"
+      :class="{ 'is-black': isBlack }"
       :collapse="isCollapse"
-      text-color="#333"
+      :text-color="textColor"
+      :active-text-color="activeTextColor"
       router
       :mode="mode"
       @open="handleOpen"
@@ -33,8 +35,15 @@
   import { defineProps, computed, ref } from 'vue';
   import { useRouter } from 'vue-router';
   import { useStore } from 'vuex';
+
   import { setting } from '@/config/setting';
   const { defaultOpeneds, uniqueOpened } = setting;
+
+  import { themeConfig } from '@/config/theme';
+  const { themeOptions } = themeConfig;
+
+  const whiteColors = ['#fff', '#ffffff', '#FFF', '#FFF', 'rgb(255, 255, 255)'];
+
   defineProps({
     isCollapse: {
       type: Boolean,
@@ -50,6 +59,27 @@
 
   const store = useStore();
   const router = useRouter();
+
+  const theme = computed(() => {
+    return store.getters['setting/theme'];
+  });
+
+  const menuBgColor = computed(() => {
+    return themeOptions[theme.value][0];
+  });
+
+  const isBlack = computed(() => {
+    return whiteColors.indexOf(menuBgColor.value) === -1;
+  });
+
+  const textColor = computed(() => {
+    return whiteColors.indexOf(menuBgColor.value) !== -1 ? '#333' : '#fff';
+  });
+
+  const activeTextColor = computed(() => {
+    const mcolor = whiteColors.indexOf(menuBgColor.value) !== -1;
+    return mcolor ? theme : '#fff';
+  });
 
   const routes = computed(() => {
     return store.getters['routes/routes'];

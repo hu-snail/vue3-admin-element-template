@@ -15,6 +15,21 @@
     background-color: $base-color-primary-light9 !important;
   }
 }
+.el-menu-vertical.is-black {
+  .el-menu-item {
+    &.is-active {
+      background-color: $base-color-primary !important;
+      border-right: 0;
+      span {
+        color: $base-color-white;
+      }
+    }
+    &:hover {
+      color: $base-color-white !important;
+      background-color: $base-color-primary !important;
+    }
+  }
+}
 .el-sub-menu__title:hover {
   background-color: transparent !important;
 }

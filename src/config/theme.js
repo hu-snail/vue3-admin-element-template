@@ -2,11 +2,27 @@
  * @description 主题配置
  * @author hu-snail
  */
+
+/**
+ * @description 主题配置 [0]: 菜单背景色 [1]: 主题色
+ */
+const themeOptions = {
+  theme1: ['#ffffff', '#7e9cff'],
+  theme2: ['#293246', '#7e9cff'],
+  theme3: ['#ffffff', '#08a17e'],
+  theme4: ['#293246', '#08a17e'],
+  theme5: ['#ffffff', '#f45555'],
+  theme6: ['#293246', '#f45555'],
+};
 export const themeConfig = {
   // 模式 horizontal / vertical
   mode: 'vertical',
-  // 主题
-  theme: '#08a17e',
+  // 主题 默认配置theme1
+  // 注意⚠️ ：修改默认主题时，记得同步修改 element-variables.scss
+  // 文件中的 $base-color-primary 默认值，否则不生效！！！
+  theme: 'theme1',
+  // 主题配置
+  themeOptions,
   // 是否固定头部
   fixedHead: true,
   // 是否显示全屏
@@ -21,8 +37,6 @@ export const themeConfig = {
   isLogo: true,
   // 是否显示标签
   tag: true,
-  // 菜单背景
-  menuBgColor: '#ffffff',
   // 是否展开菜单
   collapse: false,
 };

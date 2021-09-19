@@ -7,7 +7,7 @@
           <el-dropdown-item
             v-for="item in languages"
             :key="item.value"
-            :disabled="language === item.value"
+            :disabled="language == item.value"
           >
             <span @click="handleSetLanguage(item.value)">{{ item.name }}</span>
           </el-dropdown-item>
@@ -23,7 +23,7 @@
   defineProps({
     color: {
       type: String,
-      default: '#333',
+      default: '#666',
     },
   });
   const languages = reactive([
