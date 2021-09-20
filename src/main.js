@@ -6,7 +6,6 @@ import './config/permission';
 // element
 import ElementPlus from 'element-plus';
 import 'element-plus/theme-chalk/display.css';
-// import zhCn from 'element-plus/es/locale/lang/zh-cn';
 // element theme change
 import './styles/element-variables.scss';
 

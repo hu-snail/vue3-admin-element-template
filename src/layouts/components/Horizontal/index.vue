@@ -130,7 +130,7 @@
       }
     }
     .main {
-      width: 90%;
+      width: calc(90% + 40px);
       margin: 50px 20px 0 20px;
       &[class='el-main main fixed istag'] {
         margin-top: 110px;
