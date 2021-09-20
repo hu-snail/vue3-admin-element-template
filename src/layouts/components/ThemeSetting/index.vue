@@ -243,7 +243,7 @@
   watch(
     () => settings.value.theme,
     async (theme) => {
-      const val = themeOptions[theme][1];
+      const val = themeOptions[theme].primary;
       const oldVal = setting.chalk ? settings.value.theme : ORIGINAL_THEME;
       if (typeof val !== 'string') return;
       const themeCluster = getThemeCluster(val.replace('#', ''));

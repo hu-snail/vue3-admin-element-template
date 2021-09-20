@@ -2,7 +2,7 @@
   <div class="right-panel">
     <theme
       class="icon-hover theme"
-      title="切换皮肤"
+      :title="t('navbar.theme')"
       theme="outline"
       :strokeWidth="4"
       size="16"
@@ -37,7 +37,7 @@
     <LangChange />
     <refresh
       v-if="settings.refresh"
-      title="刷新"
+      :title="t('navbar.refresh')"
       @click="handleRefresh"
       class="icon-hover refresh"
       theme="filled"

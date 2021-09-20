@@ -65,7 +65,7 @@
   });
 
   const menuBgColor = computed(() => {
-    return themeOptions[theme.value][0];
+    return themeOptions[theme.value].menuBgColor;
   });
 
   const isBlack = computed(() => {

@@ -36,7 +36,7 @@
 
   const textColor = computed(() => {
     const whiteColors = ['#fff', '#ffffff', '#FFF', '#FFF', 'rgb(255, 255, 255)'];
-    const color = themeOptions[store.getters['setting/theme']][0];
+    const color = themeOptions[store.getters['setting/theme']].menuBgColor;
     return whiteColors.indexOf(color) !== -1 ? '#333' : '#fff';
   });
 

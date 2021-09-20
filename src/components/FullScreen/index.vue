@@ -1,5 +1,8 @@
 <template>
-  <span class="icon-hover full-screen-wrapper" :title="fullScreen ? '退出全屏' : '全屏'">
+  <span
+    class="icon-hover full-screen-wrapper"
+    :title="isFullScreen ? t('navbar.noFull') : t('navbar.full')"
+  >
     <component
       theme="filled"
       size="16"
@@ -17,6 +20,9 @@
   import { useStore } from 'vuex';
   import { ElMessage } from 'element-plus';
   const store = useStore();
+
+  import { useI18n } from 'vue-i18n';
+  const { t } = useI18n();
 
   const isFullScreen = computed(() => {
     return store.getters['setting/isFullScreen'];

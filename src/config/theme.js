@@ -4,15 +4,15 @@
  */
 
 /**
- * @description 主题配置 [0]: 菜单背景色 [1]: 主题色
+ * @description 主题配置 menuBgColor: 菜单背景色 primary: 主题色
  */
 const themeOptions = {
-  theme1: ['#ffffff', '#7e9cff'],
-  theme2: ['#293246', '#7e9cff'],
-  theme3: ['#ffffff', '#08a17e'],
-  theme4: ['#293246', '#08a17e'],
-  theme5: ['#ffffff', '#f45555'],
-  theme6: ['#293246', '#f45555'],
+  theme1: { menuBgColor: '#ffffff', primary: '#7e9cff' },
+  theme2: { menuBgColor: '#293246', primary: '#7e9cff' },
+  theme3: { menuBgColor: '#ffffff', primary: '#08a17e' },
+  theme4: { menuBgColor: '#293246', primary: '#08a17e' },
+  theme5: { menuBgColor: '#ffffff', primary: '#f45555' },
+  theme6: { menuBgColor: '#293246', primary: '#f45555' },
 };
 export const themeConfig = {
   // 模式 horizontal / vertical
