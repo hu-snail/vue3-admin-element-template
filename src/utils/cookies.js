@@ -11,7 +11,8 @@ export function setLanguage(lang) {
 }
 
 export function getSettings() {
-  return JSON.parse(Cookies.get(themeKey));
+  const settings = Cookies.get(themeKey);
+  return settings ? JSON.parse(settings) : null;
 }
 
 export function setSettings(theme) {
