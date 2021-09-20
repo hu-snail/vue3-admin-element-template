@@ -1,0 +1,1 @@
+import{_ as e}from"./index.ab63922b.js";import{C as r,o as s,e as t,d as a}from"./vendor.5eb722be.js";const o={setup(o){const{t:m}=r();return(r,o)=>(s(),t(e,{type:"401",title:a(m)("errorPages.401.desc"),msg:a(m)("errorPages.401.remark")},null,8,["title","msg"]))}};export{o as default};
