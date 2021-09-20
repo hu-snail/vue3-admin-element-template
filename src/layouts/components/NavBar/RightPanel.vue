@@ -6,18 +6,17 @@
       theme="outline"
       :strokeWidth="4"
       size="16"
-      fill="#666"
+      :fill="color"
       @click="handleChangeTheme"
     />
     <el-popover v-if="settings.notice" placement="bottom" :width="320" trigger="hover">
       <template #reference>
         <el-badge type="danger" :value="5" class="msg-badge">
           <remind
-            title="消息通知"
             class="icon-hover refresh"
             theme="outline"
             size="16"
-            fill="#666"
+            :fill="color"
             :strokeWidth="3"
           />
         </el-badge>
@@ -33,8 +32,8 @@
       </div>
     </el-popover>
 
-    <FullScreen v-if="settings.fullScreen" @refresh="onRefresh" />
-    <LangChange />
+    <FullScreen :color="color" v-if="settings.fullScreen" @refresh="onRefresh" />
+    <LangChange :color="color" />
     <refresh
       v-if="settings.refresh"
       :title="t('navbar.refresh')"
@@ -42,10 +41,10 @@
       class="icon-hover refresh"
       theme="filled"
       size="16"
-      fill="#666"
+      :fill="color"
       :strokeWidth="4"
     />
-    <Avatar />
+    <Avatar :color="color" />
     <ThemeSetting />
   </div>
 </template>
@@ -57,8 +56,13 @@
 </script>
 
 <script setup>
-  import { computed, nextTick, ref } from 'vue';
-
+  import { computed, nextTick, ref, defineProps } from 'vue';
+  defineProps({
+    color: {
+      type: String,
+      default: '#666',
+    },
+  });
   import { noticeList } from './data';
 
   import FullScreen from '@/components/FullScreen/index.vue';

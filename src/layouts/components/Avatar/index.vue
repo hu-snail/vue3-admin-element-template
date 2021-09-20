@@ -1,6 +1,6 @@
 <template>
   <el-dropdown @command="handleCommand">
-    <span class="avatar-dropdown">
+    <span class="avatar-dropdown" :style="{ color }">
       <!--<el-avatar class="user-avatar" :src="avatar"></el-avatar>-->
       <img class="user-avatar" :src="avatar" alt="" />
       <div class="user-name">
@@ -24,7 +24,7 @@
 </script>
 
 <script setup>
-  import { ref } from 'vue';
+  import { ref, defineProps } from 'vue';
   import { useStore } from 'vuex';
   import { ElMessageBox } from 'element-plus';
   import { setting } from '@/config/setting';
@@ -36,6 +36,14 @@
   const userName = ref('hu-snail');
   const store = useStore();
   const router = useRouter();
+
+  defineProps({
+    color: {
+      type: String,
+      default: '#666',
+    },
+  });
+
   const handleCommand = (command) => {
     switch (command) {
       case 'logout':
@@ -78,9 +86,6 @@
     justify-items: center;
     height: 50px;
     padding: 10px;
-    &:hover {
-      background: $base-hover-color;
-    }
     .user-avatar {
       width: 40px;
       height: 40px;

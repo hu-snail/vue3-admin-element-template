@@ -15,7 +15,7 @@
     background-color: $base-color-primary-light9 !important;
   }
 }
-.el-menu-vertical.is-black {
+.is-black {
   .el-menu-item {
     &.is-active {
       background-color: $base-color-primary !important;
@@ -36,6 +36,30 @@
 .el-menu--horizontal > .el-menu-item {
   &.is-active {
     border-right: none;
+  }
+}
+.el-menu--horizontal {
+  .el-menu-item {
+    &.is-active {
+      background-color: $base-color-primary !important;
+      border-right: 0;
+      span {
+        color: $base-color-white;
+      }
+    }
+    &:hover {
+      color: $base-color-white !important;
+      background-color: $base-color-primary !important;
+    }
+  }
+  .el-sub-menu__title{
+    color: $base-color-3 !important;
+  }
+ 
+}
+.el-menu--horizontal.is-black{
+  .el-sub-menu__title{
+    color: $base-color-white !important;
   }
 }
 

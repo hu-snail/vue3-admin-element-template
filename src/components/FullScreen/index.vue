@@ -6,7 +6,7 @@
     <component
       theme="filled"
       size="16"
-      fill="#333"
+      :fill="color"
       :strokeWidth="4"
       :is="(isFullScreen ? 'off' : 'full') + '-screen'"
       @click="handleClick"
@@ -15,11 +15,18 @@
 </template>
 
 <script setup>
-  import { defineEmits, computed } from 'vue';
+  import { defineEmits, computed, defineProps } from 'vue';
   import screenfull from 'screenfull';
   import { useStore } from 'vuex';
   import { ElMessage } from 'element-plus';
   const store = useStore();
+
+  defineProps({
+    color: {
+      type: String,
+      default: '#666',
+    },
+  });
 
   import { useI18n } from 'vue-i18n';
   const { t } = useI18n();

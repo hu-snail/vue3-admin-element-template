@@ -5,7 +5,7 @@
 
 import { themeConfig } from '@/config/theme';
 import { setting } from '@/config/setting';
-import { getLanguage, setLanguage } from '@/utils/i18n';
+import { getLanguage, setLanguage, setSettings, getSettings } from '@/utils/cookies';
 
 const { mode, theme, fixedHead, fullScreen, refresh, collapse, notice, isBreadcrumb, isLogo, tag } =
   themeConfig;
@@ -21,7 +21,7 @@ const state = {
   collapse,
   fullScreen,
   refresh,
-  mode,
+  mode: getSettings() ? getSettings().mode : mode,
   theme,
   fixedHead,
   notice,
@@ -55,7 +55,6 @@ const mutations = {
     state.collapse = !state.collapse;
   },
   CHANGE_FULL_SCREEN: (state, flag) => {
-    console.log(flag);
     state.isFullScreen = flag;
   },
   SET_ROUTER_VIEW: (state) => {
@@ -83,7 +82,8 @@ const mutations = {
     state.mode = mode;
   },
   SET_SETTING_OPTIONS: (state, options) => {
-    Object.assign(state, { ...options });
+    setSettings(options.value);
+    Object.assign(state, { ...options.value });
   },
   CHANGE_LANGUAGE: (state, lang) => {
     setLanguage(lang);
@@ -158,7 +158,7 @@ const actions = {
 
   /**
    * @description 切换布局
-   * @param {object} mode 可选值：vertical|horizontal
+   * @param {string} mode 可选值：vertical|horizontal
    */
   setMode: ({ commit }, mode) => {
     commit('CHANE_MODE', mode);
@@ -170,6 +170,14 @@ const actions = {
    */
   changeLanguage: ({ commit }, lang) => {
     commit('CHANGE_LANGUAGE', lang);
+  },
+
+  /**
+   * @description 设置主题配置信息
+   * @param {object} options 配置项
+   */
+  setSettingOptions: ({ commit }, options) => {
+    commit('SET_SETTING_OPTIONS', options);
   },
 };
 

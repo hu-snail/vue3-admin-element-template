@@ -174,6 +174,7 @@
   };
 
   const handleChangeMode = (val) => {
+    store.dispatch('setting/setSettingOptions', settings);
     store.dispatch('setting/setMode', val);
   };
 

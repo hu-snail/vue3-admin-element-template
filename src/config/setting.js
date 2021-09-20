@@ -46,6 +46,8 @@ export const setting = {
   tokenTableName: 'vue3-admin-template',
   // lang storage
   langKey: 'i18nLang',
+  // theme storage
+  themeKey: 'theme',
   // default language
   lang: 'zh-cn',
   //token存储位置localStorage sessionStorage
