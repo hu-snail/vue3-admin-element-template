@@ -20,87 +20,12 @@
               <h3 class="title">{{ t('indexPage.resourceTitle') }}</h3>
             </template>
             <div class="card-body" :class="{ mobile: isMobile }">
-              <div class="item">
+              <div class="item" v-for="(item, index) in state.list" :key="index">
                 <div class="lf">
-                  <img width="120" height="40" src="@/assets/index/nutui.png" />
+                  <img class="img" :src="`${state.prefix}${item.logo}`" />
+                  <div class="title" v-if="item.title">{{ item.title }}</div>
                 </div>
-                <div class="desc"> 京东风格的轻量级移动端 Vue 组件库 </div>
-              </div>
-              <div class="item">
-                <div class="lf">
-                  <img width="40" height="40" src="https://img.yzcdn.cn/vant/logo.png" />
-                  <div class="title">Vant</div>
-                </div>
-                <div class="desc"> 轻量、可靠的移动端 Vue 组件库 </div>
-              </div>
-              <div class="item">
-                <div class="lf">
-                  <img width="40" height="40" src="@/assets/index/antd.svg" />
-                  <div class="title">Ant Design</div>
-                </div>
-                <div class="desc"> 为 Web 应用提供了丰富的基础 UI 组件 </div>
-              </div>
-              <div class="item">
-                <div class="lf">
-                  <img width="40" height="40" src="https://cn.vitejs.dev/logo.svg" />
-                  <div class="title">Vite 中文</div>
-                </div>
-                <div class="desc"> 下一代前端开发与构建工具 </div>
-              </div>
-              <div class="item">
-                <div class="lf">
-                  <img width="40" height="40" src="@/assets/logo.png" />
-                  <div class="title">Vue3 文档</div>
-                </div>
-                <div class="desc"> 渐进式JavaScript框架vue3中文文档 </div>
-              </div>
-              <div class="item">
-                <div class="lf">
-                  <img width="40" height="40" src="@/assets/index/element+.svg" />
-                  <div class="title">ElementPlus</div>
-                </div>
-                <div class="desc"> 一套基于 Vue 3.0 的桌面端组件库 </div>
-              </div>
-              <div class="item">
-                <div class="lf">
-                  <img
-                    width="120"
-                    height="40"
-                    src="https://lf1-cdn2-tos.bytegoofy.com/bydesign/iconparksite/static/media/logo_with_name.a33e5114.svg"
-                  />
-                </div>
-                <div class="desc"> 2400+基础图标，29种图标分类，提供更多的选择 </div>
-              </div>
-              <div class="item">
-                <div class="lf">
-                  <img
-                    width="40"
-                    height="40"
-                    src="https://www.naiveui.com/assets/naivelogo.93278402.svg"
-                  />
-                  <div class="title">Naiveui</div>
-                </div>
-                <div class="desc"> 一个 Vue 3 组件库，使用 TypeScript </div>
-              </div>
-              <div class="item">
-                <div class="lf">
-                  <img
-                    style="width: 120px; height: 100%"
-                    src="https://cdn.jsdelivr.net/gh/apache/echarts-website@asf-site/zh/images/logo.png?_v_=20200710_1"
-                  />
-                </div>
-                <div class="desc"> 一个基于 JavaScript 的开源可视化图表库 </div>
-              </div>
-              <div class="item">
-                <div class="lf">
-                  <img
-                    width="40"
-                    height="40"
-                    src="https://cdn.docschina.org/home/logo/xgplayer.png"
-                  />
-                  <div class="title">XGPlayer</div>
-                </div>
-                <div class="desc"> 带解析器、能节省流量的 Web 视频播放器 </div>
+                <div class="desc"> {{ item.desc }} </div>
               </div>
             </div>
           </el-card>
@@ -124,25 +49,13 @@
               <h3 class="title">{{ t('indexPage.orderTitle') }}</h3>
             </template>
             <div class="count-box">
-              <div class="item">
-                <span class="label">{{ t('indexPage.order.planned') }}</span>
-                <CountTo class="count" :startVal="0" :endVal="5021" :duration="3000"></CountTo>
-              </div>
-              <div class="item">
-                <span class="label">{{ t('indexPage.order.finished') }}</span>
+              <div class="item" v-for="(item, index) in state.orderList" :key="index">
+                <span class="label">{{ t('indexPage.order.' + item.key) }}</span>
                 <CountTo
-                  class="count success"
+                  class="count"
+                  :class="item.status"
                   :startVal="0"
-                  :endVal="3204.25"
-                  :duration="3000"
-                ></CountTo>
-              </div>
-              <div class="item">
-                <span class="label">{{ t('indexPage.order.unfinished') }}</span>
-                <CountTo
-                  class="count error"
-                  :startVal="0"
-                  :endVal="1816.75"
+                  :endVal="item.value"
                   :duration="3000"
                 ></CountTo>
               </div>
@@ -152,16 +65,14 @@
             <template #header>
               <h3 class="title">{{ t('indexPage.skillTitle') }}</h3>
             </template>
-            <div class="skill-title">JavaScript</div>
-            <el-progress :stroke-width="8" :percentage="50" color="#67c23a"></el-progress>
-            <div class="skill-title">HTML</div>
-            <el-progress :stroke-width="8" :percentage="90" color="#e6a23c"></el-progress>
-            <div class="skill-title">CSS</div>
-            <el-progress :stroke-width="8" :percentage="70"></el-progress>
-            <div class="skill-title">Vue</div>
-            <el-progress :stroke-width="8" :percentage="80" color="#f56c6d"></el-progress>
-            <div class="skill-title">Node</div>
-            <el-progress :stroke-width="8" :percentage="60" color="#a650fe"></el-progress>
+            <div v-for="(item, index) in state.skillList" :key="index">
+              <div class="skill-title">{{ item.title }}</div>
+              <el-progress
+                :stroke-width="8"
+                :percentage="item.percentage"
+                :color="item.color"
+              ></el-progress>
+            </div>
           </el-card>
           <Echarts
             :title="t('indexPage.chartTitle')"
@@ -190,7 +101,7 @@
 </script>
 
 <script setup>
-  import { ref, computed, reactive } from 'vue';
+  import { ref, computed, reactive, onBeforeMount } from 'vue';
 
   import { CountTo } from 'vue3-count-to';
   import Echarts from '@/components/Echarts/index.vue';
@@ -202,6 +113,15 @@
 
   import { useI18n } from 'vue-i18n';
   const { t } = useI18n();
+
+  const state = reactive({
+    list: [],
+    prefix: '',
+    orderList: [],
+    skillList: [],
+  });
+
+  import { getResouceList } from '@/api/index';
 
   const hour = new Date().getHours();
   const thisTime =
@@ -216,6 +136,7 @@
       : t('sayHi.evening');
   const sayHi = ref(thisTime);
   const avatar = ref('https://i.gtimg.cn/club/item/face/img/2/15922_100.gif');
+
   const series2 = reactive([
     {
       data: [820, 932, 901, 934, 1290, 1330, 1320],
@@ -223,24 +144,39 @@
       smooth: true,
     },
   ]);
+
   const xAxis = reactive({
     type: 'category',
     data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
   });
+
   const yAxis = reactive({
     type: 'value',
   });
+
   const toolbox = reactive({
     show: true,
   });
+
   const isMobile = computed(() => {
     return store.getters['setting/isMobile'];
+  });
+
+  const onGetResouceList = () => {
+    getResouceList().then((res) => {
+      const { list, prefix, orderList, skillList } = res.data;
+      Object.assign(state, { list, prefix, orderList, skillList });
+    });
+  };
+
+  onBeforeMount(() => {
+    onGetResouceList();
   });
 </script>
 
 <style lang="scss" scoped>
   .index-conntainer {
-    width: 100%;
+    width: $base-width;
     .head-card {
       display: flex;
       align-items: center;
@@ -308,6 +244,13 @@
             .lf {
               display: flex;
               align-items: center;
+              max-width: 140px;
+              .img {
+                width: auto;
+                max-width: 120px;
+                height: auto;
+                max-height: 40px;
+              }
             }
             &:hover {
               box-shadow: $base-box-shadow;
