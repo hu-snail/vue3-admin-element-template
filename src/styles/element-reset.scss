@@ -62,6 +62,9 @@
     color: $base-color-white !important;
   }
 }
+.el-menu--collapse .el-menu-item{
+  text-align: center;
+}
 
 .el-menu--horizontal .el-menu .el-menu-item,
 .el-menu--horizontal .el-menu .el-sub-menu__title {
