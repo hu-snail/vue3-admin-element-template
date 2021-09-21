@@ -1,5 +1,6 @@
+<div align="center">
 ![vue-admin-element-template](https://gitee.com/hu-snail/vue3-admin-element-template/raw/master/src/assets/logo.png)
-
+</div>
 #  Vue3 admin element template
 
 > Vue3-admin-element-template 是 Vue3-admin-element的精简版本，去掉了完整版本中丰富的组件库。项目使用的是`Composition Api`、和`<script setup>`新语法糖风格编写。
@@ -34,3 +35,10 @@
 
 测试账号：admin/admin 密码可以随意输入
 
+![截图1](https://gitee.com/hu-snail/vue3-admin-element-template/raw/master/src/assets/demo/01.png)
+
+![截图2](https://gitee.com/hu-snail/vue3-admin-element-template/raw/master/src/assets/demo/02.png)
+
+![截图3](https://gitee.com/hu-snail/vue3-admin-element-template/raw/master/src/assets/demo/03.png)
+
+![截图4](https://gitee.com/hu-snail/vue3-admin-element-template/raw/master/src/assets/demo/04.png)
