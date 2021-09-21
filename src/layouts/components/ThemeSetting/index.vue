@@ -311,7 +311,7 @@
       justify-content: space-between;
       width: $base-drawer-width;
       height: $base-drawer-footer-height;
-      padding: $base-padding-20-10;
+      padding: $base-padding-10-20;
       background-color: $base-color-white;
       border-top: 1px solid $base-border-color;
     }
