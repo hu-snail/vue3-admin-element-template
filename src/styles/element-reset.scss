@@ -5,7 +5,7 @@
 .el-menu-item {
   &.is-active {
     background-color: $base-color-primary-light9 !important;
-    border-right: 3px solid $base-color-primary;
+    border-right: $base-border-width-small solid $base-color-primary;
     span {
       color: $base-color-primary;
     }
@@ -65,8 +65,8 @@
 
 .el-menu--horizontal .el-menu .el-menu-item,
 .el-menu--horizontal .el-menu .el-sub-menu__title {
-  height: 50px !important;
-  line-height: 50px !important;
+  height: $sub-menu__title-height !important;
+  line-height: $sub-menu__title-height !important;
 }
 
 .el-header {

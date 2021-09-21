@@ -118,7 +118,7 @@
     overflow-y: auto;
     @include base-scrollbar;
     &:not(.el-menu--collapse) {
-      width: 240px;
+      width: $base-menu-width;
     }
   }
 </style>

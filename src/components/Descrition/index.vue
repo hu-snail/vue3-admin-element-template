@@ -1,3 +1,4 @@
+<!--  author:hu-snail 1217437592@qq.com  标题/描述组件 -->
 <template>
   <div class="desc-wrapper">
     <h2 class="title">{{ title }}</h2>
@@ -26,10 +27,10 @@
 <style lang="scss" scoped>
   .desc-wrapper {
     .desc {
-      padding: 15px 20px;
+      padding: $base-content-padding;
       color: $base-color-primary;
       background-color: $base-color-primary-light9;
-      border-left: 5px solid $base-color-primary;
+      border-left: $base-border-width-default solid $base-color-primary;
     }
   }
 </style>

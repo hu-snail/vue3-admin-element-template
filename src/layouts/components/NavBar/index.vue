@@ -78,11 +78,11 @@
         cursor: pointer;
       }
       .fold {
-        padding: 20px 10px;
+        padding: $base-padding-20-10;
       }
       :deep {
         .breadcrumb-container {
-          margin-left: 10px;
+          margin-left: $base-margin-10;
         }
       }
     }

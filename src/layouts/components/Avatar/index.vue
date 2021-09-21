@@ -84,19 +84,19 @@
     align-items: center;
     justify-content: center;
     justify-items: center;
-    height: 50px;
-    padding: 10px;
+    height: $base-avatar-dropdown-height;
+    padding: $base-padding-10;
     .user-avatar {
-      width: 40px;
-      height: 40px;
+      width: $base-avatar-widht;
+      height: $base-avatar-height;
       cursor: pointer;
-      border-radius: 50%;
+      border-radius: $base-border-radius-circle;
     }
 
     .user-name {
       position: relative;
-      margin-left: 5px;
-      margin-left: 5px;
+      margin-left: $base-margin-5;
+      margin-left: $base-margin-5;
       cursor: pointer;
     }
   }

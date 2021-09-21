@@ -290,7 +290,7 @@
   .theme-wrapper {
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: $base-height;
     .form {
       flex: 1;
       padding: 0 20px;
@@ -301,7 +301,7 @@
       }
     }
     .theme-select-width {
-      width: 120px;
+      width: $base-select-width-small;
     }
     .drawer-footer {
       position: fixed;
@@ -309,9 +309,9 @@
       box-sizing: border-box;
       align-content: center;
       justify-content: space-between;
-      width: 320px;
-      height: 60px;
-      padding: 10px 20px;
+      width: $base-drawer-width;
+      height: $base-drawer-footer-height;
+      padding: $base-padding-20-10;
       background-color: $base-color-white;
       border-top: 1px solid $base-border-color;
     }

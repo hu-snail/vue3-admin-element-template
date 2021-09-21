@@ -72,9 +72,9 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 16px !important;
-    height: 50px !important;
-    margin-right: 5px;
+    width: $base-icon-width-big !important;
+    height: $base-icon-height-super-max !important;
+    margin-right: $base-margin-5;
     visibility: initial !important;
   }
 </style>

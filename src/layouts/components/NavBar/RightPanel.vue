@@ -112,14 +112,14 @@
     }
     .refresh,
     .theme {
-      padding: 20px 10px;
+      padding: $base-padding-20-10;
     }
   }
   .message-box {
-    padding: 5px 15px;
+    padding: $base-padding-5-15;
     :deep {
       .el-tabs__active-bar {
-        width: 70px !important;
+        width: $base-tab-width_active !important;
       }
     }
   }

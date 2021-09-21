@@ -27,16 +27,16 @@
   .app-main-container {
     position: relative;
     box-sizing: border-box;
-    width: 100%;
+    width: $base-width;
     overflow: hidden;
     text-align: left;
     .app-main-height {
-      min-height: calc(100vh - 140px);
+      min-height: $app-main-min-height;
     }
     .footer-copyright {
-      min-height: 55px;
-      line-height: 55px;
-      color: rgba(0, 0, 0, 0.45);
+      min-height: $footer-copyright-height;
+      line-height: $footer-copyright-height;
+      color: $base-color-3;
       text-align: center;
       border-top: 1px dashed $base-border-color;
     }

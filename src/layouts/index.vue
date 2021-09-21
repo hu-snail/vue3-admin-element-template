@@ -7,7 +7,7 @@
         <el-container class="container" :style="{ left: isCollapse ? '65px' : '240px' }">
           <el-header
             class="header"
-            :class="{ fixed: fixedHead, istag: !tag }"
+            :class="{ fixed: fixedHead, notag: !tag }"
             height="60px"
             :style="{ left: isCollapse ? '65px' : '240px' }"
           >
@@ -16,7 +16,7 @@
               <TabBar />
             </template>
           </el-header>
-          <el-main class="main" :class="{ fixed: fixedHead, istag: !tag }">
+          <el-main class="main" :class="{ fixed: fixedHead, notag: !tag }">
             <AppMain />
           </el-main>
         </el-container>
@@ -64,30 +64,30 @@
     .container {
       position: absolute;
       right: 0;
-      transition: all 0.4s;
+      transition: all $base-transition-time-4;
     }
     .header {
       padding: 0;
-      transition: all 0.4s;
+      transition: all $base-transition-time-4;
       &.fixed {
         position: fixed;
         top: 0;
         right: 0;
-        z-index: 99;
+        z-index: $base-z-index-999;
       }
     }
     .main {
       position: relative;
-      top: 50px;
+      top: $base-main-vertical-top;
       overflow-y: auto;
       &.fixed {
-        top: 110px;
+        top: $base-main-fixed-top;
       }
-      &[class='el-main main fixed istag'] {
-        top: 60px;
+      &[class='el-main main fixed notag'] {
+        top: $base-main-vertical-fixed-notag-top;
       }
-      &[class='el-main main istag'] {
-        top: 0;
+      &[class='el-main main notag'] {
+        top: $base-main-notag-top;
       }
       background-color: $base-content-bg-color;
     }

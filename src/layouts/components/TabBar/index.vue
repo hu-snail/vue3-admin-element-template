@@ -336,7 +336,7 @@
       align-items: center;
       .menu-icon {
         display: flex;
-        padding-right: 5px;
+        padding-right: $base-margin-5;
       }
     }
 
@@ -361,7 +361,7 @@
           .el-tabs__item {
             box-sizing: border-box;
             height: $base-tag-item-height;
-            margin-right: 5px;
+            margin-right: $base-margin-5;
             line-height: $base-tag-item-height;
             border: none;
             border-radius: $base-border-radius;

@@ -38,27 +38,27 @@
   .cell-container {
     position: relative;
     box-sizing: border-box;
-    transition: all 0.3s;
+    transition: all $base-transition-time;
     .cell-item {
       display: flex;
       justify-content: space-between;
-      padding: 8px 0;
+      padding: $base-cell-item-padding;
       cursor: pointer;
-      border-bottom: 1px solid $base-border-color;
+      border-bottom: $base-border-width-mini solid $base-border-color;
       &:last-child {
-        border-bottom: 0;
+        border-bottom: $base-border-none;
       }
       .icon-box {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 32px;
-        height: 32px;
-        line-height: 32px;
+        width: $base-icon-width-super-max;
+        height: $base-icon-width-super-max;
+        line-height: $base-icon-width-super-max;
         color: $base-color-white;
         text-align: center;
         background-color: $base-color-primary;
-        border-radius: 50%;
+        border-radius: $base-border-radius-circle;
         .icon {
           display: inline-flex;
         }

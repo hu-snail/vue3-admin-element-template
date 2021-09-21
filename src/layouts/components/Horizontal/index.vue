@@ -104,8 +104,8 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 100%;
-      transition: background-color 0.3s;
+      width: $base-width;
+      transition: background-color $base-transition-time;
       &-nav {
         display: flex;
         align-items: center;
@@ -124,7 +124,7 @@
         z-index: 99;
       }
       .tag {
-        width: 100%;
+        width: $base-width;
         padding: 5px 5%;
         margin-top: -1px;
       }
@@ -133,13 +133,13 @@
       width: calc(90% + 40px);
       margin: 50px 20px 0 20px;
       &[class='el-main main fixed istag'] {
-        margin-top: 110px;
+        margin-top: $base-main-fixed-top;
       }
       &[class='el-main main fixed'] {
-        margin-top: 60px;
+        margin-top: $base-main-vertical-fixed-notag-top;
       }
       &[class='el-main main'] {
-        margin-top: 0;
+        margin-top: $base-main-notag-top;
       }
     }
     .is-black {

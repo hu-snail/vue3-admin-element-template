@@ -22,7 +22,7 @@
             <div class="card-body" :class="{ mobile: isMobile }">
               <div class="item">
                 <div class="lf">
-                  <img width="120" height="40" src="@/assets/nutui.png" />
+                  <img width="120" height="40" src="@/assets/index/nutui.png" />
                 </div>
                 <div class="desc"> 京东风格的轻量级移动端 Vue 组件库 </div>
               </div>
@@ -35,7 +35,7 @@
               </div>
               <div class="item">
                 <div class="lf">
-                  <img width="40" height="40" src="@/assets/antd.svg" />
+                  <img width="40" height="40" src="@/assets/index/antd.svg" />
                   <div class="title">Ant Design</div>
                 </div>
                 <div class="desc"> 为 Web 应用提供了丰富的基础 UI 组件 </div>
@@ -56,7 +56,7 @@
               </div>
               <div class="item">
                 <div class="lf">
-                  <img width="40" height="40" src="@/assets/element+.svg" />
+                  <img width="40" height="40" src="@/assets/index/element+.svg" />
                   <div class="title">ElementPlus</div>
                 </div>
                 <div class="desc"> 一套基于 Vue 3.0 的桌面端组件库 </div>
@@ -190,13 +190,19 @@
 </script>
 
 <script setup>
-  import { CountTo } from 'vue3-count-to';
-  import packpage from '../../../package.json';
   import { ref, computed, reactive } from 'vue';
-  import { useStore } from 'vuex';
+
+  import { CountTo } from 'vue3-count-to';
   import Echarts from '@/components/Echarts/index.vue';
+
+  import packpage from '../../../package.json';
+
+  import { useStore } from 'vuex';
+  const store = useStore();
+
   import { useI18n } from 'vue-i18n';
   const { t } = useI18n();
+
   const hour = new Date().getHours();
   const thisTime =
     hour < 8
@@ -227,7 +233,6 @@
   const toolbox = reactive({
     show: true,
   });
-  const store = useStore();
   const isMobile = computed(() => {
     return store.getters['setting/isMobile'];
   });

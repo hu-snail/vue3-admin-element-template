@@ -6,7 +6,7 @@
           <NavBar @handleCollapse="handleCollapse" />
           <TabBar v-if="tag" />
         </el-header>
-        <el-main class="main" :class="{ fixed: fixedHead, istag: !tag }">
+        <el-main class="main" :class="{ fixed: fixedHead, 'no-tag': !tag }">
           <AppMain />
         </el-main>
       </el-container>
@@ -58,28 +58,28 @@
       position: absolute;
       right: 0;
       left: 0;
-      transition: all 0.4s;
+      transition: all $base-transition-time-4;
     }
     .header {
       position: fixed;
       top: 0;
       right: 0;
       left: 0;
-      z-index: 99;
+      z-index: $base-z-index-999;
       padding: 0;
-      transition: all 0.4s;
+      transition: all $base-transition-time-4;
     }
     .main {
       position: relative;
-      top: 110px;
-      &.istag {
-        top: 60px;
+      top: $base-main-mobile-top;
+      &.no-tag {
+        top: $base-main-mobile-no-tag-top;
       }
       background-color: $base-content-bg-color;
     }
     :deep {
       .el-menu {
-        border-right: 0 !important;
+        border-right: $base-border-none !important;
       }
     }
   }
