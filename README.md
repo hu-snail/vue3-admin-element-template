@@ -1,6 +1,6 @@
 <div align="center"><img src="https://gitee.com/hu-snail/vue3-admin-element-template/raw/master/src/assets/logo.png"/></div>
 
-<h1 algin="center">Vue3 admin element template</h1>
+<h1 align="center">Vue3 admin element template</h1>
 
 > Vue3-admin-element-template 是 Vue3-admin-element的精简版本，去掉了完整版本中丰富的组件库。项目使用的是`Composition Api`、和`<script setup>`新语法糖风格编写。
 
