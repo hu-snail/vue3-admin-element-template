@@ -1,7 +1,11 @@
 {
   "name": "my-vue-app",
   "version": "1.0.0",
-  "author": "hu-snail",
+  "author": {
+    "name": "hu-snail",
+    "email": "1217437592@qq.com",
+    "url": "https://github.com/hu-snail"
+  },
   "scripts": {
     "lint": "eslint \"src/**/*.{js,vue}\"",
     "serve": "cross-env NODE_ENV=development vite",
@@ -61,5 +65,17 @@
     "vite-plugin-element-plus": "^0.0.12",
     "vite-plugin-mock": "^2.9.4",
     "vite-plugin-style-import": "^1.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hu-snail/vue3-admin-element-template.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hu-snail/vue3-admin-element-template/issues"
+  },
+  "homepage": "https://github.com/hu-snail/vue3-admin-element-template",
+  "engines": {
+    "node": "^12 || >=14"
   }
 }

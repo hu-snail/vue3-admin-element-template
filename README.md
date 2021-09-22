@@ -1,7 +1,6 @@
+<div align="center"><img src="https://gitee.com/hu-snail/vue3-admin-element-template/raw/master/src/assets/logo.png"/></div>
 
-![vue-admin-element-template](https://gitee.com/hu-snail/vue3-admin-element-template/raw/master/src/assets/logo.png)
-
-#  Vue3 admin element template
+<h1 algin="center">Vue3 admin element template</h1>
 
 > Vue3-admin-element-template 是 Vue3-admin-element的精简版本，去掉了完整版本中丰富的组件库。项目使用的是`Composition Api`、和`<script setup>`新语法糖风格编写。
 
@@ -29,6 +28,58 @@
 - Mock 数据方案
 - 权限控制
 
+## 文档
+
+正在编写中......
+
+## 准备
+
+- `Node`: 版本建议 >= 12.0.0 [下载链接](https://nodejs.org/zh-cn/download/)
+- `Git`: [版本管理工具](https://www.git-scm.com/download)
+- `Visual Studio Code`: [最新版本](https://code.visualstudio.com/Download/)
+  - [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur) - vue开发必备
+  - [Eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)- 脚本代码检查
+  - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) - 代码格式化
+  - [Stylelin](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint) - css格式化
+
+## 安装使用
+
+- 获取代码
+
+```sh
+git clone https://github.com/hu-snail/vue3-admin-element-template.git
+```
+
+- 安装依赖
+
+```sh
+yarn install
+```
+
+- 运行
+
+```sh
+yarn serve
+```
+
+- 打包
+
+```sh
+yarn build
+```
+
+- 本地预览
+
+```sh
+yarn preview
+```
+
+- 打包/预览
+
+```sh
+yarn build:preview
+```
+
 ## 预览
 
 在线预览地址：https://hu-snail.gitee.io/vue3-admin-element-template 
@@ -42,3 +93,24 @@
 ![截图3](https://gitee.com/hu-snail/vue3-admin-element-template/raw/master/src/assets/demo/03.png)
 
 ![截图4](https://gitee.com/hu-snail/vue3-admin-element-template/raw/master/src/assets/demo/04.png)
+
+## 浏览器支持
+
+本地开发推荐使用`Chrome 80+` 浏览器
+
+支持现代浏览器, 不支持 IE
+
+## 维护者
+
+[@hu-snail](https://github.com/hu-snail/)
+
+## 捐赠
+
+如果你觉得这个项目对你有帮助，你可以帮作者买一杯咖啡表示支持!
+
+<div align="center"><img src="https://gitee.com/hu-snail/vue3-admin-element-template/raw/master/src/assets/wx.jpeg"/><img src="https://gitee.com/hu-snail/vue3-admin-element-template/raw/master/src/assets/zfb.jpeg"/></div>
+
+## License
+
+[MIT © hu-snail-2021](https://github.com/hu-snail/vue3-admin-element-template/blob/master/LICENSE)
+
