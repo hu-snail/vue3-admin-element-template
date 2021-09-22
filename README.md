@@ -6,7 +6,7 @@
 
 ## 前言
 
-`Vue3-admin-element-template`项目是`js`版本,相信有部分刚入门的程序员不熟悉`ts`编写，在github上查找了关于`vue3`中后台模板,大部分都是基于ts版本。所以决定自己写一个基于`js`版本的中后台模板，当然如果您很熟练`ts`建议您使用它！不熟悉的建议您开始纳入学习计划。后期准备用`ts`和[Naiveui](https://www.naiveui.com/zh-CN/light)开发一套开箱即用的中后台模板。
+`Vue3-admin-element-template`项目是`js`版本,相信有部分刚入门的程序员不熟悉`ts`编写，在github上查找了关于vue3中后台模板,大部分都是基于ts版本。所以决定自己写一个基于js版本的中后台模板，当然如果您很熟练ts建议您使用它！不熟悉的建议您开始纳入学习计划。后期准备用ts和[Naiveui](https://www.naiveui.com/zh-CN/light)开发一套开箱即用的中后台模板。
 
 ## 简介
 
