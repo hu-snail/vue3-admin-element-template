@@ -108,7 +108,7 @@ yarn build:preview
 
 如果你觉得这个项目对你有帮助，你可以帮作者买一杯咖啡表示支持!
 
-<div style="display: flex; justify-content: space-between;"><img src="https://gitee.com/hu-snail/vue3-admin-element-template/raw/master/src/assets/wx.jpeg"/><img src="https://gitee.com/hu-snail/vue3-admin-element-template/raw/master/src/assets/zfb.jpeg"/></div>
+<div style="display: flex; justify-content: space-between;"><img width="48%" src="https://gitee.com/hu-snail/vue3-admin-element-template/raw/master/src/assets/wx.jpeg"/><img  width="48%" src="https://gitee.com/hu-snail/vue3-admin-element-template/raw/master/src/assets/zfb.jpeg"/></div>
 
 ## License
 
