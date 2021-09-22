@@ -17,6 +17,8 @@
 - 学习`Vue3`相关Api
 - 掌握`Vite2`插件机制、构建配置
 
+提示：项目使用<script setup> 新语法编写，会有黄色警告信息，不用理会！！！
+
 在线预览地址：https://hu-snail.gitee.io/vue3-admin-element-template 
 
 ## 特性

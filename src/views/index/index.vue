@@ -20,7 +20,12 @@
               <h3 class="title">{{ t('indexPage.resourceTitle') }}</h3>
             </template>
             <div class="card-body" :class="{ mobile: isMobile }">
-              <div class="item" v-for="(item, index) in state.list" :key="index">
+              <div
+                class="item"
+                v-for="(item, index) in state.list"
+                @click="handleToDetail(item.url)"
+                :key="index"
+              >
                 <div class="lf">
                   <img class="img" :src="`${state.prefix}${item.logo}`" />
                   <div class="title" v-if="item.title">{{ item.title }}</div>
@@ -167,6 +172,10 @@
       const { list, prefix, orderList, skillList } = res.data;
       Object.assign(state, { list, prefix, orderList, skillList });
     });
+  };
+
+  const handleToDetail = (url) => {
+    window.open(url);
   };
 
   onBeforeMount(() => {

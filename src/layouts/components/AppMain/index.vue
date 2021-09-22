@@ -3,7 +3,7 @@
     <transition mode="out-in" name="fade-transform">
       <router-view class="app-main-height" />
     </transition>
-    <footer class="footer-copyright"> Hu-snail {{ copyrightStr }} 版权所有 © 2021 </footer>
+    <footer class="footer-copyright">{{ copyrightStr }} </footer>
   </div>
 </template>
 
