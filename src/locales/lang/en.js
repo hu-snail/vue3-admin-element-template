@@ -1,11 +1,7 @@
-/*
- * @Description:
- * @Author: ZY
- * @Date: 2020-12-28 17:18:17
- * @LastEditors: ZY
- * @LastEditTime: 2021-01-20 15:18:42
+/**
+ * @description 项目英语配置
+ * @author hu-snail 1217437592@qq.com
  */
-
 export default {
   route: {
     home: 'Home',

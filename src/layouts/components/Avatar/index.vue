@@ -50,6 +50,7 @@
         handleLogout();
         break;
       case 'github':
+        window.open('https://github.com/hu-snail/vue3-admin-element-template');
         break;
       default:
         break;
