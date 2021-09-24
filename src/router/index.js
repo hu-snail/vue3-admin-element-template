@@ -144,10 +144,6 @@ export const asyncRoutes = [
 const router = createRouter({
   history: createWebHashHistory(),
   routes: constantRoutes,
-  strict: true,
-  scrollBehavior: () => ({
-    y: 0,
-  }),
 });
 
 // reset router

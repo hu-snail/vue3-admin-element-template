@@ -155,10 +155,9 @@
 
       watch(
         () => router.currentRoute.value,
-        (val) => {
+        () => {
           inittabs();
           addtabs();
-          console.log(val);
           let tabActiveR = '';
           visitedRouteList.value.forEach((item) => {
             if (item.path === router.currentRoute.value.path) {
