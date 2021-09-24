@@ -122,7 +122,7 @@ export default {
     envTitle: '生产环境依赖信息',
     chartTitle: '基础平滑折线图',
   },
-  rrorPages: {
+  errorPages: {
     title: '抱歉!',
     btn: '返回首页',
     404: {
