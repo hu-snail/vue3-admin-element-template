@@ -68,7 +68,7 @@
 <style lang="scss" scoped>
   .login-ruleForm {
     margin-top: 1rem;
-    ::v-deep {
+    :deep {
       .el-input__prefix {
         top: 2px;
         padding: 0 4px;

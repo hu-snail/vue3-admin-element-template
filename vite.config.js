@@ -111,14 +111,8 @@ export default defineConfig({
     chunkSizeWarningLimit,
   },
 
-  esbuild: {
-    jsxFactory: 'h',
-    jsxFragment: 'Fragment',
-  },
-
   optimizeDeps: {
     // 检测需要预构建的依赖项
     entries: [],
-    include: ['element-plus', 'vue-router'],
   },
 });

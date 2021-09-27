@@ -191,9 +191,9 @@
   integrity sha1-ttbikFjKNpEnsO7KKhxLV5Txtrk=
 
 "@babel/standalone@^7.14.9":
-  version "7.14.9"
-  resolved "https://registry.nlark.com/@babel/standalone/download/@babel/standalone-7.14.9.tgz#b9a6fa913271a153ca232fdd0f2aa5e3c951d9d5"
-  integrity sha1-uab6kTJxoVPKIy/dDyql48lR2dU=
+  version "7.15.7"
+  resolved "https://registry.nlark.com/@babel/standalone/download/@babel/standalone-7.15.7.tgz#97c04d0dda7c3b2b8d2679957d619ac581471d4d"
+  integrity sha1-l8BNDdp8OyuNJnmVfWGaxYFHHU0=
 
 "@babel/template@^7.14.5":
   version "7.14.5"
@@ -392,7 +392,7 @@
     estree-walker "^1.0.1"
     picomatch "^2.2.2"
 
-"@rollup/pluginutils@^4.1.0":
+"@rollup/pluginutils@^4.1.0", "@rollup/pluginutils@^4.1.1":
   version "4.1.1"
   resolved "https://registry.nlark.com/@rollup/pluginutils/download/@rollup/pluginutils-4.1.1.tgz?cache=0&sync_timestamp=1626395140635&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40rollup%2Fpluginutils%2Fdownload%2F%40rollup%2Fpluginutils-4.1.1.tgz#1d4da86dd4eded15656a57d933fda2b9a08d47ec"
   integrity sha1-HU2obdTt7RVlalfZM/2iuaCNR+w=
@@ -474,10 +474,10 @@
   resolved "https://registry.nlark.com/@types/unist/download/@types/unist-2.0.6.tgz#250a7b16c3b91f672a24552ec64678eeb1d3a08d"
   integrity sha1-JQp7FsO5H2cqJFUuxkZ47rHToI0=
 
-"@vitejs/plugin-legacy@^1.5.1":
-  version "1.5.1"
-  resolved "https://registry.nlark.com/@vitejs/plugin-legacy/download/@vitejs/plugin-legacy-1.5.1.tgz#fef2a11c05d83f5ab13d2d04e52d75bac13c6e6c"
-  integrity sha1-/vKhHAXYP1qxPS0E5S11usE8bmw=
+"@vitejs/plugin-legacy@^1.5.3":
+  version "1.5.3"
+  resolved "https://registry.nlark.com/@vitejs/plugin-legacy/download/@vitejs/plugin-legacy-1.5.3.tgz#3a2eabef302a6aa4feb2ce3cff6ddf95d573e9e1"
+  integrity sha1-Oi6r7zAqaqT+ss48/23fldVz6eE=
   dependencies:
     "@babel/standalone" "^7.14.9"
     core-js "^3.16.0"
@@ -485,10 +485,10 @@
     regenerator-runtime "^0.13.9"
     systemjs "^6.10.2"
 
-"@vitejs/plugin-vue@^1.3.0":
-  version "1.3.0"
-  resolved "https://registry.nlark.com/@vitejs/plugin-vue/download/@vitejs/plugin-vue-1.3.0.tgz#fc89a6c9b5a5157916afece4edc8fb55bf1bbc42"
-  integrity sha1-/ImmybWlFXkWr+zk7cj7Vb8bvEI=
+"@vitejs/plugin-vue@^1.9.2":
+  version "1.9.2"
+  resolved "https://registry.npmmirror.com/@vitejs/plugin-vue/download/@vitejs/plugin-vue-1.9.2.tgz#7234efb8c3c3d60c7eac350a935074ab1820ae0e"
+  integrity sha1-cjTvuMPD1gx+rDUKk1B0qxggrg4=
 
 "@vue/compiler-core@3.2.11":
   version "3.2.11"
@@ -1188,9 +1188,9 @@ copy-descriptor@^0.1.0:
   integrity sha1-Z29us8OZl8LuGsOpJP1hJHSPV40=
 
 core-js@^3.16.0:
-  version "3.16.0"
-  resolved "https://registry.nlark.com/core-js/download/core-js-3.16.0.tgz#1d46fb33720bc1fa7f90d20431f36a5540858986"
-  integrity sha1-HUb7M3ILwfp/kNIEMfNqVUCFiYY=
+  version "3.18.1"
+  resolved "https://registry.npmmirror.com/core-js/download/core-js-3.18.1.tgz?cache=0&sync_timestamp=1632695708470&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fcore-js%2Fdownload%2Fcore-js-3.18.1.tgz#289d4be2ce0085d40fc1244c0b1a54c00454622f"
+  integrity sha1-KJ1L4s4AhdQPwSRMCxpUwARUYi8=
 
 core-js@^3.8.1:
   version "3.17.3"
@@ -1450,15 +1450,20 @@ es-module-lexer@^0.6.0:
   resolved "https://registry.nlark.com/es-module-lexer/download/es-module-lexer-0.6.0.tgz?cache=0&sync_timestamp=1625523919137&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fes-module-lexer%2Fdownload%2Fes-module-lexer-0.6.0.tgz#e72ab05b7412e62b9be37c37a09bdb6000d706f0"
   integrity sha1-5yqwW3QS5iub43w3oJvbYADXBvA=
 
+es-module-lexer@^0.7.1:
+  version "0.7.1"
+  resolved "https://registry.nlark.com/es-module-lexer/download/es-module-lexer-0.7.1.tgz#c2c8e0f46f2df06274cdaf0dd3f3b33e0a0b267d"
+  integrity sha1-wsjg9G8t8GJ0za8N0/OzPgoLJn0=
+
 esbuild@0.11.3:
   version "0.11.3"
   resolved "https://registry.nlark.com/esbuild/download/esbuild-0.11.3.tgz?cache=0&sync_timestamp=1628141063741&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fesbuild%2Fdownload%2Fesbuild-0.11.3.tgz#b57165b907be4ffba651f6450538ce8d8c1d5eb0"
   integrity sha1-tXFluQe+T/umUfZFBTjOjYwdXrA=
 
-esbuild@^0.12.8:
-  version "0.12.17"
-  resolved "https://registry.nlark.com/esbuild/download/esbuild-0.12.17.tgz#5816f905c2905de0ebbc658860df7b5b48afbcd3"
-  integrity sha1-WBb5BcKQXeDrvGWIYN97W0ivvNM=
+esbuild@^0.12.17:
+  version "0.12.29"
+  resolved "https://registry.npmmirror.com/esbuild/download/esbuild-0.12.29.tgz#be602db7c4dc78944a9dbde0d1ea19d36c1f882d"
+  integrity sha1-vmAtt8TceJRKnb3g0eoZ02wfiC0=
 
 escalade@^3.1.1:
   version "3.1.1"
@@ -3388,7 +3393,7 @@ redent@^3.0.0:
 
 regenerator-runtime@^0.13.9:
   version "0.13.9"
-  resolved "https://registry.nlark.com/regenerator-runtime/download/regenerator-runtime-0.13.9.tgz#8925742a98ffd90814988d7566ad30ca3b263b52"
+  resolved "https://registry.nlark.com/regenerator-runtime/download/regenerator-runtime-0.13.9.tgz?cache=0&sync_timestamp=1626993001371&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fregenerator-runtime%2Fdownload%2Fregenerator-runtime-0.13.9.tgz#8925742a98ffd90814988d7566ad30ca3b263b52"
   integrity sha1-iSV0Kpj/2QgUmI11Zq0wyjsmO1I=
 
 regex-not@^1.0.0, regex-not@^1.0.2:
@@ -3496,9 +3501,9 @@ rimraf@^3.0.2:
     glob "^7.1.3"
 
 rollup@^2.38.5:
-  version "2.55.1"
-  resolved "https://registry.nlark.com/rollup/download/rollup-2.55.1.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.nlark.com%2Frollup%2Fdownload%2Frollup-2.55.1.tgz#66a444648e2fb603d8e329e77a61c608a6510fda"
-  integrity sha1-ZqREZI4vtgPY4ynnemHGCKZRD9o=
+  version "2.57.0"
+  resolved "https://registry.nlark.com/rollup/download/rollup-2.57.0.tgz?cache=0&sync_timestamp=1632286239603&other_urls=https%3A%2F%2Fregistry.nlark.com%2Frollup%2Fdownload%2Frollup-2.57.0.tgz#c1694475eb22e1022477c0f4635fd0ac80713173"
+  integrity sha1-wWlEdesi4QIkd8D0Y1/QrIBxMXM=
   optionalDependencies:
     fsevents "~2.3.2"
 
@@ -4016,9 +4021,9 @@ svg-tags@^1.0.0:
   integrity sha1-WPcc7jvVGbWdSyqEO2x95krAR2Q=
 
 systemjs@^6.10.2:
-  version "6.10.2"
-  resolved "https://registry.nlark.com/systemjs/download/systemjs-6.10.2.tgz#c9870217bddf9cfd25d12d4fcd1989541ef1207c"
-  integrity sha1-yYcCF73fnP0l0S1PzRmJVB7xIHw=
+  version "6.10.3"
+  resolved "https://registry.nlark.com/systemjs/download/systemjs-6.10.3.tgz?cache=0&sync_timestamp=1629217120054&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fsystemjs%2Fdownload%2Fsystemjs-6.10.3.tgz#7e783fccb58232f1d9eb05c7e1a661268945cade"
+  integrity sha1-fng/zLWCMvHZ6wXH4aZhJolFyt4=
 
 table@^6.0.9, table@^6.6.0:
   version "6.7.1"
@@ -4321,23 +4326,23 @@ vite-plugin-mock@^2.9.4:
     fast-glob "^3.2.7"
     path-to-regexp "^6.2.0"
 
-vite-plugin-style-import@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.nlark.com/vite-plugin-style-import/download/vite-plugin-style-import-1.0.1.tgz#bf61337dd11e4ebc0f355f271e06d374b1ca5c79"
-  integrity sha1-v2EzfdEeTrwPNV8nHgbTdLHKXHk=
+vite-plugin-style-import@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.nlark.com/vite-plugin-style-import/download/vite-plugin-style-import-1.2.1.tgz#730c7b0e1f61ed685974fe09d2d5094858491be6"
+  integrity sha1-cwx7Dh9h7WhZdP4J0tUJSFhJG+Y=
   dependencies:
-    "@rollup/pluginutils" "^4.1.0"
+    "@rollup/pluginutils" "^4.1.1"
     change-case "^4.1.2"
     debug "^4.3.2"
-    es-module-lexer "^0.6.0"
+    es-module-lexer "^0.7.1"
     magic-string "^0.25.7"
 
-vite@^2.4.4:
-  version "2.4.4"
-  resolved "https://registry.nlark.com/vite/download/vite-2.4.4.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fvite%2Fdownload%2Fvite-2.4.4.tgz#8c402a07ad45f168f6eb5428bead38f3e4363e47"
-  integrity sha1-jEAqB61F8Wj261Qovq048+Q2Pkc=
+vite@^2.5.10:
+  version "2.5.10"
+  resolved "https://registry.npmmirror.com/vite/download/vite-2.5.10.tgz#c598e3b5a7e1956ffc52eb3b3420d177fc2ed2a5"
+  integrity sha1-xZjjtafhlW/8Uus7NCDRd/wu0qU=
   dependencies:
-    esbuild "^0.12.8"
+    esbuild "^0.12.17"
     postcss "^8.3.6"
     resolve "^1.20.0"
     rollup "^2.38.5"

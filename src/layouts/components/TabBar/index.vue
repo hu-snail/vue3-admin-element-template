@@ -321,7 +321,7 @@
     &.horizontal {
       padding: 0 40px;
     }
-    ::v-deep {
+    :deep {
       .fold-unfold {
         margin-right: $base-padding;
       }
@@ -343,7 +343,7 @@
       width: calc(100% - 90px);
       height: $base-tag-item-height;
 
-      ::v-deep {
+      :deep {
         .el-tabs__nav-next,
         .el-tabs__nav-prev {
           height: $base-tag-item-height;
