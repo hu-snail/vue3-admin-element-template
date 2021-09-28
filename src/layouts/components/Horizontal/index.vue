@@ -143,7 +143,7 @@
       }
     }
     .is-black {
-      :deep .icon-hover:hover {
+      :deep(.icon-hover:hover) {
         background-color: transparent;
       }
     }

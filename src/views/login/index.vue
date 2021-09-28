@@ -64,18 +64,12 @@
       background: transparent;
       .logo {
         justify-content: start;
-        :deep {
-          .logo-title {
-            color: #fff !important;
-          }
+        :deep(.logo-title) {
+          color: #fff !important;
         }
       }
-      .lang {
-        :deep {
-          &:hover {
-            background: transparent;
-          }
-        }
+      .lang:hover {
+        background: transparent;
       }
     }
     .login-container {

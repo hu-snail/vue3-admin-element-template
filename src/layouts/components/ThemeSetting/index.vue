@@ -295,10 +295,8 @@
       flex: 1;
       padding: 0 20px;
     }
-    :deep {
-      .el-form-item__content {
-        text-align: right;
-      }
+    :deep(.el-form-item__content) {
+      text-align: right;
     }
     .theme-select-width {
       width: $base-select-width-small;

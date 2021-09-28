@@ -77,10 +77,8 @@
       }
       background-color: $base-content-bg-color;
     }
-    :deep {
-      .el-menu {
-        border-right: $base-border-none !important;
-      }
+    :deep(.el-menu) {
+      border-right: $base-border-none !important;
     }
   }
 </style>

@@ -34,8 +34,7 @@
   .breadcrumb-container {
     display: flex;
     align-items: center;
-    :deep .el-breadcrumb__inner,
-    .el-breadcrumb__item {
+    :deep(.el-breadcrumb__inner, .el-breadcrumb__item) {
       display: inline-flex;
       align-items: center;
       margin: 1px;

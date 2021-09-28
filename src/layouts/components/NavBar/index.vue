@@ -80,10 +80,8 @@
       .fold {
         padding: $base-padding-20-10;
       }
-      :deep {
-        .breadcrumb-container {
-          margin-left: $base-margin-10;
-        }
+      :deep(.breadcrumb-container) {
+        margin-left: $base-margin-10;
       }
     }
   }

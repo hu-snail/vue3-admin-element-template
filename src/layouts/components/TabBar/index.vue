@@ -321,14 +321,12 @@
     &.horizontal {
       padding: 0 40px;
     }
-    :deep {
-      .fold-unfold {
-        margin-right: $base-padding;
-      }
-      .el-tabs__item {
-        display: inline-flex;
-        align-items: center;
-      }
+    :deep(.fold-unfold) {
+      margin-right: $base-padding;
+    }
+    :deep(.el-tabs__item) {
+      display: inline-flex;
+      align-items: center;
     }
     .item {
       display: inline-flex;
@@ -342,21 +340,14 @@
     .tabs-content {
       width: calc(100% - 90px);
       height: $base-tag-item-height;
-
-      :deep {
-        .el-tabs__nav-next,
-        .el-tabs__nav-prev {
-          height: $base-tag-item-height;
-          line-height: $base-tag-item-height;
-        }
-
-        .el-tabs__header {
-          border-bottom: 0;
-
-          .el-tabs__nav {
-            border: 0;
-          }
-
+      :deep(.el-tabs__nav-next, .el-tabs__nav-prev) {
+        height: $base-tag-item-height;
+        line-height: $base-tag-item-height;
+      }
+      :deep(.el-tabs__header) {
+        border-bottom: 0;
+        .el-tabs__nav {
+          border: 0;
           .el-tabs__item {
             box-sizing: border-box;
             height: $base-tag-item-height;

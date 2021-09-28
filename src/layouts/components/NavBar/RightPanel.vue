@@ -104,10 +104,8 @@
     justify-content: flex-end;
     height: $base-nav-bar-height;
     .msg-badge {
-      :deep {
-        .el-badge__content.is-fixed {
-          right: calc(10px + var(--el-badge-size) / 2);
-        }
+      :deep(.el-badge__content.is-fixed) {
+        right: calc(10px + var(--el-badge-size) / 2);
       }
     }
     .refresh,
@@ -117,10 +115,8 @@
   }
   .message-box {
     padding: $base-padding-5-15;
-    :deep {
-      .el-tabs__active-bar {
-        width: $base-tab-width_active !important;
-      }
+    :deep(.el-tabs__active-bar) {
+      width: $base-tab-width_active !important;
     }
   }
 </style>
