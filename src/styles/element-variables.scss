@@ -6,5 +6,10 @@ $--colors:
     ),
         
 );
-$--font-path: 'element-plus/theme-chalk/fonts';
-@import "element-plus/packages/theme-chalk/src/index";
+
+@forward "element-plus/theme-chalk/src/common/var.scss" with
+  (
+    // do not use same name, it will override.
+    $colors: $--colors,
+    $button-padding-horizontal: ("default": 50px)
+  );

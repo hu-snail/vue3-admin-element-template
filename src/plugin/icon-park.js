@@ -59,16 +59,13 @@ import {
   Theme,
   Translate,
 } from '@icon-park/vue-next';
-
+import '@icon-park/vue-next/styles/index.css';
 // el-icon
-import { Edit, Calendar } from '@element-plus/icons';
-
 // 所需的组件
 export const components = [
   User,
   Lock,
   Alipay,
-  Edit,
   Wechat,
   Github,
   Twitter,
@@ -88,7 +85,6 @@ export const components = [
   Home,
   Code,
   ChartLine,
-  Calendar,
   Like,
   Xigua,
   Performance,

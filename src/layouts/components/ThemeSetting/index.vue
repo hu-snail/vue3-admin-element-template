@@ -278,6 +278,9 @@
         if (typeof innerText !== 'string') return;
         style.innerText = updateStyle(innerText, originalCluster, themeCluster);
       });
+    },
+    {
+      immediate: true,
     }
   );
 

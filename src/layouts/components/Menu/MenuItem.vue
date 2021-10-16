@@ -18,7 +18,7 @@
       </span>
     </template>
   </el-menu-item>
-  <el-sub-menu :index="item.path" :key="item.path" v-else>
+  <el-sub-menu :index="item.path" v-else>
     <template #title>
       <component
         class="menu-icon"
@@ -30,9 +30,9 @@
       />
       <span class="title">{{ item.meta.title }}</span>
     </template>
-    <template v-for="option in item.children">
+    <template v-for="(option, index) in item.children">
       <menu-item v-if="option.children" :key="option.path" :item="option" />
-      <el-menu-item v-else :index="option.path" :key="option.path">
+      <el-menu-item v-else :index="option.path" :key="index">
         <component
           class="menu-icon"
           v-if="option.meta.icon"

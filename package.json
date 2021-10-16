@@ -60,6 +60,7 @@
     "stylelint-config-recess-order": "^2.4.0",
     "stylelint-config-standard": "^22.0.0",
     "svg-sprite-loader": "^6.0.9",
+    "unplugin-vue-components": "^0.15.6",
     "vite": "^2.5.10",
     "vite-plugin-babel-import": "^2.0.5",
     "vite-plugin-element-plus": "^0.0.12",

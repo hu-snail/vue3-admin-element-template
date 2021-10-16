@@ -4,10 +4,8 @@ import { createApp } from 'vue';
 import './config/permission';
 
 // element
-import ElementPlus from 'element-plus';
 import 'element-plus/theme-chalk/display.css';
 // element theme change
-import './styles/element-variables.scss';
 
 import App from './App.vue';
 const app = createApp(App);
@@ -29,7 +27,6 @@ app.use(store);
 // 注册 elementPlus组件/插件
 // elementPlus(app);
 // // 完整引入
-app.use(ElementPlus);
 
 // 注册字节跳动图标
 import iconPark from './plugin/icon-park';

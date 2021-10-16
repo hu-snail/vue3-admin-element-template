@@ -6,6 +6,10 @@ import legacy from '@vitejs/plugin-legacy';
 import { viteMockServe } from 'vite-plugin-mock';
 import { setting } from './src/config/setting';
 import { svgBuilder } from './src/plugin/svgBuilder';
+
+import Components from 'unplugin-vue-components/vite';
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
+
 const {
   base,
   publicDir,
@@ -48,6 +52,13 @@ export default defineConfig({
       // useSource: true,
       format: isDev ? 'esm' : 'cjs',
     }),
+    Components({
+      resolvers: [
+        ElementPlusResolver({
+          importStyle: 'sass',
+        }),
+      ],
+    }),
     viteMockServe({
       mockPath: 'mock',
       supportTs: false,
@@ -67,6 +78,9 @@ export default defineConfig({
     cors,
     strictPort,
     open,
+    fs: {
+      strict: false,
+    },
   },
 
   resolve: {
@@ -85,6 +99,10 @@ export default defineConfig({
         additionalData: `@use "@/styles/index.scss" as *;`,
       },
     },
+  },
+
+  corePlugins: {
+    preflight: false,
   },
 
   build: {

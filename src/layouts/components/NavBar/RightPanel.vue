@@ -11,15 +11,13 @@
     />
     <el-popover v-if="settings.notice" placement="bottom" :width="320" trigger="hover">
       <template #reference>
-        <el-badge type="danger" :value="5" class="msg-badge">
-          <remind
-            class="icon-hover refresh"
-            theme="outline"
-            size="16"
-            :fill="color"
-            :strokeWidth="3"
-          />
-        </el-badge>
+        <remind
+          class="icon-hover refresh"
+          theme="outline"
+          size="16"
+          :fill="color"
+          :strokeWidth="3"
+        />
       </template>
       <div class="message-box">
         <el-tabs v-model="activeName" stretch>

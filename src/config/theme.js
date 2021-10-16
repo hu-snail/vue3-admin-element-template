@@ -20,7 +20,7 @@ export const themeConfig = {
   // 主题 默认配置theme1
   // 注意⚠️ ：修改默认主题时，记得同步修改 element-variables.scss
   // 文件中的 $base-color-primary 默认值，否则不生效！！！
-  theme: 'theme1',
+  theme: 'theme2',
   // 主题配置
   themeOptions,
   // 是否固定头部
