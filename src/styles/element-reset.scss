@@ -52,8 +52,17 @@
       background-color: $base-color-primary !important;
     }
   }
+  .el-sub-menu__title{
+    color: $base-color-3 !important;
+  }
+ 
 }
 .el-menu--horizontal.is-black{
+  .el-sub-menu__title{
+    color: $base-color-white !important;
+  }
+}
+.el-sub-menu.is-black{
   .el-sub-menu__title{
     color: $base-color-white !important;
   }

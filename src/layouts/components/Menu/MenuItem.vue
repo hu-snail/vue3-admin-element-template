@@ -18,7 +18,7 @@
       </span>
     </template>
   </el-menu-item>
-  <el-sub-menu :index="item.path" v-else>
+  <el-sub-menu :class="{ 'is-black': isBlack }" :index="item.path" v-else>
     <template #title>
       <component
         class="menu-icon"
@@ -56,7 +56,14 @@
 </script>
 
 <script setup>
-  import { defineProps } from 'vue';
+  import { defineProps, computed } from 'vue';
+  import { useStore } from 'vuex';
+
+  import { themeConfig } from '@/config/theme';
+  const { themeOptions } = themeConfig;
+
+  const whiteColors = ['#fff', '#ffffff', '#FFF', '#FFF', 'rgb(255, 255, 255)'];
+
   defineProps({
     item: {
       type: Object,
@@ -64,6 +71,20 @@
         return {};
       },
     },
+  });
+
+  const store = useStore();
+
+  const theme = computed(() => {
+    return store.getters['setting/theme'];
+  });
+
+  const menuBgColor = computed(() => {
+    return themeOptions[theme.value].menuBgColor;
+  });
+
+  const isBlack = computed(() => {
+    return whiteColors.indexOf(menuBgColor.value) === -1;
   });
 </script>
 <style lang="scss" scoped>

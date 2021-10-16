@@ -18,7 +18,7 @@
       <Logo v-if="isLogo" />
       <template v-for="item in routes">
         <template v-if="!item.hidden">
-          <MenuItem :item="item" :key="item.path" />
+          <MenuItem :item="{ ...item, isBlack }" :key="item.path" />
         </template>
       </template>
     </el-menu>
