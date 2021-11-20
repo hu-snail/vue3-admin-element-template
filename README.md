@@ -30,6 +30,9 @@
 - Mock 数据方案
 - 权限控制
 
+## vue3资源库
+一个收集vue3资源的网站，包含web端/移动端/小程序等
+在线预览地址：[vue3-resource](https://hu-snail.github.io/vue3-resource)
 ## 文档
 
 正在编写中......
