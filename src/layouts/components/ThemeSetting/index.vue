@@ -245,7 +245,9 @@
     () => settings.value.theme,
     async (theme) => {
       const val = themeOptions[theme].primary;
+
       const oldVal = setting.chalk ? settings.value.theme : ORIGINAL_THEME;
+      console.log(val, oldVal);
       if (typeof val !== 'string') return;
       const themeCluster = getThemeCluster(val.replace('#', ''));
       const originalCluster = getThemeCluster(oldVal.replace('#', ''));
@@ -271,6 +273,9 @@
       chalkHandler();
       const styles = [].slice.call(document.querySelectorAll('style')).filter((style) => {
         const text = style.innerText;
+        console.log(text);
+
+        console.log(new RegExp(oldVal, 'i').test(text) && !/Chalk Variables/.test(text));
         return new RegExp(oldVal, 'i').test(text) && !/Chalk Variables/.test(text);
       });
       styles.forEach((style) => {
