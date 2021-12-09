@@ -266,7 +266,7 @@
         };
       };
       if (!setting.chalk) {
-        const url = `https://cdn.jsdelivr.net/npm/element-plus/dist/index.css`;
+        const url = `https://cdn.jsdelivr.net/npm/element-plus@1.1.0-beta.10/dist/index.css`;
         await getCSSString(url, 'chalk');
       }
       const chalkHandler = getHandler('chalk', 'chalk-style');
