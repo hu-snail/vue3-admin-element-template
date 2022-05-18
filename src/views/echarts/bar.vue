@@ -34,7 +34,6 @@
             height: '280px',
           }"
           :options="{
-            dataset,
             series: series2,
             xAxis: xAxis2,
             yAxis: yAxis2,

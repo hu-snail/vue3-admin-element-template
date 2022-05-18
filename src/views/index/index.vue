@@ -38,7 +38,7 @@
             <template #header>
               <h3 class="title">{{ t('indexPage.envTitle') }}</h3>
             </template>
-            <el-descriptions class="margin-top" :column="3" :size="size" border>
+            <el-descriptions class="margin-top" :column="3" border>
               <el-descriptions-item v-for="(value, key) in packpage.dependencies" :key="key">
                 <template #label>
                   {{ key }}
@@ -112,11 +112,12 @@
   import Echarts from '@/components/Echarts/index.vue';
 
   import packpage from '../../../package.json';
+  import { useI18n } from 'vue-i18n';
+  import { getResouceList } from '@/api/index';
 
   import { useStore } from 'vuex';
   const store = useStore();
 
-  import { useI18n } from 'vue-i18n';
   const { t } = useI18n();
 
   const state = reactive({
@@ -125,8 +126,6 @@
     orderList: [],
     skillList: [],
   });
-
-  import { getResouceList } from '@/api/index';
 
   const hour = new Date().getHours();
   const thisTime =

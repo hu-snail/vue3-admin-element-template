@@ -16,8 +16,9 @@ NProgress.configure({
   trickleSpeed: 200,
   showSpinner: false,
 });
-router.beforeResolve(async (to, from, next) => {
+router.beforeEach(async (to, from, next) => {
   if (progressBar) NProgress.start();
+
   let hasToken = store.getters['user/accessToken'];
   if (!loginInterception) hasToken = true;
 
@@ -49,7 +50,9 @@ router.beforeResolve(async (to, from, next) => {
           }
           accessRoutes.forEach((item) => {
             router.addRoute(item);
+            console.log(22);
           });
+          console.log('--');
           next({ ...to, replace: true });
         } catch {
           await store.dispatch('user/resetAccessToken');

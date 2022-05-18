@@ -1,8 +1,6 @@
 <template>
   <div v-if="store.getters['setting/routerView']" class="app-main-container">
-    <transition mode="out-in" name="fade-transform">
-      <router-view class="app-main-height" />
-    </transition>
+    <router-view class="app-main-height" />
     <footer class="footer-copyright">{{ copyrightStr }} </footer>
   </div>
 </template>

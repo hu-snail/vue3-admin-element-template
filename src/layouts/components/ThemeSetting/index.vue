@@ -94,10 +94,11 @@
   import { ref, reactive, computed, watch } from 'vue';
   import { useStore } from 'vuex';
   import { useI18n } from 'vue-i18n';
+  import { themeConfig } from '@/config/theme';
+
   const { t } = useI18n();
   const ORIGINAL_THEME = '#409EFF';
 
-  import { themeConfig } from '@/config/theme';
   const { themeOptions } = themeConfig;
 
   const store = useStore();
@@ -247,7 +248,6 @@
       const val = themeOptions[theme].primary;
 
       const oldVal = setting.chalk ? settings.value.theme : ORIGINAL_THEME;
-      console.log(val, oldVal);
       if (typeof val !== 'string') return;
       const themeCluster = getThemeCluster(val.replace('#', ''));
       const originalCluster = getThemeCluster(oldVal.replace('#', ''));
@@ -266,16 +266,13 @@
         };
       };
       if (!setting.chalk) {
-        const url = `https://cdn.jsdelivr.net/npm/element-plus@1.1.0-beta.10/dist/index.css`;
+        const url = `https://unpkg.com/element-plus@1.1.0-beta.10/dist/index.css`;
         await getCSSString(url, 'chalk');
       }
       const chalkHandler = getHandler('chalk', 'chalk-style');
       chalkHandler();
       const styles = [].slice.call(document.querySelectorAll('style')).filter((style) => {
         const text = style.innerText;
-        console.log(text);
-
-        console.log(new RegExp(oldVal, 'i').test(text) && !/Chalk Variables/.test(text));
         return new RegExp(oldVal, 'i').test(text) && !/Chalk Variables/.test(text);
       });
       styles.forEach((style) => {

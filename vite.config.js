@@ -10,6 +10,9 @@ import { svgBuilder } from './src/plugin/svgBuilder';
 import Components from 'unplugin-vue-components/vite';
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 
+import OptimizationPersist from 'vite-plugin-optimize-persist';
+import PkgConfig from 'vite-plugin-package-config';
+
 const {
   base,
   publicDir,
@@ -41,6 +44,8 @@ export default defineConfig({
   clearScreen,
   plugins: [
     vue(),
+    PkgConfig(),
+    OptimizationPersist(),
     legacy({
       polyfills: ['es.promise.finally', 'es/map', 'es/set'],
       modernPolyfills: ['es.promise.finally'],
@@ -131,6 +136,6 @@ export default defineConfig({
 
   optimizeDeps: {
     // 检测需要预构建的依赖项
-    entries: [],
+    include: [],
   },
 });

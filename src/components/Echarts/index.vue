@@ -10,7 +10,6 @@
             size="16"
             :strokeWidth="3"
             fill="#333"
-            @click="handleCollapse"
           />
           <span class="title">{{ title }}</span>
         </div>
@@ -123,7 +122,7 @@
     return store.getters.collapse;
   });
 
-  let chart = reactive(null);
+  let chart = reactive({});
   let timer = ref(null);
 
   watch(
