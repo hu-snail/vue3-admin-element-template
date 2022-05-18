@@ -50,9 +50,7 @@ router.beforeEach(async (to, from, next) => {
           }
           accessRoutes.forEach((item) => {
             router.addRoute(item);
-            console.log(22);
           });
-          console.log('--');
           next({ ...to, replace: true });
         } catch {
           await store.dispatch('user/resetAccessToken');

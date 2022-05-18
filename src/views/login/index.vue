@@ -34,8 +34,9 @@
   import LoginForm from 'views/login/comp/LoginForm.vue';
   import RegisterForm from './comp/RegisterForm.vue';
   import LangChange from '@/components/LangChange/index.vue';
-  const store = useStore();
   import { useI18n } from 'vue-i18n';
+
+  const store = useStore();
   const { t } = useI18n();
   const activeName = ref('first');
   const isMobile = computed(() => {

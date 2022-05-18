@@ -148,6 +148,7 @@
         "screenfull",
         "vue",
         "vue-i18n",
+        "vue-i18n/dist/vue-i18n.esm-bundler.js",
         "vue-router",
         "vue3-count-to",
         "vuex"

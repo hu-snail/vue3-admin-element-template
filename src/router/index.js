@@ -5,6 +5,7 @@ const { global } = i18n;
 export const constantRoutes = [
   {
     path: '/login',
+    name: 'Login',
     component: () => import('@/views/login/index.vue'),
     meta: {
       title: '登录',
@@ -30,6 +31,7 @@ export const asyncRoutes = [
     path: '/',
     component: Layout,
     redirect: '/index',
+    name: 'Root',
     children: [
       {
         path: '/index',

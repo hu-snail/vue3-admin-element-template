@@ -29,8 +29,9 @@
   import { ElMessageBox } from 'element-plus';
   import { setting } from '@/config/setting';
   import { useRouter } from 'vue-router';
-  const { title, recordRoute } = setting;
   import { useI18n } from 'vue-i18n';
+
+  const { title, recordRoute } = setting;
   const { t } = useI18n();
   const avatar = ref('https://i.gtimg.cn/club/item/face/img/2/15922_100.gif');
   const userName = ref('hu-snail');
