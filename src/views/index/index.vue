@@ -27,7 +27,7 @@
                 :key="index"
               >
                 <div class="lf">
-                  <img class="img" :src="`${state.prefix}${item.logo}`" />
+                  <!-- <img class="img" :src="`${state.prefix}${item.logo}`" /> -->
                   <div class="title" v-if="item.title">{{ item.title }}</div>
                 </div>
                 <div class="desc"> {{ item.desc }} </div>

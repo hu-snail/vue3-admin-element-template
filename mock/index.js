@@ -1,7 +1,7 @@
 const prefix = 'https://gitee.com/hu-snail/vue3-admin-element-template/raw/master/src/assets/';
 const list = [
   {
-    title: '',
+    title: 'Nutui',
     desc: '京东风格的轻量级移动端 Vue 组件库',
     url: 'https://nutui.jd.com/#/range',
     logo: 'index/nutui.png',
@@ -37,7 +37,7 @@ const list = [
     logo: 'index/element+.svg',
   },
   {
-    title: '',
+    title: 'Iconpark',
     desc: '2400+基础图标，29种图标分类，提供更多的选择',
     url: 'https://iconpark.oceanengine.com/home',
     logo: 'index/iconpark.svg',
@@ -49,7 +49,7 @@ const list = [
     logo: 'index/naive.svg',
   },
   {
-    title: '',
+    title: 'Echarts5.0',
     desc: '一个基于 JavaScript 的开源可视化图表库',
     url: 'https://echarts.apache.org/zh/index.html',
     logo: 'index/echarts.png',
