@@ -12,6 +12,7 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 
 import OptimizationPersist from 'vite-plugin-optimize-persist';
 import PkgConfig from 'vite-plugin-package-config';
+import vueI18n from '@intlify/vite-plugin-vue-i18n';
 
 const {
   base,
@@ -46,6 +47,13 @@ export default defineConfig({
     vue(),
     PkgConfig(),
     OptimizationPersist(),
+    vueI18n({
+      // if you want to use Vue I18n Legacy API, you need to set `compositionOnly: false`
+      // compositionOnly: false,
+
+      // you need to set i18n resource including paths !
+      include: path.resolve(__dirname, './src/locales/lang/**'),
+    }),
     legacy({
       polyfills: ['es.promise.finally', 'es/map', 'es/set'],
       modernPolyfills: ['es.promise.finally'],
