@@ -8,11 +8,21 @@
       </template>
     </Descrition>
     <Descrition :title="t('iconPage.demo')" :showDesc="false"></Descrition>
-    <!-- <el-input placeholder="请输入内容" prefix-icon="el-icon-search" v-model="skey"> </el-input> -->
+    <div class="search">
+      <el-input
+        v-model="state.skey"
+        placeholder="请输入图标（类型、名称）"
+        class="input-with-select"
+      >
+        <template #append>
+          <el-button :icon="Search" @click="handleSearchIcon" />
+        </template>
+      </el-input>
+    </div>
     <div class="icon-centent">
       <div
         class="icon-item"
-        v-for="(item, index) in list"
+        v-for="(item, index) in state.list"
         @click="handleClickChip('icon-' + item.name)"
         :key="index"
       >
@@ -23,15 +33,15 @@
     <div class="page">
       <el-pagination
         @current-change="handleCurrentChange"
-        v-model:currentPage="currentPage"
+        v-model:currentPage="state.currentPage"
         :page-size="49"
         layout="total, prev, pager, next"
-        :total="icons.length"
+        :total="state.skey ? state.list.length : icons.length"
       >
       </el-pagination>
     </div>
     <Descrition :title="t('iconPage.props')" :showDesc="false"></Descrition>
-    <el-table :data="icon.props" border style="width: 100%">
+    <el-table :data="state.icon.props" border style="width: 100%">
       <el-table-column prop="param" :label="t('iconPage.table.label1')" width="180">
       </el-table-column>
       <el-table-column prop="type" :label="t('iconPage.table.label2')" width="180">
@@ -43,60 +53,63 @@
   </div>
 </template>
 
-<script>
+<script setup>
   import { getIcons } from '@/api/icon';
   import { reactive, toRefs, onBeforeMount } from 'vue';
   import Descrition from '@/components/Descrition/index.vue';
   import { useI18n } from 'vue-i18n';
   import icons from '@icon-park/vue-next/icons.json';
   import { ElMessage } from 'element-plus';
+  import { Search } from '@element-plus/icons-vue';
   import { toClipboard } from '@soerenmartius/vue3-clipboard';
-  export default {
-    components: { Descrition },
-    setup() {
-      const { t } = useI18n();
-      const state = reactive({
-        icon: {},
-        list: [],
-        currentPage: 1,
-        currTotal: 49,
-        skey: '',
+
+  const { t } = useI18n();
+  const state = reactive({
+    icon: {},
+    list: [],
+    currentPage: 1,
+    currTotal: 49,
+    skey: '',
+  });
+
+  onBeforeMount(async () => {
+    state.list = icons.slice(state.currentPage - 1, state.currTotal);
+    await handleGetIcons();
+  });
+
+  const handleGetIcons = async () => {
+    getIcons().then((res) => {
+      state.icon = res.data;
+    });
+  };
+
+  const handleClickChip = (icon) => {
+    toClipboard(icon);
+    ElMessage({
+      message: '复制成功:' + icon,
+      type: 'success',
+    });
+  };
+
+  const handleCurrentChange = (val) => {
+    state.currentPage = val;
+    const start = val * 49 - 49;
+    const end = val * 49;
+    const iconArr = state.skey ? state.list : icons;
+    state.list = iconArr.slice(start, end);
+  };
+
+  const handleSearchIcon = () => {
+    if (!state.skey) state.list = icons.slice(0, 49);
+    else {
+      let list = [];
+      icons.map((item) => {
+        if (item.title.indexOf(state.skey) !== -1 || item.name.indexOf(state.skey) !== -1) {
+          list.push(item);
+        }
       });
-
-      onBeforeMount(async () => {
-        state.list = icons.slice(state.currentPage - 1, state.currTotal);
-        await handleGetIcons();
-      });
-
-      const handleGetIcons = async () => {
-        getIcons().then((res) => {
-          state.icon = res.data;
-        });
-      };
-
-      const handleClickChip = (icon) => {
-        toClipboard(icon);
-        ElMessage({
-          message: '复制成功:' + icon,
-          type: 'success',
-        });
-      };
-
-      const handleCurrentChange = (val) => {
-        state.currentPage = val;
-        const start = val * 49 - 49;
-        const end = val * 49;
-        state.list = icons.slice(start, end);
-      };
-
-      return {
-        ...toRefs(state),
-        handleClickChip,
-        handleCurrentChange,
-        t,
-        icons,
-      };
-    },
+      state.list = list;
+    }
   };
 </script>
 <style lang="scss" scoped>
@@ -108,13 +121,17 @@
         margin-top: 40px;
       }
     }
+    .search {
+      width: 260px;
+      padding: 15px 0;
+    }
     .icon-centent {
       display: flex;
       flex-wrap: wrap;
       .icon-item {
-        width: calc(100% / 9);
         display: flex;
         align-items: center;
+        width: calc(100% / 9);
         padding: 5px 15px;
         margin: 5px;
         cursor: pointer;
@@ -125,10 +142,10 @@
           width: 30px;
         }
         .icon-title {
-          overflow: hidden;
-          white-space: nowrap;
-          text-overflow: ellipsis;
           padding-left: 5px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
         }
       }
     }
