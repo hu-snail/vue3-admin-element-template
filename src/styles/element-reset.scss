@@ -85,3 +85,8 @@
   background-color: $base-color-primary !important;
   border-color: $base-color-primary !important;
 }
+
+.el-menu--collapse .menu-icon{
+  display: flex!important;
+  justify-content: center;
+}
