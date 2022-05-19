@@ -10,6 +10,9 @@ import 'element-plus/theme-chalk/display.css';
 import App from './App.vue';
 const app = createApp(App);
 
+import { VueClipboard } from '@soerenmartius/vue3-clipboard';
+app.use(VueClipboard);
+
 // layout components
 import layoutComp from './layouts/components/export';
 layoutComp(app);

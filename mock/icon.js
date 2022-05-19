@@ -1,6 +1,6 @@
 const icons = [
   {
-    name: 'home',
+    name: 'icon-home',
     title: '首页',
   },
   {
