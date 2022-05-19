@@ -6,7 +6,7 @@
           <component
             :title="collapse ? t('navbar.unfold') : t('navbar.fold')"
             class="icon-hover fold"
-            :is="collapse ? 'menu-fold-one' : 'menu-unfold-one'"
+            :is="collapse ? 'icon-menu-fold-one' : 'icon-menu-unfold-one'"
             theme="filled"
             size="16"
             :strokeWidth="4"

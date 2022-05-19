@@ -82,7 +82,7 @@
           <Echarts
             :title="t('indexPage.chartTitle')"
             :index="1"
-            headerIcon="chart-line"
+            headerIcon="icon-chart-line"
             :style="{
               height: '200px',
             }"

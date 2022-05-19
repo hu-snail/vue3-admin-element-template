@@ -7,7 +7,7 @@
  * @example <icon-user theme="outline" size="16" fill="#999" />
  * @example <el-icon :size="20"> <edit /> </el-icon>
  */
-
+import { install } from '@icon-park/vue-next/es/all';
 // iconpark
 import {
   User,
@@ -105,7 +105,6 @@ export const components = [
   GoEnd,
   MusicList,
   LinkCloudFaild,
-  Error,
   LinkInterrupt,
   Copy,
   ChartHistogram,
@@ -118,7 +117,5 @@ import SvgIcon from '@/components/SvgIcon/index.vue';
 // 注册
 export default (app) => {
   app.component('svg-icon', SvgIcon);
-  components.forEach((component) => {
-    app.component(component.name.replace('icon-', ''), component);
-  });
+  install(app);
 };

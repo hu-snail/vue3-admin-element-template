@@ -73,14 +73,15 @@
           </el-form>
         </div>
       </el-scrollbar>
-
+    </div>
+    <template #footer>
       <div class="drawer-footer">
         <el-button size="small">{{ t('settings.defaultBtn') }}</el-button>
         <el-button type="primary" size="small" @click="handleToSave">{{
           t('settings.saveBtn')
         }}</el-button>
       </div>
-    </div>
+    </template>
   </el-drawer>
 </template>
 
@@ -93,7 +94,7 @@
 <script setup>
   import { ref, reactive, computed, watch } from 'vue';
   import { useStore } from 'vuex';
-   import { useI18n } from 'vue-i18n'; 
+  import { useI18n } from 'vue-i18n';
   import { themeConfig } from '@/config/theme';
 
   const { t } = useI18n();
@@ -266,7 +267,7 @@
         };
       };
       if (!setting.chalk) {
-        const url = `https://unpkg.com/element-plus@1.1.0-beta.10/dist/index.css`;
+        const url = `https://unpkg.com/element-plus@2.2.0/dist/index.css`;
         await getCSSString(url, 'chalk');
       }
       const chalkHandler = getHandler('chalk', 'chalk-style');
@@ -298,7 +299,6 @@
     height: $base-height;
     .form {
       flex: 1;
-      padding: 0 20px;
     }
     :deep(.el-form-item__content) {
       text-align: right;
@@ -306,17 +306,16 @@
     .theme-select-width {
       width: $base-select-width-small;
     }
-    .drawer-footer {
-      position: fixed;
-      bottom: 0;
-      box-sizing: border-box;
-      align-content: center;
-      justify-content: space-between;
-      width: $base-drawer-width;
-      height: $base-drawer-footer-height;
-      padding: $base-padding-10-20;
-      background-color: $base-color-white;
-      border-top: 1px solid $base-border-color;
-    }
+  }
+  .drawer-footer {
+    box-sizing: border-box;
+    align-content: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    background-color: $base-color-white;
+    border-top: 1px solid $base-border-color;
+  }
+  :deep(.el-form-item__content) {
+    justify-content: flex-end;
   }
 </style>

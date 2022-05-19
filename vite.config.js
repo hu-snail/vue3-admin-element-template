@@ -1,18 +1,20 @@
 import { defineConfig } from 'vite';
 const path = require('path');
 import vue from '@vitejs/plugin-vue';
-import VitePluginElementPlus from 'vite-plugin-element-plus';
 import legacy from '@vitejs/plugin-legacy';
 import { viteMockServe } from 'vite-plugin-mock';
 import { setting } from './src/config/setting';
 import { svgBuilder } from './src/plugin/svgBuilder';
 
-import Components from 'unplugin-vue-components/vite';
-import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
-
 import OptimizationPersist from 'vite-plugin-optimize-persist';
 import PkgConfig from 'vite-plugin-package-config';
 import vueI18n from '@intlify/vite-plugin-vue-i18n';
+
+import AutoImport from 'unplugin-auto-import/vite';
+import Components from 'unplugin-vue-components/vite';
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
+import Icons from 'unplugin-icons/vite';
+import IconsResolver from 'unplugin-icons/resolver';
 
 const {
   base,
@@ -58,19 +60,28 @@ export default defineConfig({
       polyfills: ['es.promise.finally', 'es/map', 'es/set'],
       modernPolyfills: ['es.promise.finally'],
     }),
-    VitePluginElementPlus({
-      // 如果你需要使用 [component name].scss 源文件，你需要把下面的注释取消掉。
-      // 对于所有的 API 你可以参考 https://github.com/element-plus/vite-plugin-element-plus
-      // 的文档注释
-      // useSource: true,
-      format: isDev ? 'esm' : 'cjs',
+    AutoImport({
+      // 自动导入 Vue 相关函数，如：ref, reactive, toRef 等
+      imports: ['vue'],
+      resolvers: [
+        ElementPlusResolver(),
+        // 自动导入图标组件
+        IconsResolver({
+          prefix: 'Icon',
+        }),
+      ],
     }),
     Components({
       resolvers: [
-        ElementPlusResolver({
-          importStyle: 'sass',
+        ElementPlusResolver(),
+        // 自动注册图标组件
+        IconsResolver({
+          enabledCollections: ['ep'],
         }),
       ],
+    }),
+    Icons({
+      autoInstall: true,
     }),
     viteMockServe({
       mockPath: 'mock',

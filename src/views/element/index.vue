@@ -22,15 +22,15 @@
     </el-row>
     <el-row class="row">
       <el-button-group>
-        <el-button type="primary" icon="el-icon-arrow-left">上一页</el-button>
+        <el-button type="primary" :icon="ArrowLeft">上一页</el-button>
         <el-button type="primary"
-          >下一页<i class="el-icon-arrow-right el-icon--right"></i
-        ></el-button>
+          >下一页<el-icon class="el-icon--right"><ArrowRight /></el-icon>
+        </el-button>
       </el-button-group>
       <el-button-group class="group">
-        <el-button type="primary" icon="el-icon-edit"></el-button>
-        <el-button type="primary" icon="el-icon-share"></el-button>
-        <el-button type="primary" icon="el-icon-delete"></el-button>
+        <el-button type="primary" :icon="Edit" />
+        <el-button type="primary" :icon="Share" />
+        <el-button type="primary" :icon="Delete" />
       </el-button-group>
     </el-row>
     <Descrition :showDesc="false" :title="t('element.radio')" />
@@ -60,32 +60,29 @@
     </el-row>
     <Descrition :showDesc="false" :title="t('element.datePicker')" />
 
-    <el-row class="row">
-      <el-date-picker
-        v-model="date"
-        type="monthrange"
-        range-separator="至"
-        start-placeholder="开始月份"
-        end-placeholder="结束月份"
-      >
-      </el-date-picker>
-    </el-row>
+    <el-date-picker
+      v-model="date"
+      type="monthrange"
+      range-separator="至"
+      start-placeholder="开始月份"
+      end-placeholder="结束月份"
+    >
+    </el-date-picker>
     <Descrition :showDesc="false" :title="t('element.dateTimePicker')" />
 
-    <el-row class="row">
-      <el-date-picker
-        v-model="dateTime"
-        type="datetimerange"
-        range-separator="至"
-        start-placeholder="开始日期"
-        end-placeholder="结束日期"
-      >
-      </el-date-picker>
-    </el-row>
+    <el-date-picker
+      v-model="dateTime"
+      type="datetimerange"
+      range-separator="至"
+      start-placeholder="开始日期"
+      end-placeholder="结束日期"
+    >
+    </el-date-picker>
   </div>
 </template>
 
 <script setup>
+  import { ArrowLeft, ArrowRight, Delete, Edit, Share } from '@element-plus/icons-vue';
   import Descrition from '@/components/Descrition/index.vue';
   import { ref, reactive } from 'vue';
   import { useI18n } from 'vue-i18n';

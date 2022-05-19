@@ -42,7 +42,7 @@
     >
       <template #reference>
         <span class="more" :class="{ active: visible }" style="cursor: pointer">
-          <all-application theme="filled" size="18" :strokeWidth="3" />
+          <icon-all-application theme="filled" size="18" :strokeWidth="3" />
         </span>
       </template>
       <div
@@ -80,27 +80,27 @@
           {
             command: 'refreshRoute',
             text: t('tagsView.refresh'),
-            icon: 'refresh',
+            icon: 'icon-refresh',
           },
           {
             command: 'closeOtherstabs',
             text: t('tagsView.closeOthers'),
-            icon: 'close',
+            icon: 'icon-close',
           },
           {
             command: 'closeLefttabs',
             text: t('tagsView.closeLeft'),
-            icon: 'to-left',
+            icon: 'icon-to-left',
           },
           {
             command: 'closeRighttabs',
             text: t('tagsView.closeRight'),
-            icon: 'to-right',
+            icon: 'icon-to-right',
           },
           {
             command: 'closeAlltabs',
             text: t('tagsView.closeAll'),
-            icon: 'minus',
+            icon: 'icon-minus',
           },
         ],
       });

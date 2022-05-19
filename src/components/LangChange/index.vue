@@ -1,7 +1,7 @@
 <template>
   <div class="icon-hover icon-lang">
     <el-dropdown>
-      <translate theme="filled" size="16" :fill="color" :strokeWidth="4" />
+      <icon-translate theme="filled" size="16" :fill="color" :strokeWidth="4" />
       <template #dropdown>
         <el-dropdown-menu>
           <el-dropdown-item

@@ -85,7 +85,7 @@
     },
     headerIcon: {
       type: String,
-      default: 'full-screen',
+      default: 'icon-full-screen',
     },
     style: {
       type: Object,

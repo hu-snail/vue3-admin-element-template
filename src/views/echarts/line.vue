@@ -14,7 +14,7 @@
       <el-col :xs="24" :sm="24" :md="24" :lg="8" :xl="8">
         <Echarts
           :title="t('echarts.line.demo1Title')"
-          headerIcon="chart-line"
+          headerIcon="icon-chart-line"
           :style="{
             height: '200px',
           }"
@@ -30,7 +30,7 @@
         <Echarts
           :title="t('echarts.line.demo2Title')"
           :index="1"
-          headerIcon="chart-line"
+          headerIcon="icon-chart-line"
           :style="{
             height: '200px',
           }"
@@ -46,7 +46,7 @@
         <Echarts
           :title="t('echarts.line.demo3Title')"
           :index="2"
-          headerIcon="chart-line"
+          headerIcon="icon-chart-line"
           :style="{
             height: '200px',
           }"

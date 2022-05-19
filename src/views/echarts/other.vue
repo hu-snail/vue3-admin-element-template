@@ -14,7 +14,7 @@
       <el-col :xs="24" :sm="24" :md="24" :lg="8" :xl="8">
         <Echarts
           :title="t('echarts.other.demo1Title')"
-          headerIcon="chart-histogram"
+          headerIcon="icon-chart-histogram"
           :style="{
             height: '200px',
           }"
@@ -29,7 +29,7 @@
         <Echarts
           :index="1"
           :title="t('echarts.other.demo2Title')"
-          headerIcon="chart-histogram"
+          headerIcon="icon-chart-histogram"
           :style="{
             height: '200px',
           }"
@@ -44,7 +44,7 @@
         <Echarts
           :index="2"
           :title="t('echarts.other.demo3Title')"
-          headerIcon="chart-histogram"
+          headerIcon="icon-chart-histogram"
           :style="{
             height: '200px',
           }"
@@ -60,7 +60,7 @@
         <Echarts
           :index="3"
           :title="t('echarts.other.demo4Title')"
-          headerIcon="chart-histogram"
+          headerIcon="icon-chart-histogram"
           :style="{
             height: '200px',
           }"
@@ -74,7 +74,7 @@
         <Echarts
           :index="4"
           :title="t('echarts.other.demo5Title')"
-          headerIcon="chart-histogram"
+          headerIcon="icon-chart-histogram"
           :style="{
             height: '200px',
           }"
@@ -91,7 +91,7 @@
         <Echarts
           :index="5"
           :title="t('echarts.other.demo6Title')"
-          headerIcon="chart-histogram"
+          headerIcon="icon-chart-histogram"
           :style="{
             height: '200px',
           }"

@@ -39,7 +39,7 @@ export const asyncRoutes = [
         component: () => import('../views/index/index.vue'),
         meta: {
           title: global.t('route.home'),
-          icon: 'home',
+          icon: 'icon-home',
           affix: true,
           noKeepAlive: true,
         },
@@ -50,7 +50,7 @@ export const asyncRoutes = [
     path: '/comp',
     component: Layout,
     name: 'Comp',
-    meta: { title: global.t('route.components'), icon: 'code' },
+    meta: { title: global.t('route.components'), icon: 'icon-code' },
     children: [
       {
         path: '/element',
@@ -58,7 +58,7 @@ export const asyncRoutes = [
         component: () => import('@/views/element/index.vue'),
         meta: {
           title: global.t('route.eleComponents'),
-          icon: 'code',
+          icon: 'icon-code',
         },
       },
       {
@@ -67,7 +67,7 @@ export const asyncRoutes = [
         component: () => import('@/views/icon/index.vue'),
         meta: {
           title: global.t('route.icons'),
-          icon: 'like',
+          icon: 'icon-like',
         },
       },
       {
@@ -76,7 +76,7 @@ export const asyncRoutes = [
         component: () => import('@/views/echarts/index.vue'),
         meta: {
           title: global.t('route.charts'),
-          icon: 'chart-line',
+          icon: 'icon-chart-line',
         },
         children: [
           {
@@ -113,7 +113,7 @@ export const asyncRoutes = [
     component: Layout,
     meta: {
       title: global.t('route.errorPages'),
-      icon: 'link-cloud-faild',
+      icon: 'icon-link-cloud-faild',
     },
     children: [
       {
@@ -122,7 +122,7 @@ export const asyncRoutes = [
         component: () => import('@/views/errorPage/404.vue'),
         meta: {
           title: global.t('route.page404'),
-          icon: 'link-cloud-faild',
+          icon: 'icon-link-cloud-faild',
         },
       },
       {
@@ -131,7 +131,7 @@ export const asyncRoutes = [
         component: () => import('@/views/errorPage/401.vue'),
         meta: {
           title: global.t('route.page401'),
-          icon: 'link-interrupt',
+          icon: 'icon-link-interrupt',
         },
       },
     ],

@@ -8,7 +8,7 @@
       size="16"
       :fill="color"
       :strokeWidth="4"
-      :is="(isFullScreen ? 'off' : 'full') + '-screen'"
+      :is="(isFullScreen ? 'icon-off' : 'icon-full') + '-screen'"
       @click="handleClick"
     />
   </span>

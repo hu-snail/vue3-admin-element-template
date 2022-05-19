@@ -14,7 +14,7 @@
       <el-col :xs="24" :sm="24" :md="24" :lg="12" :xl="12">
         <Echarts
           :title="t('echarts.bar.demo1Title')"
-          headerIcon="chart-histogram"
+          headerIcon="icon-chart-histogram"
           :style="{
             height: '280px',
           }"
@@ -29,7 +29,7 @@
         <Echarts
           :index="1"
           :title="t('echarts.bar.demo2Title')"
-          headerIcon="chart-histogram"
+          headerIcon="icon-chart-histogram"
           :style="{
             height: '280px',
           }"

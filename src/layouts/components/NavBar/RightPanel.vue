@@ -1,6 +1,6 @@
 <template>
   <div class="right-panel">
-    <theme
+    <icon-theme
       class="icon-hover theme"
       :title="t('navbar.theme')"
       theme="outline"
@@ -11,7 +11,7 @@
     />
     <el-popover v-if="settings.notice" placement="bottom" :width="320" trigger="hover">
       <template #reference>
-        <remind
+        <icon-remind
           class="icon-hover refresh"
           theme="outline"
           size="16"
@@ -32,7 +32,7 @@
 
     <FullScreen :color="color" v-if="settings.fullScreen" @refresh="onRefresh" />
     <LangChange :color="color" />
-    <refresh
+    <icon-refresh
       v-if="settings.refresh"
       :title="t('navbar.refresh')"
       @click="handleRefresh"
