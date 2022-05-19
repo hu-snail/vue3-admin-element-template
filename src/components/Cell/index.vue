@@ -17,7 +17,6 @@
 </template>
 
 <script setup>
-  import { defineProps } from 'vue';
   defineProps({
     // 数据
     list: {

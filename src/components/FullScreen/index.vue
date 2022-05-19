@@ -15,7 +15,7 @@
 </template>
 
 <script setup>
-  import { defineEmits, computed, defineProps } from 'vue';
+  import { computed } from 'vue';
   import screenfull from 'screenfull';
   import { useStore } from 'vuex';
   import { ElMessage } from 'element-plus';

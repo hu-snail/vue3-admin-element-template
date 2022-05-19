@@ -56,7 +56,7 @@
 </script>
 
 <script setup>
-  import { defineProps, computed } from 'vue';
+  import { computed } from 'vue';
   import { useStore } from 'vuex';
 
   import { themeConfig } from '@/config/theme';

@@ -54,7 +54,7 @@
 </script>
 
 <script setup>
-  import { computed, nextTick, ref, defineProps } from 'vue';
+  import { computed, nextTick, ref } from 'vue';
   defineProps({
     color: {
       type: String,
@@ -67,7 +67,7 @@
   import Cell from '@/components/Cell/index.vue';
   import LangChange from '@/components/LangChange/index.vue';
 
-   import { useI18n } from 'vue-i18n'; 
+  import { useI18n } from 'vue-i18n';
   const { t } = useI18n();
 
   import { useStore } from 'vuex';

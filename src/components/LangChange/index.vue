@@ -18,7 +18,7 @@
 </template>
 
 <script setup>
-  import { reactive, computed, defineProps } from 'vue';
+  import { reactive, computed } from 'vue';
   import { useStore } from 'vuex';
   defineProps({
     color: {

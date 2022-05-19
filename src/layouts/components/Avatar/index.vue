@@ -24,7 +24,7 @@
 </script>
 
 <script setup>
-  import { ref, defineProps } from 'vue';
+  import { ref } from 'vue';
   import { useStore } from 'vuex';
   import { ElMessageBox } from 'element-plus';
   import { setting } from '@/config/setting';
