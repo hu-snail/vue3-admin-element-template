@@ -17,7 +17,9 @@
   const store = useStore();
 
   const localLanguage = computed(() => {
-    return i18n.global.messages[locale];
+    const isDev = process.env.NODE_ENV === 'development';
+    if (isDev) return i18n.global.messages.value[locale.value];
+    else return i18n.global.messages[locale];
   });
 
   const scroll = ref(null);
