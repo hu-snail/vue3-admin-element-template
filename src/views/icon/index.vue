@@ -11,7 +11,7 @@
     <div class="search">
       <el-input
         v-model="state.skey"
-        placeholder="请输入图标（类型、名称）"
+        placeholder="请输入类型、名称、图标名"
         class="input-with-select"
       >
         <template #append>
@@ -36,7 +36,7 @@
         v-model:currentPage="state.currentPage"
         :page-size="49"
         layout="total, prev, pager, next"
-        :total="state.skey ? state.list.length : icons.length"
+        :total="state.searchFlag ? state.searchList.length : icons.length"
       >
       </el-pagination>
     </div>
@@ -67,9 +67,11 @@
   const state = reactive({
     icon: {},
     list: [],
+    searchList: [],
     currentPage: 1,
     currTotal: 49,
     skey: '',
+    searchFlag: false,
   });
 
   onBeforeMount(async () => {
@@ -95,20 +97,30 @@
     state.currentPage = val;
     const start = val * 49 - 49;
     const end = val * 49;
-    const iconArr = state.skey ? state.list : icons;
+    const iconArr = state.skey ? state.searchList : icons;
     state.list = iconArr.slice(start, end);
   };
 
   const handleSearchIcon = () => {
-    if (!state.skey) state.list = icons.slice(0, 49);
-    else {
+    state.currentPage = 1;
+    state.currTotal = 49;
+    if (!state.skey) {
+      state.searchFlag = false;
+      state.list = icons.slice(0, 49);
+    } else {
+      state.searchFlag = true;
       let list = [];
       icons.map((item) => {
-        if (item.title.indexOf(state.skey) !== -1 || item.name.indexOf(state.skey) !== -1) {
+        if (
+          item.title.indexOf(state.skey) !== -1 ||
+          item.name.indexOf(state.skey) !== -1 ||
+          item.categoryCN.indexOf(state.skey) !== -1
+        ) {
           list.push(item);
         }
       });
-      state.list = list;
+      state.searchList = list;
+      state.list = state.searchList.slice(state.currentPage - 1, state.currTotal);
     }
   };
 </script>
