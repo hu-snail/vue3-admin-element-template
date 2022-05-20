@@ -18,7 +18,8 @@
     "lint:prettier": "prettier --write  \"src/**/*.{js,json,tsx,css,less,scss,vue,html,md}\"",
     "lint:style": "stylelint --cache --fix \"**/*.{vue,less,postcss,css,scss}\" --cache --cache-location node_modules/.cache/stylelint/",
     "lint:lint-staged": "lint-staged -c ./.husky/lintstagedrc.js",
-    "lint:pretty": "pretty-quick --staged"
+    "lint:pretty": "pretty-quick --staged",
+    "deploy-gh": "GH=1 bash deploy-gh.sh"
   },
   "dependencies": {
     "@element-plus/icons-vue": "^1.1.4",
@@ -115,6 +116,7 @@
         "element-plus/es/components/date-picker/style/css",
         "element-plus/es/components/descriptions-item/style/css",
         "element-plus/es/components/descriptions/style/css",
+        "element-plus/es/components/divider/style/css",
         "element-plus/es/components/drawer/style/css",
         "element-plus/es/components/dropdown-item/style/css",
         "element-plus/es/components/dropdown-menu/style/css",

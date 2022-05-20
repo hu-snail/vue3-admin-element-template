@@ -3,7 +3,7 @@
     <el-form-item prop="name">
       <el-input :placeholder="t('register.username')" v-model="form.name">
         <template #prefix>
-          <user theme="outline" size="16" fill="#999" />
+          <icon-user theme="outline" size="16" fill="#999" />
         </template>
       </el-input>
     </el-form-item>
@@ -11,23 +11,23 @@
       <div class="form-code">
         <el-input :placeholder="t('register.smsCode')" v-model="form.name">
           <template #prefix>
-            <user theme="outline" size="16" fill="#999" />
+            <icon-user theme="outline" size="16" fill="#999" />
           </template>
         </el-input>
-        <el-button class="code-btn">{{ t('register.smsbtn') }}</el-button>
+        <el-button type="primary" class="code-btn">{{ t('register.smsbtn') }}</el-button>
       </div>
     </el-form-item>
     <el-form-item prop="password">
       <el-input :placeholder="t('register.password')" type="password" v-model="form.password">
         <template #prefix>
-          <lock theme="outline" size="16" fill="#999" />
+          <icon-lock theme="outline" size="16" fill="#999" />
         </template>
       </el-input>
     </el-form-item>
     <el-form-item prop="password">
       <el-input :placeholder="t('register.confirmPwd')" type="password" v-model="form.password">
         <template #prefix>
-          <lock theme="outline" size="16" fill="#999" />
+          <icon-lock theme="outline" size="16" fill="#999" />
         </template>
       </el-input>
     </el-form-item>
@@ -37,9 +37,7 @@
       </div>
     </el-form-item>
     <el-form-item>
-      <el-button type="primary" size="medium" class="login-btn" round>{{
-        t('register.registerBtn')
-      }}</el-button>
+      <el-button type="primary" class="login-btn" round>{{ t('register.registerBtn') }}</el-button>
     </el-form-item>
   </el-form>
 </template>

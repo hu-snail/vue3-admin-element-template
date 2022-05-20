@@ -17,7 +17,7 @@
   const store = useStore();
 
   const localLanguage = computed(() => {
-    return i18n.global.messages.value[locale.value];
+    return i18n.global.messages[locale];
   });
 
   const scroll = ref(null);

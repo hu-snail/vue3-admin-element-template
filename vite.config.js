@@ -38,6 +38,7 @@ const {
 
 const isDev = process.env.NODE_ENV === 'development';
 
+const loadI18n = isDev ? vueI18n({ include: path.resolve(__dirname, './src/locales/**') }) : '';
 // https://vitejs.dev/config/
 export default defineConfig({
   root: process.cwd(),
@@ -49,13 +50,7 @@ export default defineConfig({
     vue(),
     PkgConfig(),
     OptimizationPersist(),
-    vueI18n({
-      // if you want to use Vue I18n Legacy API, you need to set `compositionOnly: false`
-      // compositionOnly: false,
-
-      // you need to set i18n resource including paths !
-      include: path.resolve(__dirname, './src/locales/lang/**'),
-    }),
+    loadI18n,
     legacy({
       polyfills: ['es.promise.finally', 'es/map', 'es/set'],
       modernPolyfills: ['es.promise.finally'],
@@ -121,6 +116,7 @@ export default defineConfig({
       // 引入公用的样式
       scss: {
         additionalData: `@use "@/styles/index.scss" as *;`,
+        charset: false,
       },
     },
   },

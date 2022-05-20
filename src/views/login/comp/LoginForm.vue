@@ -3,7 +3,7 @@
     <el-form-item prop="username">
       <el-input :placeholder="t('login.username')" v-model="ruleForm.username">
         <template #prefix>
-          <user theme="outline" size="16" fill="#999" />
+          <icon-user theme="outline" size="16" fill="#999" />
         </template>
       </el-input>
     </el-form-item>
@@ -15,35 +15,29 @@
         v-model="ruleForm.password"
       >
         <template #prefix>
-          <lock theme="outline" size="16" fill="#999" />
+          <icon-lock theme="outline" size="16" fill="#999" />
         </template>
       </el-input>
     </el-form-item>
     <el-form-item>
       <div class="login-check">
         <el-checkbox v-model="checkedPwd">{{ t('login.rememberPwd') }}</el-checkbox>
-        <el-button type="text">{{ t('login.forgotPwd') }}</el-button>
+        <el-button text type="primary">{{ t('login.forgotPwd') }}</el-button>
       </div>
     </el-form-item>
     <el-form-item>
-      <el-button
-        type="primary"
-        size="medium"
-        :loading="loading"
-        class="login-btn"
-        round
-        @click="handleLogin"
-        >{{ t('login.loginBtn') }}</el-button
-      >
+      <el-button type="primary" :loading="loading" class="login-btn" round @click="handleLogin">{{
+        t('login.loginBtn')
+      }}</el-button>
     </el-form-item>
     <el-divider>{{ t('login.thirdparty') }}</el-divider>
     <el-form-item>
       <div class="login-methods">
-        <wechat theme="outline" size="24" fill="#333" />
-        <alipay theme="outline" size="24" fill="#333" />
-        <github theme="outline" size="24" fill="#333" />
-        <twitter theme="outline" size="24" fill="#333" />
-        <google theme="outline" size="24" fill="#333" />
+        <icon-wechat theme="outline" size="24" fill="#333" />
+        <icon-alipay theme="outline" size="24" fill="#333" />
+        <icon-github theme="outline" size="24" fill="#333" />
+        <icon-twitter theme="outline" size="24" fill="#333" />
+        <icon-google theme="outline" size="24" fill="#333" />
       </div>
     </el-form-item>
   </el-form>
@@ -53,7 +47,7 @@
   import { reactive, toRefs, ref, unref, watch } from 'vue';
   import { useStore } from 'vuex';
   import { useRouter } from 'vue-router';
-   import { useI18n } from 'vue-i18n'; 
+  import { useI18n } from 'vue-i18n';
   export default {
     setup() {
       const { t } = useI18n();
@@ -124,6 +118,7 @@
       padding: 0 4px;
     }
     .login-methods {
+      width: 100%;
       display: flex;
       align-items: center;
       justify-content: space-around;
@@ -132,6 +127,7 @@
       width: 100%;
     }
     .login-check {
+      width: 100%;
       display: flex;
       align-content: center;
       justify-content: space-between;
