@@ -96,7 +96,7 @@
   import { useStore } from 'vuex';
   import { useI18n } from 'vue-i18n';
   import { themeConfig } from '@/config/theme';
-
+  import ElementUrl from 'element-plus/dist/index.css';
   const { t } = useI18n();
   const ORIGINAL_THEME = '#409EFF';
 
@@ -267,7 +267,7 @@
         };
       };
       if (!setting.chalk) {
-        const url = `https://unpkg.com/element-plus@2.2.0/dist/index.css`;
+        const url = ElementUrl;
         await getCSSString(url, 'chalk');
       }
       const chalkHandler = getHandler('chalk', 'chalk-style');

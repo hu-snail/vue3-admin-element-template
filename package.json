@@ -27,7 +27,7 @@
     "@soerenmartius/vue3-clipboard": "^0.1.2",
     "axios": "^0.21.1",
     "echarts": "^5.1.2",
-    "element-plus": "^2.2.0",
+    "element-plus": "^2.2.5",
     "js-cookie": "^3.0.1",
     "lodash": "^4.17.21",
     "lodash-es": "^4.17.21",

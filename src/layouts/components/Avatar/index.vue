@@ -69,8 +69,7 @@
         await store.dispatch('user/logout');
         if (recordRoute) {
           const { fullPath } = router.currentRoute._value;
-          console.log(fullPath);
-          router.push({ path: `/login?redirect=${fullPath}` });
+          location.replace('/login');
         } else {
           router.push('/login');
         }
