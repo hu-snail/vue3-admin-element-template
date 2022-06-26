@@ -4,7 +4,7 @@
 }
 .el-menu-item {
   &.is-active {
-    background-color: $base-color-primary-light9 !important;
+    // background-color: $base-color-primary-light9 !important;
     border-right: $base-border-width-small solid $base-color-primary;
     span {
       color: $base-color-primary;
@@ -12,7 +12,7 @@
   }
   &:hover {
     color: $base-color-primary !important;
-    background-color: $base-color-primary-light9 !important;
+    // background-color: $base-color-primary-light9 !important;
   }
 }
 .is-black {
@@ -87,6 +87,6 @@
 }
 
 .el-menu--collapse .menu-icon{
-  display: flex!important;
+  display: flex !important;
   justify-content: center;
 }

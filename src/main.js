@@ -5,8 +5,6 @@ import './config/permission';
 
 // element
 import 'element-plus/theme-chalk/display.css';
-// element theme change
-
 import App from './App.vue';
 const app = createApp(App);
 

@@ -68,7 +68,11 @@ export default defineConfig({
     }),
     Components({
       resolvers: [
-        ElementPlusResolver(),
+        ElementPlusResolver({
+          importStyle: 'sass',
+          // directives: true,
+          // version: "2.1.5",
+        }),
         // 自动注册图标组件
         IconsResolver({
           enabledCollections: ['ep'],
@@ -115,7 +119,7 @@ export default defineConfig({
     preprocessorOptions: {
       // 引入公用的样式
       scss: {
-        additionalData: `@use "@/styles/index.scss" as *;`,
+        additionalData: `@use "@/styles/index.scss" as *; @use "@/styles/element/index.scss" as *;`,
         charset: false,
       },
     },

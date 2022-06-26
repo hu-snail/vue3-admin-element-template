@@ -86,6 +86,7 @@
   };
 
   const handleClickChip = (icon) => {
+    console.log(icon)
     toClipboard(icon);
     ElMessage({
       message: '复制成功:' + icon,

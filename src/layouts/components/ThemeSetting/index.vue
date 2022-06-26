@@ -28,7 +28,7 @@
                 </el-option>
               </el-select>
             </el-form-item>
-            <el-form-item :label="t('settings.theme')">
+            <!-- <el-form-item :label="t('settings.theme')">
               <el-select
                 class="theme-select-width"
                 v-model="settings.theme"
@@ -44,7 +44,7 @@
                 >
                 </el-option>
               </el-select>
-            </el-form-item>
+            </el-form-item> -->
             <el-form-item label="Logo">
               <el-switch v-model="settings.isLogo" />
             </el-form-item>
@@ -96,9 +96,7 @@
   import { useStore } from 'vuex';
   import { useI18n } from 'vue-i18n';
   import { themeConfig } from '@/config/theme';
-  import ElementUrl from 'element-plus/dist/index.css';
   const { t } = useI18n();
-  const ORIGINAL_THEME = '#409EFF';
 
   const { themeOptions } = themeConfig;
 
@@ -183,109 +181,6 @@
   const handleChangeTheme = (val) => {
     store.dispatch('setting/setTheme', val);
   };
-
-  const getThemeCluster = (theme) => {
-    const tintColor = (color, tint) => {
-      let red = parseInt(color.slice(0, 2), 16);
-      let green = parseInt(color.slice(2, 4), 16);
-      let blue = parseInt(color.slice(4, 6), 16);
-      if (tint === 0) {
-        return [red, green, blue].join(',');
-      } else {
-        red += Math.round(tint * (255 - red));
-        green += Math.round(tint * (255 - green));
-        blue += Math.round(tint * (255 - blue));
-        red = red.toString(16);
-        green = green.toString(16);
-        blue = blue.toString(16);
-        return `#${red}${green}${blue}`;
-      }
-    };
-    const shadeColor = (color, shade) => {
-      let red = parseInt(color.slice(0, 2), 16);
-      let green = parseInt(color.slice(2, 4), 16);
-      let blue = parseInt(color.slice(4, 6), 16);
-      red = Math.round((1 - shade) * red);
-      green = Math.round((1 - shade) * green);
-      blue = Math.round((1 - shade) * blue);
-      red = red.toString(16);
-      green = green.toString(16);
-      blue = blue.toString(16);
-      return `#${red}${green}${blue}`;
-    };
-    const clusters = [theme];
-    for (let i = 0; i <= 9; i++) {
-      clusters.push(tintColor(theme, Number((i / 10).toFixed(2))));
-    }
-    clusters.push(shadeColor(theme, 0.1));
-    return clusters;
-  };
-
-  const updateStyle = (style, oldCluster, newCluster) => {
-    let newStyle = style;
-    oldCluster.forEach((color, index) => {
-      newStyle = newStyle.replace(new RegExp(color, 'ig'), newCluster[index]);
-    });
-    return newStyle;
-  };
-
-  const getCSSString = (url, variable) => {
-    return new Promise((resolve) => {
-      const xhr = new XMLHttpRequest();
-      xhr.onreadystatechange = () => {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-          setting[variable] = xhr.responseText.replace(/@font-face{[^}]+}/, '');
-          resolve();
-        }
-      };
-      xhr.open('GET', url);
-      xhr.send();
-    });
-  };
-
-  watch(
-    () => settings.value.theme,
-    async (theme) => {
-      const val = themeOptions[theme].primary;
-
-      const oldVal = setting.chalk ? settings.value.theme : ORIGINAL_THEME;
-      if (typeof val !== 'string') return;
-      const themeCluster = getThemeCluster(val.replace('#', ''));
-      const originalCluster = getThemeCluster(oldVal.replace('#', ''));
-
-      const getHandler = (variable, id) => {
-        return () => {
-          const originalCluster = getThemeCluster(ORIGINAL_THEME.replace('#', ''));
-          const newStyle = updateStyle(setting[variable], originalCluster, themeCluster);
-          let styleTag = document.getElementById(id);
-          if (!styleTag) {
-            styleTag = document.createElement('style');
-            styleTag.setAttribute('id', id);
-            document.head.appendChild(styleTag);
-          }
-          styleTag.innerText = newStyle;
-        };
-      };
-      if (!setting.chalk) {
-        const url = ElementUrl;
-        await getCSSString(url, 'chalk');
-      }
-      const chalkHandler = getHandler('chalk', 'chalk-style');
-      chalkHandler();
-      const styles = [].slice.call(document.querySelectorAll('style')).filter((style) => {
-        const text = style.innerText;
-        return new RegExp(oldVal, 'i').test(text) && !/Chalk Variables/.test(text);
-      });
-      styles.forEach((style) => {
-        const { innerText } = style;
-        if (typeof innerText !== 'string') return;
-        style.innerText = updateStyle(innerText, originalCluster, themeCluster);
-      });
-    },
-    {
-      immediate: true,
-    }
-  );
 
   const handleClose = () => {
     store.dispatch('setting/setSettingDrawer', false);
