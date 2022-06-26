@@ -1,0 +1,1 @@
+import{E as e}from"./index.ce098256.js";import{L as r,o as s,g as t,f as o}from"./vendor.a2be57e0.js";import"./index.94f28455.js";const a={setup(a){const{t:m}=r();return(r,a)=>(s(),t(e,{type:"404",title:o(m)("errorPages.404.desc"),msg:o(m)("errorPages.404.remark")},null,8,["title","msg"]))}};export{a as default};
